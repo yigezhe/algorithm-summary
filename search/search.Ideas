@@ -1,0 +1,10 @@
+search algorithms (A*, IDA*, DFS, BFS, IDDFS, etc. )
+What is the exact difference between A* and IDA* (Iterative Deeping A Star)? Is just the heuristic function? If so, I still just can't imagine how IDA* works.. :/
+Is IDA* the same as BFS (Breadth-First search) (when the depth of expanding is just 1 level, I mean - moving just one by one level "down", is there any difference between IDA* and BFS)
+Is IDDFS (Iterative-Deeping Depth-First Search) the same as IDA*, except the heuristic function (which is equivalent to 0 in IDDFS)
+What exactly is IDDFS - moving down just one level, then using DFS (Depth-First Search)? If so, this way lots of the states are calculated (expanded) much more than ones.. Or it's like this - use DFS with particular depth, then store the "leaves" (the last expanded nodes), and iterate through them to use DFS again (which, actually, is BFS?)
+Where "iterative" comes from? As I see, IDDFS is not iterative at all, it's still recursiive, just mixes BFS and DFS? Or I'm wrong? Or this "iterative" has nothing to do with the opposite of recursion?
+What is "iterative" for IDA* ?
+Could you, please, provide some examples? I read all day about these algorithms, I know their advantages and disadvantages, the complexity, etc., but I just couldn't find any good examples (except for A*; I know BFS and DFS, the others bother me). I found some pseudo-code for IDA* on different places, but they were all completely different.
+
+

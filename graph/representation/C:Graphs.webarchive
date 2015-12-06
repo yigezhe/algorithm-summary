@@ -1,0 +1,1660 @@
+bplist00“_WebSubresources_WebMainResource§‘	
+_WebResourceData_WebResourceMIMEType^WebResourceURL_WebResourceResponseO,Ê/*  common.css - MoinMoin Default Styles
+
+Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+html {
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1em;
+}
+
+body {
+    margin: 0;
+}
+
+/* Links */
+
+a {color: #0044B3;}
+/* a:visited {color: #597BB3;} */
+a:visited {color: #FF7BB3;}
+
+a.nonexistent:visited, a.nonexistent, 
+a.badinterwiki:visited, a.badinterwiki {color: gray;}
+
+a.www:before {content: url(../img/moin-www.png); margin: 0 0.2em;}
+a.http:before {content: url(../img/moin-www.png); margin: 0 0.2em;}
+a.https:before {content: url(../img/moin-www.png); margin: 0 0.2em;}
+a.file:before {content: url(../img/moin-ftp.png); margin: 0 0.2em;}
+a.ftp:before {content: url(../img/moin-ftp.png); margin: 0 0.2em;}
+a.nntp:before {content: url(../img/moin-news.png); margin: 0 0.2em;}
+a.news:before {content: url(../img/moin-news.png); margin: 0 0.2em;}
+a.telnet:before, a.ssh:before {content: url(../img/moin-telnet.png); margin: 0 0.2em;}
+a.irc:before, a.ircs:before  {content: url(../img/moin-telnet.png); margin: 0 0.2em;}
+a.mailto:before {content: url(../img/moin-email.png); margin: 0 0.2em;}
+a.attachment:before {content: url(../img/moin-attach.png); margin: 0 0.2em;}
+a.badinterwiki:before {content: url(../img/moin-inter.png); margin: 0 0.2em;}
+a.interwiki:before {content: url(../img/moin-inter.png); margin: 0 0.2em;}
+a.action:before {content: url(../img/moin-action.png); margin: 0 0.2em;}
+
+li p {
+    margin: .25em 0;
+}
+
+li.gap {
+    margin-top: 0.5em;
+}
+
+dt {
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+
+dd {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+dd p {
+    margin: 0.25em 0;
+}
+
+a, img, img.drawing {
+    border: 0;
+}
+
+pre {
+    border: 1pt solid #AEBDCC;
+    background-color: #F3F5F7;
+    padding: 5pt;
+    font-family: courier, monospace;
+    white-space: pre;
+    /* begin css 3 or browser specific rules - do not remove!
+    see: http://forums.techguy.org/archive/index.php/t-249849.html */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    /* end css 3 or browser specific rules */
+}
+
+pre.comment {
+    background-color: #CCCCCC;
+    color: red;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+pre.comment:before {
+    content: url(../img/attention.png);
+}
+
+
+/* .comment css definition must be top of .red/.green/.blue or it won't work */
+.comment { color: #555555; background-color: #DDDDFF; }
+
+.red { background-color: #FFCCCC; }
+.green { background-color: #CCFFCC; }
+.blue { background-color: #CCCCFF; }
+.yellow { background-color: #FFF29F; }
+.orange { background-color: #FFD59B; }
+
+.solid { border: 2px solid #000000; padding: 2px; }
+.dashed { border: 2px dashed #000000; padding: 2px; }
+.dotted { border: 2px dotted #000000; padding: 2px; }
+
+.left { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }
+.justify { text-align: justify; }
+
+table
+{
+    margin: 0.5em 0 0 0.5em;
+    border-collapse: collapse;
+}
+
+th, td
+{
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    border: 1pt solid #ADB9CC;
+}
+
+td p {
+    margin: 0;
+    padding: 0;
+}
+/* TableOfContents macro */
+div.table-of-contents {
+    border: 1px solid #bbbbbb;
+    color: black;
+    background-color: #eeeeee;
+    font-size: 80%;
+    text-align: left;
+    margin: 0.5em 0 0.5em 1em;
+    padding: 0.5em 0.75em 0.5em 0.5em;
+    max-width: 50%;
+    display: inline-table;
+}
+div.table-of-contents ol {
+    margin: 0;
+    padding: 0 0 0 2em;
+}
+div.table-of-contents ul {
+    margin: 0;
+    list-style:none;
+}
+div.table-of-contents li {
+    margin:0;
+    padding: 0;
+}
+p.table-of-contents-heading {
+    font-weight:bold;
+    padding:0;
+    margin: 0 0 0.5em 0;
+    letter-spacing: 0.075em;
+}
+
+/* Navigation macro */
+table.navigation {
+    background: #fff;
+    margin: 0;
+}
+
+.footnotes div {
+    width: 5em;
+    border-top: 1pt solid gray;
+}
+
+.footnotes ol {
+    padding: 0 2em;
+    margin: 0 0 1em;
+}
+
+.footnotes li {
+}
+
+.info {
+    float: right;
+    font-size: 0.7em;
+    color: gray;
+}
+
+#pageinfo {
+    margin-top: 2em;
+}
+
+.seperator {
+    color: gray;
+}
+
+#pagebottom {clear: both;}
+
+/* standard rule ---- */
+hr {
+    height: 1pt;
+    background-color: #9C9C9C;
+    border: 0;
+}
+
+/* custom rules ----- to ---------- */
+.hr1 {height: 2pt;}
+.hr2 {height: 3pt;}
+.hr3 {height: 4pt;}
+.hr4 {height: 5pt;}
+.hr5 {height: 6pt;}
+.hr6 {height: 7pt;}
+
+/* Replacement for deprecated html 3 <u> element and html 4 <strike> */
+.u {text-decoration: underline;}
+.strike {text-decoration: line-through;}
+
+/* eye catchers */
+.warning 
+{
+    color: red;
+}
+
+.error 
+{
+    color: red;
+}
+
+strong.highlight 
+{
+    background-color: #CCE0FF;
+    padding: 1pt;
+}
+
+
+/* Recent changes */
+
+.rcrss {
+    float: right;
+    margin: 0 7px 0 14px;
+    height: 0;
+    position: relative;
+    top: 9px;
+}
+*[div="rtl"] .rcrss {
+    float: left;
+}
+.recentchanges[dir="rtl"] .rcrss {
+    float: left;
+}
+
+.recentchanges table {
+    clear: both;
+    border-collapse: collapse;
+
+    border: 1px solid #4d7da9;
+}
+
+.recentchanges td {
+    vertical-align: top;
+    border: none;
+    background: #e6eaf0;
+}
+
+
+.recentchanges .rcdaybreak td {
+    background: #81BBF2;
+    border: none;
+    border: 1px solid #4d7da9;
+}
+
+.rcdaybreak td a {
+    font-size: 0.88em;
+}
+
+.rcicon1, .rcicon2 {
+    text-align: center;
+}
+
+.rcpagelink {
+    width: 33%;
+}
+
+.rctime {
+    font-size: 0.88em;
+    white-space: nowrap;
+}
+
+.rceditor {
+    white-space: nowrap;
+    font-size: 0.88em;
+}
+
+.rccomment {
+    width: 50%;
+    color: gray;
+    font-size: 0.88em;
+}
+
+
+/* User Preferences */
+
+.userpref table, .userpref td {
+    border: none;
+}
+
+/* CSS for new code_area markup used by Colorizer and ParserBase */
+
+div.codemsg {
+    margin: 0.5em 0;
+    padding: 0.5em;
+    padding-left:2.5em;
+    background:none;
+    border: 1pt solid #CCBDAE;
+    background-color: #F7F0E0;
+    background-image:url('../img/alert.png');
+    background-repeat:no-repeat;
+    background-position: 0.5em 0.5em;
+    color: black;
+}
+
+div.codearea { /* the div makes the border */
+    margin: 0.5em 0;
+    padding: 0;
+    border: 1pt solid #AEBDCC;
+    background-color: #F3F5F7;
+    color: black;
+}
+
+div.codearea pre { /* the pre has no border and is inside the div */
+    margin: 0;
+    padding: 10pt;
+    border: none;
+}
+
+a.codenumbers { /* format of the line numbering link */
+    margin: 0 10pt;
+    font-size: 0.85em;
+    color: gray;
+}
+
+/* format of certain syntax spans */
+div.codearea pre span.LineNumber {color: gray;}
+div.codearea pre span.ID         {color: #000000;}
+div.codearea pre span.Operator   {color: #0000C0;}
+div.codearea pre span.Char       {color: #004080;}
+div.codearea pre span.Comment    {color: #008000;}
+div.codearea pre span.Number     {color: #0080C0;}
+div.codearea pre span.String     {color: #004080;}
+div.codearea pre span.SPChar     {color: #0000C0;}
+div.codearea pre span.ResWord    {color: #A00000;}
+div.codearea pre span.ConsWord   {color: #008080; font-weight: bold;}
+div.codearea pre span.Error      {color: #FF8080; border: solid 1.5pt #FF0000;}
+div.codearea pre span.ResWord2   {color: #0080ff; font-weight: bold;}
+div.codearea pre span.Special    {color: #0000ff;}
+div.codearea pre span.Preprc     {color: #803999;}
+
+/* for diff parser */
+div.codearea pre span.DiffAdded   {color: #4876FF;}
+div.codearea pre span.DiffRemoved {color: #FF0000;}
+div.codearea pre span.DiffChanged {color: #FF7F50;}
+div.codearea pre span.DiffSeparator {color: #228B22; font-weight: bold}
+
+/* Search results */
+.advancedsearch {
+    border: 1pt solid #ADB9CC;
+}
+
+.advancedsearch td {
+    vertical-align: top;
+    background-color: #E7E7E7;    
+    border: 0px;
+}
+
+.advancedsearch td.searchfor {
+    font-weight: bold;
+}
+
+.advancedsearch input {
+    border: 1px solid #ADB9CC;
+    background-color: #fff;
+}
+
+.advancedsearch input[disabled] {
+    background-color: #eee;
+}
+
+.advancedsearch td.submit {
+    border-top: 1px solid #ADB9CC;
+    background-color: #fff;
+    text-align: right;
+}
+
+.advancedsearch optioni, 
+.advancedsearch select {
+    border: 1px solid #ADB9CC;
+    background-color: #fff;
+}
+
+
+.searchresults dt {
+    margin-top: 1em;
+    font-weight: normal;
+}
+
+.searchresults dd, .searchresults p {
+    font-size: 0.85em;
+}
+
+.searchresults .searchhitinfobar {
+    color: #008000;
+    margin-left: 15px;
+    margin-top: 0;
+}
+
+p.searchstats {
+    font-size: 0.8em;
+    text-align: right;
+    width: 100%;
+    background-color: #E6EAF0;
+    border-top: 1px solid #9088DC;
+    padding: 2px;
+}
+
+p.searchhint {
+    background-color: #E6EAF0;
+    border: 1px solid #9088DC;
+    padding: 2px;
+}
+
+.searchpages {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchpages tr, .searchpages td {
+    border: 0;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: #b93a58;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.searchpages td a, .searchpages td a:link {
+    text-decoration: underline;
+}
+
+/* MonthCalendar css */
+
+/* days without and with pages linked to them */
+a.cal-emptyday {
+    color: #777777;
+    text-align: center;
+}
+a.cal-usedday {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+/* general stuff: workdays, weekend, today */
+td.cal-workday {
+    background-color: #DDDDFF;
+    text-align: center;
+}
+td.cal-weekend {
+    background-color: #FFDDDD;
+    text-align: center;
+}
+td.cal-today {
+    background-color: #CCFFCC;
+    border-style: solid;
+    border-width: 2pt;
+    text-align: center;
+}
+/* invalid places on the monthly calendar sheet */
+td.cal-invalidday {
+    background-color: #CCCCCC;
+}
+/* links to prev/next month/year */
+a.cal-link {
+    color: #000000;
+    text-decoration: none;
+}
+th.cal-header {
+    background-color: #DDBBFF;
+    text-align: center;
+}
+
+/* for MonthCalendar mouseover info boxes */
+TABLE.tip {
+    color: black;
+    background-color: #FF8888;
+    font-size: small;
+    font-weight: normal;
+    border-style: solid;
+    border-width: 1px;
+}
+
+TH.tip {
+    background-color: #FF4444;
+    font-weight: bold;
+    text-align: center;
+}
+
+TD.tip {
+    text-align: left;
+}
+*[dir="rtl"] TD.tip {
+    text-align: right;
+}
+
+/* end MonthCalendar stuff */
+
+#message .hint {font-style: italic;}
+#message .info {
+    float: none;
+    font-size: 1em;
+    color: black;
+}
+#message .info:before {content: url('../img/icon-info.png'); margin: 0 0.2em;}
+#message .warning:before {content: url('../img/alert.png'); margin: 0 0.2em;}
+#message .error:before {content: url('../img/icon-error.png'); margin: 0 0.2em;}
+
+
+/* admonition start */
+#content div.caution, 
+#content div.important, 
+#content div.note, 
+#content div.tip, 
+#content div.warning {
+    border: 1pt solid #E5E5E5;
+    background-color: #F9F9FF;
+    color: black;
+
+    margin: 10pt 30pt 10pt 30pt;
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+    min-height: 64px; /*64=48+8+8 but doesn't work with IE*/
+    padding-left: 64px;
+}
+
+#content div.caution p, 
+#content div.important p, 
+#content div.note p, 
+#content div.tip p, 
+#content div.warning p {
+    margin-top: 8px; /*to align text with bg graphic*/
+}
+
+#content div.tip { background-image: url("../img/admon-tip.png"); }
+#content div.note { background-image: url("../img/admon-note.png"); }
+#content div.important { background-image: url("../img/admon-important.png"); }
+#content div.caution { background-image: url("../img/admon-caution.png"); }
+#content div.warning { background-image: url("../img/admon-warning.png"); }
+
+/* admonition end */
+
+Xtext/css_Fhttp://www.cs.yale.edu/homes/aspnes/pinewiki/modernized/css/common.cssO=bplist00‘fgX$versionX$objectsY$archiverT$top Ü†Ø#)*0123KLMNOPQRSTUVWXYZ[\]`aU$null›	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1Ä	ÄÄÄÄÄÄÄ”$%&'(WNS.base[NS.relativeÄ ÄÄ_Fhttp://www.cs.yale.edu/homes/aspnes/pinewiki/modernized/css/common.css“+,-.Z$classnameX$classesUNSURL¢-/XNSObject#A∫·Mó3yñ »”456@JWNS.keysZNS.objects©789:;<=>?Ä	Ä
+ÄÄÄÄÄÄÄ©ACDEFGHIÄÄÄÄÄÄÄÄÄÄVServer\Content-TypeTEtag]Last-ModifiedTDate]Accept-Ranges^Content-LengthZKeep-AliveZConnection_Apache/2.2.17 (Linux/SUSE)Xtext/css_"888c2c-2ce6-4fd2585b9b480"_Tue, 01 Jul 2014 17:58:26 GMT_Fri, 17 Apr 2015 14:17:59 GMTUbytesU11494_timeout=15, max=100ZKeep-Alive“+,^_\NSDictionary¢^/,Ê“+,bc_NSHTTPURLResponse£de/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver—hi_WebResourceResponseÄ    # - 2 7 X ^ y | Ä É Ü â ç ê ó ö ù † £ ¶ ® ™ ¨ Æ ∞ ± ≥ µ ∑ π ª Ω ø ∆ Œ ⁄ ‹ ﬁ ‡).9BHKT]_ahp{Öáâãçèëìïó°£•ß©´≠Ø±≥µº…Œ‹·Ô˛	1:Xxòû§∫≈ ◊⁄›‚ˆ˙.1G             j              I‘
+O n/*  screen.css - MoinMoin Default Styles
+
+Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+/* debug 
+* {border: 1px dotted blue;}
+*/
+
+body {
+    padding: 0;
+    border: 0;
+}
+
+a:link { color: #47f; text-decoration: none; }
+a:link:hover, a:link:active { text-decoration: underline; color: green; }
+a:visited { text-decoration: none; color: #04a;}
+a:visited:hover { text-decoration: none; color: red; }
+a.nonexistent:link { color: #666 }
+a.nonexistent:hover { color: black; text-decoration: underline }
+
+a.download {
+    font-size: 120%; 
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    background: #E7E7E7;
+    border: 1px solid #9C9C9C;
+    padding: 0.5em;
+    text-align: center;
+}
+
+input {
+    /* does strange effect to button (text size becomes bigger when clicking)
+    font-size: 1em;
+    font-family: Arial, Lucida Grande, sans-serif;
+    */
+}
+
+textarea {
+    font-size: 1em;
+    font-family: monospace;
+}
+
+.disabled {
+    /* IE ignore disabled attribute, but at least show items in gray */
+    color: gray;
+}
+
+/* user interface styles */
+
+#header {
+    margin: 1px;
+    padding: 1px;
+    background: #e6eaf0;
+    line-height: 1.1em;
+}
+
+#logo {
+    float: left;
+    margin: 5px 10px;
+    padding: 0;
+    /* For text only logo */
+    font-size: 1.4em;
+    line-height: 1em;
+    font-weight: bold;
+}
+
+*[dir="rtl"] #logo {
+    float: right;
+}
+
+#logo img {
+    vertical-align: middle;
+}
+
+#logo a {
+    color: black;
+    text-decoration: none;
+}
+
+
+#username {
+    display: block;
+    margin: 8px 12px 4px 12px;
+    padding: 0;
+    font-size: 0.82em;
+}
+
+#username form {
+    display: inline;
+}
+
+#username input {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: blue;
+    font-size: 0.82em;
+    cursor: pointer;
+}
+
+#username input:hover {
+    color: red;
+}
+
+#searchform {
+    margin: 4px 0.5em 8px 0.5em;
+    padding: 0;
+    font-size: 0.82em;
+    float: right;
+    clear: right;
+    text-align: right;
+}
+*[dir="rtl"] #searchform {
+    float: left;
+    clear: left;
+    text-align: left;
+}
+#searchform input {
+    font-size: 100%;
+    vertical-align: middle;
+}
+#pagetrail {
+    clear: right;
+    display: inline;
+    margin: 0 0.88em 0.25em 0.88em;
+    padding: 0;
+    font-size: 0.88em;
+}
+
+*[dir="rtl"] #pagetrail {
+    clear: left;
+}
+
+#interwiki {
+    font-size: 1em;
+}
+
+#locationline {
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal;
+    margin: 0.25em 12px 5px 12px;
+    clear: right;
+}
+*[dir="rtl"] #locationline {
+    clear: left;
+}
+
+#pagelocation {
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+}
+
+
+*[dir="rtl"] #pagetrail span.sep {
+    visibility: hidden;
+}
+*[dir="rtl"] #pagetrail span.sep:after {
+    content: " ¬´ ";
+}
+
+#navibar {
+    clear: both;  /* problem: clear: right; aligns nicely right of logo,
+                    but lets it float high in the header, disconnected from ground */
+    display: block;
+    margin: 0;
+    padding: 0 10px;
+    font-size: 0.82em;
+    zoom: 1; /* for avoiding a gap between navibar and pageline on IE */
+}
+
+#navibar li {
+    float: left;
+    display: inline;
+    margin: 0 2px;
+    padding: 2px 5px;
+    border: 1px solid #acd;
+    border-bottom: none;
+    white-space: nowrap;
+}
+
+*[dir="rtl"] #navibar li {
+    float: right;
+}
+
+#navibar li.wikilink {
+    background: white; /*url(../img/tab-wiki.png) repeat-x;*/
+}
+
+#navibar li.userlink {
+    background: #E6EAF0; /*url(../img/tab-user.png) repeat-x;*/
+}
+
+#navibar a, #navibar a:visited {
+    color: black;
+    text-decoration: none;    
+}
+
+#navibar li.current a {
+    font-weight: bold;
+}
+
+#navibar li:hover {
+    background: #d6e4f9;
+}
+
+#navibar li.current, #navibar li.current:hover {
+    background: #81BBF2; /* url(../img/tab-selected.png) repeat-x; */
+    border: 1px solid #4d7da9;
+    border-bottom: 1px solid #81bbf2;
+    margin-bottom: -1px;
+}
+
+#pageline {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* sync these values, line-height is needed for IE */
+    height: 4px;
+    line-height: 4px;
+    border-bottom: 1px solid #4d7da9;
+    border-top: 1px solid #4d7da9;
+    background: #81BBF2;
+}
+
+.editbar {
+    clear: both;
+    display: block;
+    margin: 0;
+    padding: 2px 8px;
+    background: #d6e4f9;
+    font-size: 0.8em;
+    border-bottom: 1px solid #4d7da9;
+    border-top: 1px solid #4d7da9;
+    margin-top: -1px;
+}
+
+.editbar form, .editbar form div {
+    display: inline;
+    margin: 0;
+}
+
+.editbar select {
+    font-size: 100%;
+    vertical-align: middle;
+}
+
+.editbar li {
+    display: inline;
+    padding: 0;
+    margin: 4px 6px;
+}
+
+.editbar a, .editbar a:visited { color: #0044B3; }
+
+#message {
+    clear: both;
+    margin: 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #c9c9c9;
+    background: #E6EAF0;
+}
+
+#message p {
+    margin: 5px 0;
+    padding: 0;
+    /* font-weight: bold; */
+}
+
+#message div.buttons {
+    font-weight: normal;
+}
+
+.dialog form {
+    margin: 0 15px;
+}
+
+.dialog td {
+    border: none;
+    padding: 5px;
+}
+
+.dialog td.label {
+    text-align: right;
+    font-weight: bold;
+    width: 25%;
+}
+
+*[dir="rtl"] .dialog td.label {
+    text-align: left;
+}
+
+.dialog td.content input {
+    width: 100%;
+}
+
+#page {
+    background-color: white;
+    margin: 0;
+    padding: 2px 20px 20px 20px;
+
+    /* theses are some Firefox 1.5b1 specific extensions, see also the CSS3 draft.
+    -moz-column-width: 25em;
+    -moz-column-gap: 2em;
+    -moz-column-rule: solid black 0.3em;     --   doesn't work yet with 1.5b1!
+
+    TODO: make text/gui editor NOT use #page css, we don't want columns there!
+    */
+}
+
+/* We use here dumb css1 ids because of IE suckiness */
+#editor-textarea, #editor-help {
+    font-family: monospace;
+    border: 1px solid #8cacbb;  
+    color: black;
+    background-color: white;
+    padding: 3px;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+#editor-help {
+    font-size: small;
+    background-color: #EEEEFF;
+}
+
+#editor-comment {
+    font-size: 100%;
+    border: 1px solid #8cacbb;
+    color: black;
+    background-color: white;
+    vertical-align: middle;
+    padding: 1px;
+    display: inline;
+    width: 70%;
+}
+
+#preview, #previewbelow {
+    border: 1px solid #6C7680;
+    padding: 3px;
+    width: 100%;
+    background: url(../img/draft.png);
+    margin-top: 0.5em;
+}
+
+#textcha {
+    font-size: 100%;
+    margin-top: 0.5em;
+    border: 2px solid #FF8888;
+    color: black;
+    vertical-align: middle;
+    padding: 3px 2px;
+}
+
+#textcha-answer {
+    border: 2px solid #000000;
+    padding: 3px 2px;
+}
+
+input.button {
+    /*
+    border: 1px solid #8cacbb;  
+    color: black;
+    background-color: #CCCCCC;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 100%;
+    cursor: pointer;
+    margin: 2px;
+    padding: 1px;
+    display: inline;
+    */
+}
+
+#footer {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+#credits, #version, #timings{
+    margin: 5px 10px;
+    padding: 0;
+    text-align: center;
+    font-size: 0.88em;
+    color: #6C7680;
+}
+
+#credits li, #timings li {
+    display: inline;
+    padding: 0 2px;
+    margin: 0 4px;
+}
+
+#credits img {
+    vertical-align: middle;
+}
+
+.diff {
+    width:99%;
+    table-layout: fixed;
+}
+
+.diff-header {
+    font-weight: bold;
+}
+
+.diff-title {
+    background-color: #C0C0C0;
+}
+
+.diff-added {
+    background-color: #E0FFE0;
+    vertical-align: top;
+    width: 50%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: courier, monospace;
+}
+
+.diff-removed {
+    background-color: #FFFFE0;
+    vertical-align: top;
+    width: 50%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: courier, monospace;
+}
+
+.diff-added span {
+    background-color: #80FF80;
+}
+
+.diff-removed span {
+    background-color: #FFFF80;
+}
+
+td.diff-info {
+    vertical-align: top;
+}
+
+div.diff-info {
+    white-space: nowrap;
+}
+
+div.diff-info-rev-comment span.diff-info-value {
+    white-space: normal;
+}
+
+div.diff-info-header {
+    background-color: #E8E8E8;
+    width: 100%;
+    padding: 0.25em 0.5em;
+    margin: -0.25em -0.5em;
+    margin-bottom: 0.25em;
+    text-align: center;
+}
+
+td.diff-same {
+    text-align: center;
+    border: 0;
+}
+
+table.navigation {
+    float: right;
+    margin: 2px;
+}
+
+#openididentifier {
+    background: url(../../common/openid.png) no-repeat;
+    background-position: 0 50%;
+    padding-left: 18px;
+}
+_Fhttp://www.cs.yale.edu/homes/aspnes/pinewiki/modernized/css/screen.cssO<bplist00‘fgX$versionX$objectsY$archiverT$top Ü†Ø#)*0123KLMNOPQRSTUVWXYZ[\]`aU$null›	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1Ä	ÄÄÄÄÄÄÄ”$%&'(WNS.base[NS.relativeÄ ÄÄ_Fhttp://www.cs.yale.edu/homes/aspnes/pinewiki/modernized/css/screen.css“+,-.Z$classnameX$classesUNSURL¢-/XNSObject#A∫·Mï}î} »”456@JWNS.keysZNS.objects©789:;<=>?Ä	Ä
+ÄÄÄÄÄÄÄ©ACDEFGHIÄÄÄÄÄÄÄÄÄÄVServer\Content-TypeTEtag]Last-ModifiedTDate]Accept-Ranges^Content-LengthZKeep-AliveZConnection_Apache/2.2.17 (Linux/SUSE)Xtext/css_"888c30-206e-4fd2585b9b480"_Tue, 01 Jul 2014 17:58:26 GMT_Fri, 17 Apr 2015 14:17:57 GMTUbytesT8302_timeout=15, max=100ZKeep-Alive“+,^_\NSDictionary¢^/ n“+,bc_NSHTTPURLResponse£de/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver—hi_WebResourceResponseÄ    # - 2 7 X ^ y | Ä É Ü â ç ê ó ö ù † £ ¶ ® ™ ¨ Æ ∞ ± ≥ µ ∑ π ª Ω ø ∆ Œ ⁄ ‹ ﬁ ‡).9BHKT]_ahp{Öáâãçèëìïó°£•ß©´≠Ø±≥µº…Œ‹·Ô˛	1:Xxòû£πƒ…÷Ÿ‹·ı˘-0F             j              H‘
+O+/*  print.css - MoinMoin Default Styles
+
+Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+html {
+    font-family: Times, serif;
+    font-size: 12pt;
+}
+
+body {
+    /* Give about 3.4cm in Mozilla/Firefox and about 2.2cm in Safari */
+    margin: 1.5cm;
+}
+
+a, a:visited, a.nonexistent, a.badinterwiki {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.info a {
+    color: gray;
+}
+
+pre {
+    font-size: 10pt;
+}
+
+a.interwiki:before, a.badinterwiki:before {
+    content: attr(title) ":";
+}
+
+a.interwiki img, a.badinterwiki img {
+    display: none;
+}
+
+.footnotes div {
+    width: 5em;
+    border-top: 1pt solid gray;
+}
+
+/* user interface styles */
+
+#header, #sidebar, #footer, #timings, #credits, #interwiki, #pagelocation {
+    display: none;
+}
+
+_Ehttp://www.cs.yale.edu/homes/aspnes/pinewiki/modernized/css/print.cssO9bplist00‘fgX$versionX$objectsY$archiverT$top Ü†Ø#)*0123KLMNOPQRSTUVWXYZ[\]`aU$null›	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1Ä	ÄÄÄÄÄÄÄ”$%&'(WNS.base[NS.relativeÄ ÄÄ_Ehttp://www.cs.yale.edu/homes/aspnes/pinewiki/modernized/css/print.css“+,-.Z$classnameX$classesUNSURL¢-/XNSObject#A∫·Mïõ.‡ »”456@JWNS.keysZNS.objects©789:;<=>?Ä	Ä
+ÄÄÄÄÄÄÄ©ACDEFGHIÄÄÄÄÄÄÄÄÄÄVServer\Content-TypeTEtag]Last-ModifiedTDate]Accept-Ranges^Content-LengthZKeep-AliveZConnection_Apache/2.2.17 (Linux/SUSE)Xtext/css_"888c2e-32b-4fd2585b9b480"_Tue, 01 Jul 2014 17:58:26 GMT_Fri, 17 Apr 2015 14:17:58 GMTUbytesS811_timeout=15, max=100ZKeep-Alive“+,^_\NSDictionary¢^/+“+,bc_NSHTTPURLResponse£de/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver—hi_WebResourceResponseÄ    # - 2 7 X ^ y | Ä É Ü â ç ê ó ö ù † £ ¶ ® ™ ¨ Æ ∞ ± ≥ µ ∑ π ª Ω ø ∆ Œ ⁄ ‹ ﬁ ‡(-8AGJS\^`gozÑÜàäåéêíîñ†¢§¶®™¨Æ∞≤¥ª»Õ€‡Ó˝09Vvñú†∂¡∆”÷ŸﬁÚˆ
+*-C             j              E‘O‡âPNG
+
+   IHDR   .   6   7^<ñ   bKGD ˇ ˇ ˇ†Ωßì   	pHYs    “›~¸   tIME”8ƒH˛a  mIDATxúÕôiLSM«á˙Rvjd1¯P— Z≈•,-;E£∞±ÇQ˚A?ÄëàD4åÅòH IeÅàiQ!H©)-tª,-Öy?‹ÁÌSªÇBû˜ˇiÓπgŒ¸ÓôôsÁ∂fBˇ!å÷µD"˘W8Ä.JBB¬ƒƒƒˆçWSS”””£ˇ¸Ul6;++nõŒù;'âÙﬁ“Œäèèœ¯¯¯ˆeE.ó;88ËΩ•ç †R©ïïï€¡!
+ùúú›’ÉB£—⁄€€∑•ØØ/88x(X,÷‹‹|zzz;PNû<π	 @NNNUU’ñ£:ths(°°°›››[À!ïJ≠¨¨å8ËG êH$É‡∑Ù‰…ìååMK[[€/Ü
+¿œü?SSS∑™ú¨ÆÆí…dıÂ⁄⁄ZHH `~~ﬁ`]QÀŸŸY(*ä-IIYYYvv6⁄âDÜNßª∏∏∞X,”YÅwvvnIV¬√√—d·p∏>îóó◊’’i˙Ã
+ ¿ﬂﬂˇ€∑oûÅ@∞{˜n Äôôô∑∑w```HHì…DkLZZóÀFñ-ÿ∫}‘€€K"ëP•Rôòò ‡p8... Ä÷÷÷ŒŒN(ñññŒŒŒÉÉÉ£££ììì*ïÍ˜P(
+⁄V©T666«◊◊ P[[K"ë–»ˇ1%))©®®»√√C°Px<£T*!Ññññ;wÓtrrrww'ûûû÷÷÷vvvÊÊÊZAù   ãã≈,ãB°477óïïıÙÙX[[ Ã†—SúP(ÃœœØÆÆ÷≤CÁÁÁÁÊÊ¶¶¶–úâ≈bA÷◊◊±XÏ_˝µwÔﬁÉ8p†≤≤2""‚ƒâh«ÖÖÖ‡‡‡]ªvŸÿÿ†Y±∑∑ˇ'®…d2*ï∫©Õ≤∏∏8::˙ÊÕõP©T->üÔÁÁ«b±¥Ï&P
+≈È”ß7Ö¢©íííÓÓn-£L&#â∫Œ∆ñ-:µ+++∆}å®´´ãL&k[ZZ‘´XS&P45??·„„˙Í’+‘B"ë¸¸¸öööfggµ¸
+ÖÖÖÖôôô._dd§ûL&˘ﬁΩ{BxÌ⁄5É1;;!åééÊÒxt:Ω´´K.óﬂæ}õL&∑µµiv¨´´{ˆÏôn@2ô¨P(tÌ¶QÛÚÚ–·ﬂΩ{G ¯|>õÕ¶—h˘˘˘„„„\.∑ØØO"ëh≠™∏∏8©T™0$$DÔ@¶'»ﬂﬂüÕf ;::d2ôππ9á√`0|>ee≈√√#22á√°ìÇˆb≥Ÿnnnˇl‘ˇI.ó£UDWZ+vvv´´´4Õ‹‹|rr“¡¡!---++À÷÷É¡0ôÃïïëH§.qÂÂÂ∫°ÍÎÎ£¢¢ÙcrÇ Ñ………B°BxÒ‚≈ààooÔ˜ÔﬂCß¶¶»d2ÖBπtÈëH¸ÚÂÍ/ã„‚‚t„º}˚÷ÀÀkxxXÔ(B…ÃÃ‰rπhA≠o*âDÚ˘ÛÁÂÂeµ•∞∞P∑úîññfffVWW;vÏ˜Qû>}⁄‹‹ºOT111hcmmç«„Ω|˘ÚÓ›ªâB®yú”îˆÎP TTT˘|A∏\.˙¶P*ï˚ˆÌ;uÍ‘FVQQëΩΩ}FFè«õõõÛÚÚ:zÙ(èèééFó∂¡7º&◊ÃÃèØ´´õúúTœÑAêÿÿX!ZTåH©T˙˚˚WWWOLL¨ØØ´Ì*ïäH$˙˙˙ïîîËÌ˚
+çFkll‘ÎwÁŒ&ìY\\L$ÛÚÚÿl∂^7:ùnd*I$íë«¯{Ç§RÈŸ≥g˙˚˚q8\XXòVÚ®TÍÛÁœÔﬂøÎ÷≠†††ÈÈÈÖÖ±XÏËË!ÙÒÒ)--mooÜÊqiiI˜%†gÇjjj ÀÀ!Ñccc.\–Kâ6íììo‹∏¡d2œü?/ì… Ñrπ<,,LoEG’‘‘Ù·C#Y˘ªƒ9r§ΩΩ]*ïr8ú;vËÖ∂≥≥[ZZ ååå¸¯ÒÉ@ ¨≠≠â≈bti”Èt,kËô;;;è?n:+¬äää¯¯¯ÙÙt±X¨ó:))	-tııı
+ÖÇ≈bYYYΩxÒB(
+)äë'Ü>|=å“ÜÍ
+™““RÕwØJ•öûûF€999ü>}2“∑∂∂∂††¿x¸M†Ãœœ«««Î⁄{{{322å˜MII·Òx[Ü!LHHöÖBA&ìÂrπÒé*ï ∏œ&Nq Ä˛˛~MÀ’´Woﬁºikkk§á√¡„ÒÜvÉZõCqwwohhP_2ôÃ◊Ø_#bº◊£Gè._æl:˙ßÜœÁ«∆∆ÊÊÊ˙˘˘©ç$iffÜD"°•≈ê<==72ƒFQ“””;:: ÑgŒúY]]Ö>~¸∏™™
+Bÿ€€õûûn®#É¡»ÃÃ‹2î∆∆∆‹‹\¥]TTƒ`0ÊÊÊ¢¢¢‘zøkPQ©TCg•M£(ïJÅÄfB¯ıÎ◊+WÆƒ≈≈}ˇ˛]Ìj®{KKÀF86ÑÚÒ„«Î◊ØkZ\]]kjj4-111&˜Û†dgg´≠®t?wSSSGFF˛≈ÙfFƒ’’U”†Â400`zªïiÙ0f‹è«m;
+üœ7Ú™¿¿¿···?D—>f∂∂∂⁄ŸŸ©T*+++77∑ÂÂeìQlmme2Yaa·ÿÿÿ˙˙: `ˇ˛˝{ˆÏ±¥¥LIIŸ äˆØNÇ®_(ããã"ëàœÁ˘è@-áÉ˛Ü!433âDX,6>>˛7Q˛E˝|TGÜ;˛(    IENDÆB`ÇYimage/png_5http://www.cs.yale.edu/homes/aspnes/pinewiki/logo.pngO+bplist00‘fgX$versionX$objectsY$archiverT$top Ü†Ø#)*0123KLMNOPQRSTUVWXYZ[\]`aU$null›	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1Ä	ÄÄÄÄÄÄÄ”$%&'(WNS.base[NS.relativeÄ ÄÄ_5http://www.cs.yale.edu/homes/aspnes/pinewiki/logo.png“+,-.Z$classnameX$classesUNSURL¢-/XNSObject#A∫·Mî£+V »”456@JWNS.keysZNS.objects©789:;<=>?Ä	Ä
+ÄÄÄÄÄÄÄ©ACDEFGHIÄÄÄÄÄÄÄÄÄÄVServer\Content-TypeTEtag]Last-ModifiedTDate]Accept-Ranges^Content-LengthZKeep-AliveZConnection_Apache/2.2.17 (Linux/SUSE)Yimage/png_"888aa9-8e0-4fd2585b9b480"_Tue, 01 Jul 2014 17:58:26 GMT_Fri, 17 Apr 2015 14:17:57 GMTUbytesT2272_timeout=15, max=100ZKeep-Alive“+,^_\NSDictionary¢^/‡“+,bc_NSHTTPURLResponse£de/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver—hi_WebResourceResponseÄ    # - 2 7 X ^ y | Ä É Ü â ç ê ó ö ù † £ ¶ ® ™ ¨ Æ ∞ ± ≥ µ ∑ π ª Ω ø ∆ Œ ⁄ ‹ ﬁ ‡(17:CLNPW_jtvxz|~ÄÇÑÜêíîñòöúû†¢§´∏ΩÀ–ﬁÌ¯ *Ggáçí®≥∏≈»À–‰Ë¸
+5             j              7’ !_WebResourceTextEncodingName_WebResourceFrameNameO ]<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>C/Graphs</title>
+<link rel="stylesheet" type="text/css" media="all" charset="utf-8" href="modernized/css/common.css">
+<link rel="stylesheet" type="text/css" media="screen" charset="utf-8" href="modernized/css/screen.css">
+<link rel="stylesheet" type="text/css" media="print" charset="utf-8" href="modernized/css/print.css">
+<style type="text/css">
+ul.pagetitle{
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+}
+li.pagetitle{
+  display: inline;
+  margin: 0;
+}
+td.noborder {
+  border: 0;
+}
+</style>
+</head>
+<body>
+<table>
+<tbody><tr>
+<td class="noborder">
+<img src="logo.png">
+</td>
+<td class="noborder">
+<ul class="pagetitle">
+<li class="pagetitle"><a class="backlink">C/Graphs</a>
+</li></ul>
+<br><br>
+[<a href="FrontPage.html">FrontPage</a>]&nbsp;[<a href="TitleIndex.html">TitleIndex</a>]&nbsp;[<a href="WordIndex.html">WordIndex</a>]&nbsp;
+</td>
+</tr>
+</tbody></table>
+<hr>
+<div id="page"><p><b>Note:</b> You are looking at a static copy of the former PineWiki site, used for class notes by <a href="http://www.cs.yale.edu/homes/aspnes/">James Aspnes</a> from 2003 to 2012. Many mathematical formulas are broken, and there are likely to be other bugs as well. These will most likely not be fixed.  You may be able to find more up-to-date versions of some of these notes at <a href="http://www.cs.yale.edu/homes/aspnes/#classes">http://www.cs.yale.edu/homes/aspnes/#classes</a>.</p>
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line862">These are notes on implementing <strong>graphs</strong> and graph algorithms in <a href="./C.html">C</a>.  For a general overview of graphs, see <a href="./GraphTheory.html">GraphTheory</a>.  For pointers to specific algorithms on graphs, see <a href="./GraphAlgorithms.html">GraphAlgorithms</a>. <span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span></p><p class="line867">
+</p><h1 id="Graphs">1. Graphs</h1>
+<span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span><p class="line862">A <strong>graph</strong> consists of a set of <strong>nodes</strong> or <strong>vertices</strong> together with a set of <strong>edges</strong> or <strong>arcs</strong> where each edge joins two vertices.  Unless otherwise specified, a graph is <strong>undirected</strong>: each edge is an unordered pair {u,v} of vertices, and we don't regard either of the two vertices as having a distinct role from the other.  However, it is more common in computing to consider <strong>directed graphs</strong> or <strong>digraphs</strong> in which edges are <em>ordered</em> pairs (u,v); here the vertex u is the <strong>source</strong> of the edge and vertex v is the <strong>sink</strong> or <strong>target</strong> of the edge.  Directed edges are usually drawn as arrows and undirected edges as curves or line segments; see <a href="./GraphTheory.html">GraphTheory</a> for examples.  It is always possible to represent an undirected graph as a directed graph where each undirected edge {u,v} becomes two oppositely directed edges (u,v) and (v,u). <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span></p><p class="line862">Given an edge (u,v), the vertices u and v are said to be <strong>incident</strong> to the edge and <strong>adjacent</strong> to each other.  The number of vertices adjacent to a given vertex u is the <strong>degree</strong> of u; this can be divided into the <strong>out-degree</strong> (number of vertices v such that (u,v) is an edge) and the <strong>in-degree</strong> (number of vertices v such that (v,u) is an edge).  A vertex v adjacent to u is called a <strong>neighbor</strong> of u, and (in a directed graph) is a <strong>predecessor</strong> of u if (v,u) is an edge and a <strong>successor</strong> of u if (u,v) is an edge.  We will allow a node to be its own predecessor and successor. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line867">
+</p><h1 id="Why_graphs_are_useful">2. Why graphs are useful</h1>
+<span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span><p class="line874">Graphs can be used to model any situation where we have things that are related to each other in pairs; for example, all of the following can be represented by graphs: <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p><dl><dt>Family trees</dt><dd>Nodes are members, with an edge from each parent to each of their children. <span class="anchor" id="line-14"></span></dd><dt>Transportation networks</dt><dd>Nodes are airports, intersections, ports, etc.  Edges are airline flights, one-way roads, shipping routes, etc. <span class="anchor" id="line-15"></span></dd><dt>Assignments</dt><dd><p class="line862">Suppose we are assigning classes to classrooms.  Let each node be either a class or a classroom, and put an edge from a class to a classroom if the class is assigned to that room.  This is an example of a <strong>bipartite graph</strong>, where the nodes can be divided into two sets S and T and all edges go from S to T. <span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span></p></dd></dl><p class="line867">
+</p><h1 id="Operations_on_graphs">3. Operations on graphs</h1>
+<span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span><p class="line874">What would we like to do to graphs?  Generally, we first have to build a graph by starting with a set of nodes and adding in any edges we need, and then we want to extract information from it, such as "Is this graph connected?", "What is the shortest path in this graph from s to t?", or "How many edges can I remove from this graph before some nodes become unreachable from other nodes?"  There are standard algorithms for answering all of these questions; the information these algorithms need is typically (a) given a vertex u, what successors does it have; and sometimes (b) given vertices u and v, does the edge (u,v) exist in the graph? <span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span></p><p class="line867">
+</p><h1 id="Representations_of_graphs">4. Representations of graphs</h1>
+<span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span><p class="line874">A good graph representation will allow us to answer one or both of these questions quickly.  There are generally two standard representations of graphs that are used in graph algorithms, depending on which question is more important. <span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p><p class="line874">For both representations, we simplify the representation task by insisting that vertices be labeled 0, 1, 2, ..., n-1, where n is the number of vertices in the graph.  If we have a graph with different vertex labels (say, airport codes), we can enforce an integer labeling by a preprocessing step where we assign integer labels, and then translate the integer labels back into more useful user labels afterwards.  The preprocessing step can usually be done in O(n) time, which is likely to be smaller than the cost of whatever algorithm we are running on our graph, and the savings in code complexity and running time from working with just integer labels will pay this cost back many times over. <span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span></p><p class="line867">
+</p><h2 id="Adjacency_matrices">4.1. Adjacency matrices</h2>
+<span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><p class="line862">An <strong>adjacency matrix</strong> is just a matrix <tt class="backtick">a</tt> where <tt class="backtick">a[i][j]</tt> is <tt class="backtick">1</tt> if (i,j) is an edge in the graph and <tt class="backtick">0</tt> otherwise.  It's easy to build an adjacency matrix, and adding or testing for the existence of an edges takes O(1) time.  The downsides of adjacency matrices are that enumerating the outgoing edges from a vertex takes O(n) time even if there aren't very many, and the O(n<sup>2</sup>) space cost is high for "sparse graphs," those with much fewer than n<sup>2</sup> edges. <span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span></p><p class="line867">
+</p><h2 id="Adjacency_lists">4.2. Adjacency lists</h2>
+<span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><p class="line862">An <strong>adjacency list</strong> representation of a graph creates a list of successors for each node u.  These lists may be represented as linked lists (the typical assumption in algorithms textbooks), or in languages like <a href="./C.html">C</a> may be represented by variable-length arrays.  The cost for adding an edge is still O(1), but testing for the existence of an edge (u,v) rises to O(d<sup>+</sup>(u)), where d<sup>+</sup>(u) is the out-degree of u (i.e., the length of the list of u's successors).  The cost of enumerating the successors of u is also O(d<sup>+</sup>(u)), which is clearly the best possible since it takes that long just to write them all down.  Finding predecessors of a node u is extremely expensive, requiring looking through every list of every node in time O(n+m), where m is the total number of edges. <span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></p><p class="line862">Adjacency lists are thus most useful when we mostly want to enumerate outgoing edges of each node.  This is common in search tasks, where we want to find a path from one node to another or compute the distances between pairs of nodes.  If other operations are important, we can optimize them by augmenting the adjacency list representation; for example, using sorted arrays for the adjacency lists reduces the cost of edge existence testing to O(log(d<sup>+</sup>(u))), and adding a second copy of the graph with reversed edges lets us find all predecessors of u in O(d<sup>-</sup>(u)) time, where d<sup>-</sup>(u) is u's in-degree. <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span></p><p class="line862">Adjacency lists also require much less space than adjacency matrices for sparse graphs: O(n+m) vs O(n<sup>2</sup>) for adjacency matrices.  For this reason adjacency lists are more commonly used than adjacency matrices. <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></p><p class="line867">
+</p><h3 id="An_implementation">4.2.1. An implementation</h3>
+<span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><p class="line874">Here is an implementation of a basic graph type using adjacency lists. <span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span></p><p class="line867"><span class="anchor" id="line-1-1"></span></p><div class="highlight text"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+function isnumbered(obj) {
+  return obj.childNodes.length && obj.firstChild.childNodes.length && obj.firstChild.firstChild.className == 'LineNumber';
+}
+function nformat(num,chrs,add) {
+  var nlen = Math.max(0,chrs-(''+num).length), res = '';
+  while (nlen>0) { res += ' '; nlen-- }
+  return res+num+add;
+}
+function addnumber(did, nstart, nstep) {
+  var c = document.getElementById(did), l = c.firstChild, n = 1;
+  if (!isnumbered(c)) {
+    if (typeof nstart == 'undefined') nstart = 1;
+    if (typeof nstep  == 'undefined') nstep = 1;
+    var n = nstart;
+    while (l != null) {
+      if (l.tagName == 'SPAN') {
+        var s = document.createElement('SPAN');
+        var a = document.createElement('A');
+        s.className = 'LineNumber';
+        a.appendChild(document.createTextNode(nformat(n,4,'')));
+        a.href = '#' + did + '_' + n;
+        s.appendChild(a);
+        s.appendChild(document.createTextNode(' '));
+        n += nstep;
+        if (l.childNodes.length) {
+          l.insertBefore(s, l.firstChild);
+        }
+        else {
+          l.appendChild(s);
+        }
+      }
+      l = l.nextSibling;
+    }
+  }
+  return false;
+}
+function remnumber(did) {
+  var c = document.getElementById(did), l = c.firstChild;
+  if (isnumbered(c)) {
+    while (l != null) {
+      if (l.tagName == 'SPAN' && l.firstChild.className == 'LineNumber') l.removeChild(l.firstChild);
+      l = l.nextSibling;
+    }
+  }
+  return false;
+}
+function togglenumber(did, nstart, nstep) {
+  var c = document.getElementById(did);
+  if (isnumbered(c)) {
+    remnumber(did);
+  } else {
+    addnumber(did,nstart,nstep);
+  }
+  return false;
+}
+</script>
+
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script><a href="#" onclick="return togglenumber('CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e', 1, 1);" class="codenumbers">Toggle line numbers</a>
+<pre dir="ltr" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e" lang="en"><span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_1"></span><span class="anchor" id="line-1-2"></span><span class="Comment">/* basic directed graph type */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_2"></span><span class="anchor" id="line-2-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_3"></span><span class="anchor" id="line-3-1"></span><span class="ResWord">typedef</span> <span class="ResWord">struct</span> <span class="ID">graph</span> *<span class="ID">Graph</span>;</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_4"></span><span class="anchor" id="line-4-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_5"></span><span class="anchor" id="line-5-1"></span><span class="Comment">/* create a new graph with n vertices labeled 0..n-1 and no edges */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_6"></span><span class="anchor" id="line-6-1"></span><span class="ID">Graph</span> <span class="ID">graph_create</span>(<span class="ResWord">int</span> <span class="ID">n</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_7"></span><span class="anchor" id="line-7-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_8"></span><span class="anchor" id="line-8-1"></span><span class="Comment">/* free all space used by graph */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_9"></span><span class="anchor" id="line-9-1"></span><span class="ResWord">void</span> <span class="ID">graph_destroy</span>(<span class="ID">Graph</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_10"></span><span class="anchor" id="line-10-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_11"></span><span class="anchor" id="line-11-1"></span><span class="Comment">/* add an edge to an existing graph */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_12"></span><span class="anchor" id="line-12-1"></span><span class="Comment">/* doing this more than once may have unpredictable results */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_13"></span><span class="anchor" id="line-13-1"></span><span class="ResWord">void</span> <span class="ID">graph_add_edge</span>(<span class="ID">Graph</span>, <span class="ResWord">int</span> <span class="ID">source</span>, <span class="ResWord">int</span> <span class="ID">sink</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_14"></span><span class="anchor" id="line-14-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_15"></span><span class="anchor" id="line-15-1"></span><span class="Comment">/* return the number of vertices/edges in the graph */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_16"></span><span class="anchor" id="line-16-1"></span><span class="ResWord">int</span> <span class="ID">graph_vertex_count</span>(<span class="ID">Graph</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_17"></span><span class="anchor" id="line-17-1"></span><span class="ResWord">int</span> <span class="ID">graph_edge_count</span>(<span class="ID">Graph</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_18"></span><span class="anchor" id="line-18-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_19"></span><span class="anchor" id="line-19-1"></span><span class="Comment">/* return the out-degree of a vertex */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_20"></span><span class="anchor" id="line-20-1"></span><span class="ResWord">int</span> <span class="ID">graph_out_degree</span>(<span class="ID">Graph</span>, <span class="ResWord">int</span> <span class="ID">source</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_21"></span><span class="anchor" id="line-21-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_22"></span><span class="anchor" id="line-22-1"></span><span class="Comment">/* return 1 if edge (source, sink) exists), 0 otherwise */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_23"></span><span class="anchor" id="line-23-1"></span><span class="ResWord">int</span> <span class="ID">graph_has_edge</span>(<span class="ID">Graph</span>, <span class="ResWord">int</span> <span class="ID">source</span>, <span class="ResWord">int</span> <span class="ID">sink</span>);</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_24"></span><span class="anchor" id="line-24-1"></span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_25"></span><span class="anchor" id="line-25-1"></span><span class="Comment">/* invoke f on all edges (u,v) with source u */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_26"></span><span class="anchor" id="line-26-1"></span><span class="Comment">/* supplying data as final parameter to f */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_27"></span><span class="anchor" id="line-27-1"></span><span class="Comment">/* no particular order is guaranteed */</span></span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_28"></span><span class="anchor" id="line-28-1"></span><span class="ResWord">void</span> <span class="ID">graph_foreach</span>(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">source</span>,</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_29"></span><span class="anchor" id="line-29-1"></span>        <span class="ResWord">void</span> (*<span class="ID">f</span>)(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">source</span>, <span class="ResWord">int</span> <span class="ID">sink</span>, <span class="ResWord">void</span> *<span class="ID">data</span>),</span>
+<span class="line"><span class="LineAnchor" id="CA-733cd241a0f7528d5cbf285faa0916be0cc2dc1e_30"></span><span class="anchor" id="line-30-1"></span>        <span class="ResWord">void</span> *<span class="ID">data</span>);</span>
+</pre></div></div><a class="attachment" href="attachments/C(2f)Graphs/graph.h" title="attachment:graph.h">graph.h</a> <span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><p class="line867"><span class="anchor" id="line-1-3"></span></p><div class="highlight text"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script><a href="#" onclick="return togglenumber('CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b', 1, 1);" class="codenumbers">Toggle line numbers</a>
+<pre dir="ltr" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_1">   1</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_1"></span><span class="anchor" id="line-1-4"></span><span class="Preprc">#</span><span class="Preprc">include &lt;stdlib.h&gt;</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_2">   2</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_2"></span><span class="anchor" id="line-2-2"></span><span class="Preprc"></span><span class="Preprc">#</span><span class="Preprc">include &lt;assert.h&gt;</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_3">   3</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_3"></span><span class="anchor" id="line-3-2"></span><span class="Preprc"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_4">   4</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_4"></span><span class="anchor" id="line-4-2"></span><span class="Preprc">#</span><span class="Preprc">include "graph.h"</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_5">   5</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_5"></span><span class="anchor" id="line-5-2"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_6">   6</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_6"></span><span class="anchor" id="line-6-2"></span><span class="Comment">/* basic directed graph type */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_7">   7</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_7"></span><span class="anchor" id="line-7-2"></span><span class="Comment">/* the implementation uses adjacency lists</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_8">   8</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_8"></span><span class="anchor" id="line-8-2"></span><span class="Comment"> * represented as variable-length arrays */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_9">   9</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_9"></span><span class="anchor" id="line-9-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_10">  10</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_10"></span><span class="anchor" id="line-10-2"></span><span class="Comment">/* these arrays may or may not be sorted: if one gets long enough</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_11">  11</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_11"></span><span class="anchor" id="line-11-2"></span><span class="Comment"> * and you call graph_has_edge on its source, it will be */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_12">  12</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_12"></span><span class="anchor" id="line-12-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_13">  13</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_13"></span><span class="anchor" id="line-13-2"></span><span class="ResWord">struct</span> <span class="ID">graph</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_14">  14</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_14"></span><span class="anchor" id="line-14-2"></span>    <span class="ResWord">int</span> <span class="ID">n</span>;              <span class="Comment">/* number of vertices */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_15">  15</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_15"></span><span class="anchor" id="line-15-2"></span>    <span class="ResWord">int</span> <span class="ID">m</span>;              <span class="Comment">/* number of edges */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_16">  16</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_16"></span><span class="anchor" id="line-16-2"></span>    <span class="ResWord">struct</span> <span class="ID">successors</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_17">  17</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_17"></span><span class="anchor" id="line-17-2"></span>        <span class="ResWord">int</span> <span class="ID">d</span>;          <span class="Comment">/* number of successors */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_18">  18</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_18"></span><span class="anchor" id="line-18-2"></span>        <span class="ResWord">int</span> <span class="ID">len</span>;        <span class="Comment">/* number of slots in array */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_19">  19</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_19"></span><span class="anchor" id="line-19-2"></span>        <span class="ResWord">char</span> <span class="ID">is_sorted</span>; <span class="Comment">/* true if list is already sorted */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_20">  20</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_20"></span><span class="anchor" id="line-20-2"></span>        <span class="ResWord">int</span> <span class="ID">list</span>[<span class="Number">1</span>];    <span class="Comment">/* actual list of successors */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_21">  21</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_21"></span><span class="anchor" id="line-21-2"></span>    } *<span class="ID">alist</span>[<span class="Number">1</span>];</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_22">  22</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_22"></span><span class="anchor" id="line-22-2"></span>};</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_23">  23</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_23"></span><span class="anchor" id="line-23-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_24">  24</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_24"></span><span class="anchor" id="line-24-2"></span><span class="Comment">/* create a new graph with n vertices labeled 0..n-1 and no edges */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_25">  25</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_25"></span><span class="anchor" id="line-25-2"></span><span class="ID">Graph</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_26">  26</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_26"></span><span class="anchor" id="line-26-2"></span><span class="ID">graph_create</span>(<span class="ResWord">int</span> <span class="ID">n</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_27">  27</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_27"></span><span class="anchor" id="line-27-2"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_28">  28</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_28"></span><span class="anchor" id="line-28-2"></span>    <span class="ID">Graph</span> <span class="ID">g</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_29">  29</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_29"></span><span class="anchor" id="line-29-2"></span>    <span class="ResWord">int</span> <span class="ID">i</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_30">  30</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_30"></span><span class="anchor" id="line-30-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_31">  31</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_31"></span><span class="anchor" id="line-31-1"></span>    <span class="ID">g</span> = <span class="ID">malloc</span>(<span class="ResWord">sizeof</span>(<span class="ResWord">struct</span> <span class="ID">graph</span>) + <span class="ResWord">sizeof</span>(<span class="ResWord">struct</span> <span class="ID">successors</span> *) * (<span class="ID">n</span>-<span class="Number">1</span>));</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_32">  32</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_32"></span><span class="anchor" id="line-32-1"></span>    <span class="ID">assert</span>(<span class="ID">g</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_33">  33</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_33"></span><span class="anchor" id="line-33-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_34">  34</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_34"></span><span class="anchor" id="line-34-1"></span>    <span class="ID">g</span>-&gt;<span class="ID">n</span> = <span class="ID">n</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_35">  35</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_35"></span><span class="anchor" id="line-35-1"></span>    <span class="ID">g</span>-&gt;<span class="ID">m</span> = <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_36">  36</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_36"></span><span class="anchor" id="line-36-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_37">  37</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_37"></span><span class="anchor" id="line-37-1"></span>    <span class="ResWord">for</span>(<span class="ID">i</span> = <span class="Number">0</span>; <span class="ID">i</span> &lt; <span class="ID">n</span>; <span class="ID">i</span>++) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_38">  38</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_38"></span><span class="anchor" id="line-38-1"></span>        <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">i</span>] = <span class="ID">malloc</span>(<span class="ResWord">sizeof</span>(<span class="ResWord">struct</span> <span class="ID">successors</span>));</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_39">  39</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_39"></span><span class="anchor" id="line-39-1"></span>        <span class="ID">assert</span>(<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">i</span>]);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_40">  40</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_40"></span><span class="anchor" id="line-40-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_41">  41</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_41"></span><span class="anchor" id="line-41-1"></span>        <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">i</span>]-&gt;<span class="ID">d</span> = <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_42">  42</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_42"></span><span class="anchor" id="line-42-1"></span>        <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">i</span>]-&gt;<span class="ID">len</span> = <span class="Number">1</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_43">  43</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_43"></span><span class="anchor" id="line-43-1"></span>        <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">i</span>]-&gt;<span class="ID">is_sorted</span>= <span class="Number">1</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_44">  44</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_44"></span><span class="anchor" id="line-44-1"></span>    }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_45">  45</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_45"></span><span class="anchor" id="line-45-1"></span>    </span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_46">  46</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_46"></span><span class="anchor" id="line-46"></span>    <span class="ResWord">return</span> <span class="ID">g</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_47">  47</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_47"></span><span class="anchor" id="line-47"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_48">  48</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_48"></span><span class="anchor" id="line-48"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_49">  49</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_49"></span><span class="anchor" id="line-49"></span><span class="Comment">/* free all space used by graph */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_50">  50</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_50"></span><span class="anchor" id="line-50"></span><span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_51">  51</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_51"></span><span class="anchor" id="line-51"></span><span class="ID">graph_destroy</span>(<span class="ID">Graph</span> <span class="ID">g</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_52">  52</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_52"></span><span class="anchor" id="line-52"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_53">  53</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_53"></span><span class="anchor" id="line-53"></span>    <span class="ResWord">int</span> <span class="ID">i</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_54">  54</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_54"></span><span class="anchor" id="line-54"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_55">  55</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_55"></span><span class="anchor" id="line-55"></span>    <span class="ResWord">for</span>(<span class="ID">i</span> = <span class="Number">0</span>; <span class="ID">i</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>; <span class="ID">i</span>++) <span class="ID">free</span>(<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">i</span>]);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_56">  56</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_56"></span><span class="anchor" id="line-56"></span>    <span class="ID">free</span>(<span class="ID">g</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_57">  57</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_57"></span><span class="anchor" id="line-57"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_58">  58</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_58"></span><span class="anchor" id="line-58"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_59">  59</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_59"></span><span class="anchor" id="line-59"></span><span class="Comment">/* add an edge to an existing graph */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_60">  60</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_60"></span><span class="anchor" id="line-60"></span><span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_61">  61</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_61"></span><span class="anchor" id="line-61"></span><span class="ID">graph_add_edge</span>(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">u</span>, <span class="ResWord">int</span> <span class="ID">v</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_62">  62</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_62"></span><span class="anchor" id="line-62"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_63">  63</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_63"></span><span class="anchor" id="line-63"></span>    <span class="ID">assert</span>(<span class="ID">u</span> &gt;= <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_64">  64</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_64"></span><span class="anchor" id="line-64"></span>    <span class="ID">assert</span>(<span class="ID">u</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_65">  65</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_65"></span><span class="anchor" id="line-65"></span>    <span class="ID">assert</span>(<span class="ID">v</span> &gt;= <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_66">  66</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_66"></span><span class="anchor" id="line-66"></span>    <span class="ID">assert</span>(<span class="ID">v</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_67">  67</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_67"></span><span class="anchor" id="line-67"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_68">  68</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_68"></span><span class="anchor" id="line-68"></span>    <span class="Comment">/* do we need to grow the list? */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_69">  69</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_69"></span><span class="anchor" id="line-69"></span>    <span class="ResWord">while</span>(<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">d</span> &gt;= <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">len</span>) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_70">  70</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_70"></span><span class="anchor" id="line-70"></span>        <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">len</span> *= <span class="Number">2</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_71">  71</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_71"></span><span class="anchor" id="line-71"></span>        <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>] =</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_72">  72</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_72"></span><span class="anchor" id="line-72"></span>            <span class="ID">realloc</span>(<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>], </span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_73">  73</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_73"></span><span class="anchor" id="line-73"></span>                <span class="ResWord">sizeof</span>(<span class="ResWord">struct</span> <span class="ID">successors</span>) + <span class="ResWord">sizeof</span>(<span class="ResWord">int</span>) * (<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">len</span> - <span class="Number">1</span>));</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_74">  74</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_74"></span><span class="anchor" id="line-74"></span>    }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_75">  75</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_75"></span><span class="anchor" id="line-75"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_76">  76</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_76"></span><span class="anchor" id="line-76"></span>    <span class="Comment">/* now add the new sink */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_77">  77</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_77"></span><span class="anchor" id="line-77"></span>    <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">list</span>[<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">d</span>++] = <span class="ID">v</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_78">  78</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_78"></span><span class="anchor" id="line-78"></span>    <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">u</span>]-&gt;<span class="ID">is_sorted</span> = <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_79">  79</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_79"></span><span class="anchor" id="line-79"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_80">  80</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_80"></span><span class="anchor" id="line-80"></span>    <span class="Comment">/* bump edge count */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_81">  81</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_81"></span><span class="anchor" id="line-81"></span>    <span class="ID">g</span>-&gt;<span class="ID">m</span>++;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_82">  82</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_82"></span><span class="anchor" id="line-82"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_83">  83</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_83"></span><span class="anchor" id="line-83"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_84">  84</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_84"></span><span class="anchor" id="line-84"></span><span class="Comment">/* return the number of vertices in the graph */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_85">  85</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_85"></span><span class="anchor" id="line-85"></span><span class="ResWord">int</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_86">  86</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_86"></span><span class="anchor" id="line-86"></span><span class="ID">graph_vertex_count</span>(<span class="ID">Graph</span> <span class="ID">g</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_87">  87</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_87"></span><span class="anchor" id="line-87"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_88">  88</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_88"></span><span class="anchor" id="line-88"></span>    <span class="ResWord">return</span> <span class="ID">g</span>-&gt;<span class="ID">n</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_89">  89</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_89"></span><span class="anchor" id="line-89"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_90">  90</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_90"></span><span class="anchor" id="line-90"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_91">  91</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_91"></span><span class="anchor" id="line-91"></span><span class="Comment">/* return the number of vertices in the graph */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_92">  92</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_92"></span><span class="anchor" id="line-92"></span><span class="ResWord">int</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_93">  93</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_93"></span><span class="anchor" id="line-93"></span><span class="ID">graph_edge_count</span>(<span class="ID">Graph</span> <span class="ID">g</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_94">  94</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_94"></span><span class="anchor" id="line-94"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_95">  95</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_95"></span><span class="anchor" id="line-95"></span>    <span class="ResWord">return</span> <span class="ID">g</span>-&gt;<span class="ID">m</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_96">  96</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_96"></span><span class="anchor" id="line-96"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_97">  97</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_97"></span><span class="anchor" id="line-97"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_98">  98</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_98"></span><span class="anchor" id="line-98"></span><span class="Comment">/* return the out-degree of a vertex */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_99">  99</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_99"></span><span class="anchor" id="line-99"></span><span class="ResWord">int</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_100"> 100</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_100"></span><span class="anchor" id="line-100"></span><span class="ID">graph_out_degree</span>(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">source</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_101"> 101</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_101"></span><span class="anchor" id="line-101"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_102"> 102</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_102"></span><span class="anchor" id="line-102"></span>    <span class="ID">assert</span>(<span class="ID">source</span> &gt;= <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_103"> 103</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_103"></span><span class="anchor" id="line-103"></span>    <span class="ID">assert</span>(<span class="ID">source</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_104"> 104</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_104"></span><span class="anchor" id="line-104"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_105"> 105</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_105"></span><span class="anchor" id="line-105"></span>    <span class="ResWord">return</span> <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">d</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_106"> 106</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_106"></span><span class="anchor" id="line-106"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_107"> 107</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_107"></span><span class="anchor" id="line-107"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_108"> 108</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_108"></span><span class="anchor" id="line-108"></span><span class="Preprc">/* when we are willing to call bsearch */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_109"> 109</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_109"></span><span class="anchor" id="line-109"></span><span class="Preprc">#</span><span class="Preprc">define BSEARCH_THRESHOLD (10)</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_110"> 110</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_110"></span><span class="anchor" id="line-110"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_111"> 111</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_111"></span><span class="anchor" id="line-111"></span><span class="ResWord">static</span> <span class="ResWord">int</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_112"> 112</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_112"></span><span class="anchor" id="line-112"></span><span class="ID">intcmp</span>(<span class="ResWord">const</span> <span class="ResWord">void</span> *<span class="ID">a</span>, <span class="ResWord">const</span> <span class="ResWord">void</span> *<span class="ID">b</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_113"> 113</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_113"></span><span class="anchor" id="line-113"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_114"> 114</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_114"></span><span class="anchor" id="line-114"></span>    <span class="ResWord">return</span> *((<span class="ResWord">const</span> <span class="ResWord">int</span> *) <span class="ID">a</span>) - *((<span class="ResWord">const</span> <span class="ResWord">int</span> *) <span class="ID">b</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_115"> 115</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_115"></span><span class="anchor" id="line-115"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_116"> 116</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_116"></span><span class="anchor" id="line-116"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_117"> 117</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_117"></span><span class="anchor" id="line-117"></span><span class="Comment">/* return 1 if edge (source, sink) exists), 0 otherwise */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_118"> 118</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_118"></span><span class="anchor" id="line-118"></span><span class="ResWord">int</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_119"> 119</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_119"></span><span class="anchor" id="line-119"></span><span class="ID">graph_has_edge</span>(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">source</span>, <span class="ResWord">int</span> <span class="ID">sink</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_120"> 120</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_120"></span><span class="anchor" id="line-120"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_121"> 121</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_121"></span><span class="anchor" id="line-121"></span>    <span class="ResWord">int</span> <span class="ID">i</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_122"> 122</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_122"></span><span class="anchor" id="line-122"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_123"> 123</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_123"></span><span class="anchor" id="line-123"></span>    <span class="ID">assert</span>(<span class="ID">source</span> &gt;= <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_124"> 124</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_124"></span><span class="anchor" id="line-124"></span>    <span class="ID">assert</span>(<span class="ID">source</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_125"> 125</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_125"></span><span class="anchor" id="line-125"></span>    <span class="ID">assert</span>(<span class="ID">sink</span> &gt;= <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_126"> 126</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_126"></span><span class="anchor" id="line-126"></span>    <span class="ID">assert</span>(<span class="ID">sink</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_127"> 127</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_127"></span><span class="anchor" id="line-127"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_128"> 128</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_128"></span><span class="anchor" id="line-128"></span>    <span class="ResWord">if</span>(<span class="ID">graph_out_degree</span>(<span class="ID">g</span>, <span class="ID">source</span>) &gt;= <span class="ID">BSEARCH_THRESHOLD</span>) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_129"> 129</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_129"></span><span class="anchor" id="line-129"></span>        <span class="Comment">/* make sure it is sorted */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_130"> 130</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_130"></span><span class="anchor" id="line-130"></span>        <span class="ResWord">if</span>(! <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">is_sorted</span>) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_131"> 131</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_131"></span><span class="anchor" id="line-131"></span>            <span class="ID">qsort</span>(<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">list</span>,</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_132"> 132</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_132"></span><span class="anchor" id="line-132"></span>                    <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">d</span>,</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_133"> 133</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_133"></span><span class="anchor" id="line-133"></span>                    <span class="ResWord">sizeof</span>(<span class="ResWord">int</span>),</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_134"> 134</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_134"></span><span class="anchor" id="line-134"></span>                    <span class="ID">intcmp</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_135"> 135</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_135"></span><span class="anchor" id="line-135"></span>        }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_136"> 136</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_136"></span><span class="anchor" id="line-136"></span>        </span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_137"> 137</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_137"></span><span class="anchor" id="line-137"></span>        <span class="Comment">/* call bsearch to do binary search for us */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_138"> 138</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_138"></span><span class="anchor" id="line-138"></span>        <span class="ResWord">return</span> </span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_139"> 139</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_139"></span><span class="anchor" id="line-139"></span>            <span class="ID">bsearch</span>(&amp;<span class="ID">sink</span>,</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_140"> 140</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_140"></span><span class="anchor" id="line-140"></span>                    <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">list</span>,</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_141"> 141</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_141"></span><span class="anchor" id="line-141"></span>                    <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">d</span>,</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_142"> 142</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_142"></span><span class="anchor" id="line-142"></span>                    <span class="ResWord">sizeof</span>(<span class="ResWord">int</span>),</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_143"> 143</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_143"></span><span class="anchor" id="line-143"></span>                    <span class="ID">intcmp</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_144"> 144</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_144"></span><span class="anchor" id="line-144"></span>            != <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_145"> 145</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_145"></span><span class="anchor" id="line-145"></span>    } <span class="ResWord">else</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_146"> 146</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_146"></span><span class="anchor" id="line-146"></span>        <span class="Comment">/* just do a simple linear search */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_147"> 147</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_147"></span><span class="anchor" id="line-147"></span>        <span class="Comment">/* we could call lfind for this, but why bother? */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_148"> 148</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_148"></span><span class="anchor" id="line-148"></span>        <span class="ResWord">for</span>(<span class="ID">i</span> = <span class="Number">0</span>; <span class="ID">i</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">d</span>; <span class="ID">i</span>++) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_149"> 149</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_149"></span><span class="anchor" id="line-149"></span>            <span class="ResWord">if</span>(<span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">list</span>[<span class="ID">i</span>] == <span class="ID">sink</span>) <span class="ResWord">return</span> <span class="Number">1</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_150"> 150</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_150"></span><span class="anchor" id="line-150"></span>        }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_151"> 151</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_151"></span><span class="anchor" id="line-151"></span>        <span class="Comment">/* else */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_152"> 152</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_152"></span><span class="anchor" id="line-152"></span>        <span class="ResWord">return</span> <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_153"> 153</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_153"></span><span class="anchor" id="line-153"></span>    }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_154"> 154</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_154"></span><span class="anchor" id="line-154"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_155"> 155</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_155"></span><span class="anchor" id="line-155"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_156"> 156</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_156"></span><span class="anchor" id="line-156"></span><span class="Comment">/* invoke f on all edges (u,v) with source u */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_157"> 157</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_157"></span><span class="anchor" id="line-157"></span><span class="Comment">/* supplying data as final parameter to f */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_158"> 158</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_158"></span><span class="anchor" id="line-158"></span><span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_159"> 159</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_159"></span><span class="anchor" id="line-159"></span><span class="ID">graph_foreach</span>(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">source</span>,</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_160"> 160</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_160"></span><span class="anchor" id="line-160"></span>    <span class="ResWord">void</span> (*<span class="ID">f</span>)(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">source</span>, <span class="ResWord">int</span> <span class="ID">sink</span>, <span class="ResWord">void</span> *<span class="ID">data</span>),</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_161"> 161</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_161"></span><span class="anchor" id="line-161"></span>    <span class="ResWord">void</span> *<span class="ID">data</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_162"> 162</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_162"></span><span class="anchor" id="line-162"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_163"> 163</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_163"></span><span class="anchor" id="line-163"></span>    <span class="ResWord">int</span> <span class="ID">i</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_164"> 164</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_164"></span><span class="anchor" id="line-164"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_165"> 165</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_165"></span><span class="anchor" id="line-165"></span>    <span class="ID">assert</span>(<span class="ID">source</span> &gt;= <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_166"> 166</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_166"></span><span class="anchor" id="line-166"></span>    <span class="ID">assert</span>(<span class="ID">source</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_167"> 167</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_167"></span><span class="anchor" id="line-167"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_168"> 168</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_168"></span><span class="anchor" id="line-168"></span>    <span class="ResWord">for</span>(<span class="ID">i</span> = <span class="Number">0</span>; <span class="ID">i</span> &lt; <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">d</span>; <span class="ID">i</span>++) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_169"> 169</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_169"></span><span class="anchor" id="line-169"></span>        <span class="ID">f</span>(<span class="ID">g</span>, <span class="ID">source</span>, <span class="ID">g</span>-&gt;<span class="ID">alist</span>[<span class="ID">source</span>]-&gt;<span class="ID">list</span>[<span class="ID">i</span>], <span class="ID">data</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_170"> 170</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_170"></span><span class="anchor" id="line-170"></span>    }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_171"> 171</a> </span><span class="LineAnchor" id="CA-8166960807b9d8c4ba5ef76a9ca5b5e0332d002b_171"></span><span class="anchor" id="line-171"></span>}</span>
+</pre></div></div><a class="attachment" href="attachments/C(2f)Graphs/graph.c" title="attachment:graph.c">graph.c</a> <span class="anchor" id="line-46-1"></span><span class="anchor" id="line-47-1"></span><p class="line862">And here is some test code: <a class="attachment" href="attachments/C(2f)Graphs/test_graph.c" title="">test_graph.c</a>. <span class="anchor" id="line-48-1"></span><span class="anchor" id="line-49-1"></span></p><p class="line867">
+</p><h2 id="Implicit_representations">4.3. Implicit representations</h2>
+<span class="anchor" id="line-50-1"></span><span class="anchor" id="line-51-1"></span><p class="line862">For some graphs, it may not make sense to represent them explicitly.  An example might be the word-search graph from <a href="./CS223(2f)2005(2f)Assignments(2f)HW10.html">CS223/2005/Assignments/HW10</a>, which consists of all words in a dictionary with an edge between any two words that differ only by one letter.  In such a case, rather than building an explicit data structure containing all the edges, we might generate edges as needed when computing the neighbors of a particular vertex.  This gives us an implicit or procedural representation of a graph. <span class="anchor" id="line-52-1"></span><span class="anchor" id="line-53-1"></span></p><p class="line862">Implicit representations require the ability to return a vector or list of values from a the neighborhood-computing function; some ways of doing this are described in <a href="./C(2f)Iterators.html">C/Iterators</a>. <span class="anchor" id="line-54-1"></span><span class="anchor" id="line-55-1"></span></p><p class="line867">
+</p><h1 id="Searching_for_paths_in_a_graph">5. Searching for paths in a graph</h1>
+<span class="anchor" id="line-56-1"></span><span class="anchor" id="line-57-1"></span><p class="line862">A <strong>path</strong> is a sequence of vertices v<sub>1</sub>, v<sub>2</sub>, ... v<sub>k</sub> where each pair (v<sub>i</sub>, v<sub>i+1</sub>) is an edge.  Often we want to find a path from a source vertex s to a target vertex t, or more generally to detect which vertices are reachable from a given source vertex s.  We can solve these problems by using any of several standard graph search algorithms, of which the simplest and most commonly used are <a href="./DepthFirstSearch.html">DepthFirstSearch</a> and <a href="./BreadthFirstSearch.html">BreadthFirstSearch</a>. <span class="anchor" id="line-58-1"></span><span class="anchor" id="line-59-1"></span></p><p class="line862">Both of these search algorithms are a special case of a more general algorithm for growing a directed tree in a graph rooted at a given node s.  Here we are using <em>tree</em> as a graph theorist would, to mean a set of k nodes joined by k-1 edges; this is similar to trees used in data structures except that there are no limits on the number of children a node can have and no ordering constraints within the tree. <span class="anchor" id="line-60-1"></span><span class="anchor" id="line-61-1"></span></p><p class="line874">The general tree-growing algorithm might be described as follows: <span class="anchor" id="line-62-1"></span><span class="anchor" id="line-63-1"></span></p><ol type="1"><li>Start with a tree consisting of just s. <span class="anchor" id="line-64-1"></span></li><li>If there is at least one edge that leaves the tree (i.e. goes from a node in the current tree to a node outside the current tree), pick the "best" such edge and add it and its sink to the tree. <span class="anchor" id="line-65-1"></span></li><li>Repeat step 2 until no edges leave the tree. <span class="anchor" id="line-66-1"></span><span class="anchor" id="line-67-1"></span></li></ol><p class="line874">Practically, steps 2 and 3 are implemented by having some sort of data structure that acts as a bucket for unprocessed edges.  When a new node is added to the tree, all of its outgoing edges are thrown into the bucket.  The "best" outgoing edge is obtained by applying some sort of pop, dequeue, or delete-min operation to the bucket, depending on which it provides; if this edge turns out to be an internal edge of the tree (maybe we added its sink after putting it in the bucket), we throw it away.  Otherwise we mark the edge and its sink as belonging to the tree and repeat. <span class="anchor" id="line-68-1"></span><span class="anchor" id="line-69-1"></span></p><p class="line862">The output of the generic tree-growing algorithm typically consists of (a) marks on all the nodes that are reachable from s, and (b) for each such node v, a parent pointer back to the source of the edge that brought v into the tree.  Often these two values can be combined by using a null parent pointer to represent the absence of a mark (this usually requires making the root point to itself so that we know it's in the tree).  Other values that may be useful are a table showing the order in which nodes were added to the tree.  For even more possibilities see <a href="./DepthFirstSearch.html">DepthFirstSearch</a>. <span class="anchor" id="line-70-1"></span><span class="anchor" id="line-71-1"></span></p><p class="line874">What kind of tree we get depends on what we use for the bucket---specifically, on what edge is returned when we ask for the "best" edge.  Two easy cases are: <span class="anchor" id="line-72-1"></span><span class="anchor" id="line-73-1"></span></p><ol type="1"><li><p class="line862">The bucket is a stack.  When we ask for an outgoing edge, we get the last edge inserted.  This has the effect of running along as far as possible through the graph before backtracking, since we always keep going from the last node if possible.  The resulting algorithm is called <a href="./DepthFirstSearch.html">DepthFirstSearch</a> and yields a <a href="./DepthFirstSearch.html">DepthFirstSearch</a> tree.  If we don't care about the lengths of the paths we consider, <a href="./DepthFirstSearch.html">DepthFirstSearch</a> is a perfectly good algorithm for testing connectivity, and has several other useful properties (described on the algorithm's own page). <span class="anchor" id="line-74-1"></span></p></li><li><p class="line862">The bucket is a queue.  Now when we ask for an outgoing edge, we get the first edge inserted.  This favors edges that are close to the root: we don't start consider edges from nodes adjacent to the root until we have already added all the root's successors to the tree, and similarly we don't start considering edges at distance k until we have already added all the closer nodes to the tree.  This gives <a href="./BreadthFirstSearch.html">BreadthFirstSearch</a>, which constructs a <strong>shortest-path tree</strong> in which every path from the root to a node in the tree has the minimum length. <span class="anchor" id="line-75-1"></span><span class="anchor" id="line-76-1"></span></p></li></ol><p class="line862">Structurally, these algorithms are almost completely identical; indeed, if we organize the stack/queue so that it can pop from both ends, we can switch between <a href="./DepthFirstSearch.html">DepthFirstSearch</a> and <a href="./BreadthFirstSearch.html">BreadthFirstSearch</a> just by choosing one operation or another.  This is what is done in the implementation below.  Since it's ugly to have a flag parameter to a function that radically changes its behavior, the combined search function is wrapped inside two separate functions <tt class="backtick">dfs</tt> and <tt class="backtick">bfs</tt> that are exported to the outside of the module. <span class="anchor" id="line-77-1"></span><span class="anchor" id="line-78-1"></span></p><p class="line862">The running time of either algorithm is <em>very</em> fast: we pay O(1) per vertex in setup costs and O(1) per edge during the search (assuming the input is in adjacency-list form), giving a linear O(n+m) total cost.  Often it is more expensive to set up the graph in the first place than to run a search on it. <span class="anchor" id="line-79-1"></span><span class="anchor" id="line-80-1"></span></p><p class="line867">
+</p><h2 id="Depth-first_and_breadth-first_search">5.1. Depth-first and breadth-first search</h2>
+<span class="anchor" id="line-81-1"></span><span class="anchor" id="line-82-1"></span><p class="line867"><span class="anchor" id="line-1-5"></span></p><div class="highlight text"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-43329f83faa58837146cdbef7f8f351d5fd64fb1\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script><a href="#" onclick="return togglenumber('CA-43329f83faa58837146cdbef7f8f351d5fd64fb1', 1, 1);" class="codenumbers">Toggle line numbers</a>
+<pre dir="ltr" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_1">   1</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_1"></span><span class="anchor" id="line-1-6"></span><span class="Comment">/* Typical usage:</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_2">   2</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_2"></span><span class="anchor" id="line-2-3"></span><span class="Comment"> *</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_3">   3</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_3"></span><span class="anchor" id="line-3-3"></span><span class="Comment"> *    struct search_info *s;</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_4">   4</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_4"></span><span class="anchor" id="line-4-3"></span><span class="Comment"> *    int n;</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_5">   5</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_5"></span><span class="anchor" id="line-5-3"></span><span class="Comment"> *</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_6">   6</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_6"></span><span class="anchor" id="line-6-3"></span><span class="Comment"> *    s = search_info_create(g);</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_7">   7</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_7"></span><span class="anchor" id="line-7-3"></span><span class="Comment"> *</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_8">   8</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_8"></span><span class="anchor" id="line-8-3"></span><span class="Comment"> *    n = graph_vertices(g);</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_9">   9</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_9"></span><span class="anchor" id="line-9-3"></span><span class="Comment"> *    for(i = 0; i &lt; n; i++) {</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_10">  10</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_10"></span><span class="anchor" id="line-10-3"></span><span class="Comment"> *        dfs(s, i);</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_11">  11</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_11"></span><span class="anchor" id="line-11-3"></span><span class="Comment"> *    }</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_12">  12</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_12"></span><span class="anchor" id="line-12-3"></span><span class="Comment"> *</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_13">  13</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_13"></span><span class="anchor" id="line-13-3"></span><span class="Comment"> *    ... use results in s ...</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_14">  14</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_14"></span><span class="anchor" id="line-14-3"></span><span class="Comment"> *</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_15">  15</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_15"></span><span class="anchor" id="line-15-3"></span><span class="Comment"> *    search_info_destroy(s);</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_16">  16</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_16"></span><span class="anchor" id="line-16-3"></span><span class="Comment"> *</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_17">  17</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_17"></span><span class="anchor" id="line-17-3"></span><span class="Comment"> */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_18">  18</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_18"></span><span class="anchor" id="line-18-3"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_19">  19</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_19"></span><span class="anchor" id="line-19-3"></span><span class="Preprc">/* summary information per node for dfs and bfs */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_20">  20</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_20"></span><span class="anchor" id="line-20-3"></span><span class="Preprc">/* this is not intended to be opaque---user can read it */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_21">  21</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_21"></span><span class="anchor" id="line-21-3"></span><span class="Preprc">/* (but should not write it!) */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_22">  22</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_22"></span><span class="anchor" id="line-22-3"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_23">  23</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_23"></span><span class="anchor" id="line-23-3"></span><span class="Preprc">#</span><span class="Preprc">define SEARCH_INFO_NULL (-1) </span><span class="Comment">/* for empty slots */</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_24">  24</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_24"></span><span class="anchor" id="line-24-3"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_25">  25</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_25"></span><span class="anchor" id="line-25-3"></span><span class="ResWord">struct</span> <span class="ID">search_info</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_26">  26</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_26"></span><span class="anchor" id="line-26-3"></span>    <span class="ID">Graph</span> <span class="ID">graph</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_27">  27</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_27"></span><span class="anchor" id="line-27-3"></span>    <span class="ResWord">int</span> <span class="ID">reached</span>;        <span class="Comment">/* count of reached nodes */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_28">  28</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_28"></span><span class="anchor" id="line-28-3"></span>    <span class="ResWord">int</span> *<span class="ID">preorder</span>;      <span class="Comment">/* list of nodes in order first reached */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_29">  29</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_29"></span><span class="anchor" id="line-29-3"></span>    <span class="ResWord">int</span> *<span class="ID">time</span>;          <span class="Comment">/* time[i] == position of node i in preorder list */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_30">  30</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_30"></span><span class="anchor" id="line-30-3"></span>    <span class="ResWord">int</span> *<span class="ID">parent</span>;        <span class="Comment">/* parent in DFS or BFS forest */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_31">  31</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_31"></span><span class="anchor" id="line-31-2"></span>    <span class="ResWord">int</span> *<span class="ID">depth</span>;         <span class="Comment">/* distance from root */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_32">  32</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_32"></span><span class="anchor" id="line-32-2"></span>};</span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_33">  33</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_33"></span><span class="anchor" id="line-33-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_34">  34</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_34"></span><span class="anchor" id="line-34-2"></span><span class="Comment">/* allocate and initialize search results structure */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_35">  35</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_35"></span><span class="anchor" id="line-35-2"></span><span class="Comment">/* you need to do this before passing it to dfs or bfs */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_36">  36</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_36"></span><span class="anchor" id="line-36-2"></span><span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">search_info_create</span>(<span class="ID">Graph</span> <span class="ID">g</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_37">  37</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_37"></span><span class="anchor" id="line-37-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_38">  38</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_38"></span><span class="anchor" id="line-38-2"></span><span class="Comment">/* free search_info data---does NOT free graph pointer */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_39">  39</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_39"></span><span class="anchor" id="line-39-2"></span><span class="ResWord">void</span> <span class="ID">search_info_destroy</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_40">  40</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_40"></span><span class="anchor" id="line-40-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_41">  41</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_41"></span><span class="anchor" id="line-41-2"></span><span class="Comment">/* perform depth-first search starting at root, updating results */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_42">  42</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_42"></span><span class="anchor" id="line-42-2"></span><span class="ResWord">void</span> <span class="ID">dfs</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">results</span>, <span class="ResWord">int</span> <span class="ID">root</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_43">  43</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_43"></span><span class="anchor" id="line-43-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_44">  44</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_44"></span><span class="anchor" id="line-44-2"></span><span class="Comment">/* perform breadth-first search starting at root, updating results */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_45">  45</a> </span><span class="LineAnchor" id="CA-43329f83faa58837146cdbef7f8f351d5fd64fb1_45"></span><span class="anchor" id="line-45-2"></span><span class="ResWord">void</span> <span class="ID">bfs</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">results</span>, <span class="ResWord">int</span> <span class="ID">root</span>);</span>
+</pre></div></div><a class="attachment" href="attachments/C(2f)Graphs/search.h" title="attachment:search.h">search.h</a> <span class="anchor" id="line-83-1"></span><span class="anchor" id="line-1-7"></span><div class="highlight text"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-b5591906642dc7a8256bbd48515adf7557c0c930\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script><a href="#" onclick="return togglenumber('CA-b5591906642dc7a8256bbd48515adf7557c0c930', 1, 1);" class="codenumbers">Toggle line numbers</a>
+<pre dir="ltr" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_1">   1</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_1"></span><span class="anchor" id="line-1-8"></span><span class="Preprc">#</span><span class="Preprc">include &lt;stdlib.h&gt;</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_2">   2</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_2"></span><span class="anchor" id="line-2-4"></span><span class="Preprc"></span><span class="Preprc">#</span><span class="Preprc">include &lt;assert.h&gt;</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_3">   3</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_3"></span><span class="anchor" id="line-3-4"></span><span class="Preprc"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_4">   4</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_4"></span><span class="anchor" id="line-4-4"></span><span class="Preprc">#</span><span class="Preprc">include "graph.h"</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_5">   5</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_5"></span><span class="anchor" id="line-5-4"></span><span class="Preprc"></span><span class="Preprc">#</span><span class="Preprc">include "search.h"</span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_6">   6</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_6"></span><span class="anchor" id="line-6-4"></span><span class="Preprc"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_7">   7</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_7"></span><span class="anchor" id="line-7-4"></span><span class="Comment">/* create an array of n ints initialized to SEARCH_INFO_NULL */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_8">   8</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_8"></span><span class="anchor" id="line-8-4"></span><span class="ResWord">static</span> <span class="ResWord">int</span> *</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_9">   9</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_9"></span><span class="anchor" id="line-9-4"></span><span class="ID">create_empty_array</span>(<span class="ResWord">int</span> <span class="ID">n</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_10">  10</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_10"></span><span class="anchor" id="line-10-4"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_11">  11</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_11"></span><span class="anchor" id="line-11-4"></span>    <span class="ResWord">int</span> *<span class="ID">a</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_12">  12</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_12"></span><span class="anchor" id="line-12-4"></span>    <span class="ResWord">int</span> <span class="ID">i</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_13">  13</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_13"></span><span class="anchor" id="line-13-4"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_14">  14</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_14"></span><span class="anchor" id="line-14-4"></span>    <span class="ID">a</span> = <span class="ID">malloc</span>(<span class="ResWord">sizeof</span>(*<span class="ID">a</span>) * <span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_15">  15</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_15"></span><span class="anchor" id="line-15-4"></span>    <span class="ID">assert</span>(<span class="ID">a</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_16">  16</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_16"></span><span class="anchor" id="line-16-4"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_17">  17</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_17"></span><span class="anchor" id="line-17-4"></span>    <span class="ResWord">for</span>(<span class="ID">i</span> = <span class="Number">0</span>; <span class="ID">i</span> &lt; <span class="ID">n</span>; <span class="ID">i</span>++) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_18">  18</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_18"></span><span class="anchor" id="line-18-4"></span>        <span class="ID">a</span>[<span class="ID">i</span>] = <span class="ID">SEARCH_INFO_NULL</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_19">  19</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_19"></span><span class="anchor" id="line-19-4"></span>    }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_20">  20</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_20"></span><span class="anchor" id="line-20-4"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_21">  21</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_21"></span><span class="anchor" id="line-21-4"></span>    <span class="ResWord">return</span> <span class="ID">a</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_22">  22</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_22"></span><span class="anchor" id="line-22-4"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_23">  23</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_23"></span><span class="anchor" id="line-23-4"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_24">  24</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_24"></span><span class="anchor" id="line-24-4"></span><span class="Comment">/* allocate and initialize search results structure */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_25">  25</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_25"></span><span class="anchor" id="line-25-4"></span><span class="Comment">/* you need to do this before passing it to dfs or bfs */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_26">  26</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_26"></span><span class="anchor" id="line-26-4"></span><span class="ResWord">struct</span> <span class="ID">search_info</span> *</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_27">  27</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_27"></span><span class="anchor" id="line-27-4"></span><span class="ID">search_info_create</span>(<span class="ID">Graph</span> <span class="ID">g</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_28">  28</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_28"></span><span class="anchor" id="line-28-4"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_29">  29</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_29"></span><span class="anchor" id="line-29-4"></span>    <span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">s</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_30">  30</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_30"></span><span class="anchor" id="line-30-4"></span>    <span class="ResWord">int</span> <span class="ID">n</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_31">  31</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_31"></span><span class="anchor" id="line-31-3"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_32">  32</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_32"></span><span class="anchor" id="line-32-3"></span>    <span class="ID">s</span> = <span class="ID">malloc</span>(<span class="ResWord">sizeof</span>(*<span class="ID">s</span>));</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_33">  33</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_33"></span><span class="anchor" id="line-33-3"></span>    <span class="ID">assert</span>(<span class="ID">s</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_34">  34</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_34"></span><span class="anchor" id="line-34-3"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_35">  35</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_35"></span><span class="anchor" id="line-35-3"></span>    <span class="ID">s</span>-&gt;<span class="ID">graph</span> = <span class="ID">g</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_36">  36</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_36"></span><span class="anchor" id="line-36-3"></span>    <span class="ID">s</span>-&gt;<span class="ID">reached</span> = <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_37">  37</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_37"></span><span class="anchor" id="line-37-3"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_38">  38</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_38"></span><span class="anchor" id="line-38-3"></span>    <span class="ID">n</span> = <span class="ID">graph_vertex_count</span>(<span class="ID">g</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_39">  39</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_39"></span><span class="anchor" id="line-39-3"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_40">  40</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_40"></span><span class="anchor" id="line-40-3"></span>    <span class="ID">s</span>-&gt;<span class="ID">preorder</span> = <span class="ID">create_empty_array</span>(<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_41">  41</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_41"></span><span class="anchor" id="line-41-3"></span>    <span class="ID">s</span>-&gt;<span class="ID">time</span> = <span class="ID">create_empty_array</span>(<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_42">  42</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_42"></span><span class="anchor" id="line-42-3"></span>    <span class="ID">s</span>-&gt;<span class="ID">parent</span> = <span class="ID">create_empty_array</span>(<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_43">  43</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_43"></span><span class="anchor" id="line-43-3"></span>    <span class="ID">s</span>-&gt;<span class="ID">depth</span> = <span class="ID">create_empty_array</span>(<span class="ID">n</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_44">  44</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_44"></span><span class="anchor" id="line-44-3"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_45">  45</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_45"></span><span class="anchor" id="line-45-3"></span>    <span class="ResWord">return</span> <span class="ID">s</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_46">  46</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_46"></span><span class="anchor" id="line-46-2"></span>} </span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_47">  47</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_47"></span><span class="anchor" id="line-47-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_48">  48</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_48"></span><span class="anchor" id="line-48-2"></span><span class="Comment">/* free search_info data---does NOT free graph pointer */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_49">  49</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_49"></span><span class="anchor" id="line-49-2"></span><span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_50">  50</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_50"></span><span class="anchor" id="line-50-2"></span><span class="ID">search_info_destroy</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">s</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_51">  51</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_51"></span><span class="anchor" id="line-51-2"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_52">  52</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_52"></span><span class="anchor" id="line-52-2"></span>    <span class="ID">free</span>(<span class="ID">s</span>-&gt;<span class="ID">depth</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_53">  53</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_53"></span><span class="anchor" id="line-53-2"></span>    <span class="ID">free</span>(<span class="ID">s</span>-&gt;<span class="ID">parent</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_54">  54</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_54"></span><span class="anchor" id="line-54-2"></span>    <span class="ID">free</span>(<span class="ID">s</span>-&gt;<span class="ID">time</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_55">  55</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_55"></span><span class="anchor" id="line-55-2"></span>    <span class="ID">free</span>(<span class="ID">s</span>-&gt;<span class="ID">preorder</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_56">  56</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_56"></span><span class="anchor" id="line-56-2"></span>    <span class="ID">free</span>(<span class="ID">s</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_57">  57</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_57"></span><span class="anchor" id="line-57-2"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_58">  58</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_58"></span><span class="anchor" id="line-58-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_59">  59</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_59"></span><span class="anchor" id="line-59-2"></span><span class="Comment">/* used inside search routines */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_60">  60</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_60"></span><span class="anchor" id="line-60-2"></span><span class="ResWord">struct</span> <span class="ID">edge</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_61">  61</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_61"></span><span class="anchor" id="line-61-2"></span>    <span class="ResWord">int</span> <span class="ID">u</span>;          <span class="Comment">/* source */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_62">  62</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_62"></span><span class="anchor" id="line-62-2"></span>    <span class="ResWord">int</span> <span class="ID">v</span>;          <span class="Comment">/* sink */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_63">  63</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_63"></span><span class="anchor" id="line-63-2"></span>};</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_64">  64</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_64"></span><span class="anchor" id="line-64-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_65">  65</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_65"></span><span class="anchor" id="line-65-2"></span><span class="Comment">/* stack/queue */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_66">  66</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_66"></span><span class="anchor" id="line-66-2"></span><span class="ResWord">struct</span> <span class="ID">queue</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_67">  67</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_67"></span><span class="anchor" id="line-67-2"></span>    <span class="ResWord">struct</span> <span class="ID">edge</span> *<span class="ID">e</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_68">  68</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_68"></span><span class="anchor" id="line-68-2"></span>    <span class="ResWord">int</span> <span class="ID">bottom</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_69">  69</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_69"></span><span class="anchor" id="line-69-2"></span>    <span class="ResWord">int</span> <span class="ID">top</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_70">  70</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_70"></span><span class="anchor" id="line-70-2"></span>};</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_71">  71</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_71"></span><span class="anchor" id="line-71-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_72">  72</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_72"></span><span class="anchor" id="line-72-2"></span><span class="ResWord">static</span> <span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_73">  73</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_73"></span><span class="anchor" id="line-73-2"></span><span class="ID">push_edge</span>(<span class="ID">Graph</span> <span class="ID">g</span>, <span class="ResWord">int</span> <span class="ID">u</span>, <span class="ResWord">int</span> <span class="ID">v</span>, <span class="ResWord">void</span> *<span class="ID">data</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_74">  74</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_74"></span><span class="anchor" id="line-74-2"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_75">  75</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_75"></span><span class="anchor" id="line-75-2"></span>    <span class="ResWord">struct</span> <span class="ID">queue</span> *<span class="ID">q</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_76">  76</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_76"></span><span class="anchor" id="line-76-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_77">  77</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_77"></span><span class="anchor" id="line-77-2"></span>    <span class="ID">q</span> = <span class="ID">data</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_78">  78</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_78"></span><span class="anchor" id="line-78-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_79">  79</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_79"></span><span class="anchor" id="line-79-2"></span>    <span class="ID">assert</span>(<span class="ID">q</span>-&gt;<span class="ID">top</span> &lt; <span class="ID">graph_edge_count</span>(<span class="ID">g</span>) + <span class="Number">1</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_80">  80</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_80"></span><span class="anchor" id="line-80-2"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_81">  81</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_81"></span><span class="anchor" id="line-81-2"></span>    <span class="ID">q</span>-&gt;<span class="ID">e</span>[<span class="ID">q</span>-&gt;<span class="ID">top</span>].<span class="ID">u</span> = <span class="ID">u</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_82">  82</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_82"></span><span class="anchor" id="line-82-2"></span>    <span class="ID">q</span>-&gt;<span class="ID">e</span>[<span class="ID">q</span>-&gt;<span class="ID">top</span>].<span class="ID">v</span> = <span class="ID">v</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_83">  83</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_83"></span><span class="anchor" id="line-83-2"></span>    <span class="ID">q</span>-&gt;<span class="ID">top</span>++;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_84">  84</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_84"></span><span class="anchor" id="line-84-1"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_85">  85</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_85"></span><span class="anchor" id="line-85-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_86">  86</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_86"></span><span class="anchor" id="line-86-1"></span><span class="Comment">/* this rather horrible function implements dfs if use_queue == 0 */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_87">  87</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_87"></span><span class="anchor" id="line-87-1"></span><span class="Comment">/* and bfs if use_queue == 1 */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_88">  88</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_88"></span><span class="anchor" id="line-88-1"></span><span class="ResWord">static</span> <span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_89">  89</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_89"></span><span class="anchor" id="line-89-1"></span><span class="ID">generic_search</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">r</span>, <span class="ResWord">int</span> <span class="ID">root</span>, <span class="ResWord">int</span> <span class="ID">use_queue</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_90">  90</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_90"></span><span class="anchor" id="line-90-1"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_91">  91</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_91"></span><span class="anchor" id="line-91-1"></span>    <span class="Comment">/* queue/stack */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_92">  92</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_92"></span><span class="anchor" id="line-92-1"></span>    <span class="ResWord">struct</span> <span class="ID">queue</span> <span class="ID">q</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_93">  93</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_93"></span><span class="anchor" id="line-93-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_94">  94</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_94"></span><span class="anchor" id="line-94-1"></span>    <span class="Comment">/* edge we are working on */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_95">  95</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_95"></span><span class="anchor" id="line-95-1"></span>    <span class="ResWord">struct</span> <span class="ID">edge</span> <span class="ID">cur</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_96">  96</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_96"></span><span class="anchor" id="line-96-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_97">  97</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_97"></span><span class="anchor" id="line-97-1"></span>    <span class="Comment">/* start with empty q */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_98">  98</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_98"></span><span class="anchor" id="line-98-1"></span>    <span class="Comment">/* we need one space per edge */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_99">  99</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_99"></span><span class="anchor" id="line-99-1"></span>    <span class="Comment">/* plus one for the fake (root, root) edge */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_100"> 100</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_100"></span><span class="anchor" id="line-100-1"></span>    <span class="ID">q</span>.<span class="ID">e</span> = <span class="ID">malloc</span>(<span class="ResWord">sizeof</span>(*<span class="ID">q</span>.<span class="ID">e</span>) * (<span class="ID">graph_edge_count</span>(<span class="ID">r</span>-&gt;<span class="ID">graph</span>) + <span class="Number">1</span>));</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_101"> 101</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_101"></span><span class="anchor" id="line-101-1"></span>    <span class="ID">assert</span>(<span class="ID">q</span>.<span class="ID">e</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_102"> 102</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_102"></span><span class="anchor" id="line-102-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_103"> 103</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_103"></span><span class="anchor" id="line-103-1"></span>    <span class="ID">q</span>.<span class="ID">bottom</span> = <span class="ID">q</span>.<span class="ID">top</span> = <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_104"> 104</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_104"></span><span class="anchor" id="line-104-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_105"> 105</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_105"></span><span class="anchor" id="line-105-1"></span>    <span class="Comment">/* push the root */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_106"> 106</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_106"></span><span class="anchor" id="line-106-1"></span>    <span class="ID">push_edge</span>(<span class="ID">r</span>-&gt;<span class="ID">graph</span>, <span class="ID">root</span>, <span class="ID">root</span>, &amp;<span class="ID">q</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_107"> 107</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_107"></span><span class="anchor" id="line-107-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_108"> 108</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_108"></span><span class="anchor" id="line-108-1"></span>    <span class="Comment">/* while q.e not empty */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_109"> 109</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_109"></span><span class="anchor" id="line-109-1"></span>    <span class="ResWord">while</span>(<span class="ID">q</span>.<span class="ID">bottom</span> &lt; <span class="ID">q</span>.<span class="ID">top</span>) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_110"> 110</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_110"></span><span class="anchor" id="line-110-1"></span>        <span class="ResWord">if</span>(<span class="ID">use_queue</span>) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_111"> 111</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_111"></span><span class="anchor" id="line-111-1"></span>            <span class="ID">cur</span> = <span class="ID">q</span>.<span class="ID">e</span>[<span class="ID">q</span>.<span class="ID">bottom</span>++];</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_112"> 112</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_112"></span><span class="anchor" id="line-112-1"></span>        } <span class="ResWord">else</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_113"> 113</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_113"></span><span class="anchor" id="line-113-1"></span>            <span class="ID">cur</span> = <span class="ID">q</span>.<span class="ID">e</span>[--<span class="ID">q</span>.<span class="ID">top</span>];</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_114"> 114</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_114"></span><span class="anchor" id="line-114-1"></span>        }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_115"> 115</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_115"></span><span class="anchor" id="line-115-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_116"> 116</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_116"></span><span class="anchor" id="line-116-1"></span>        <span class="Comment">/* did we visit sink already? */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_117"> 117</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_117"></span><span class="anchor" id="line-117-1"></span>        <span class="ResWord">if</span>(<span class="ID">r</span>-&gt;<span class="ID">parent</span>[<span class="ID">cur</span>.<span class="ID">v</span>] != <span class="ID">SEARCH_INFO_NULL</span>) <span class="ResWord">continue</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_118"> 118</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_118"></span><span class="anchor" id="line-118-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_119"> 119</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_119"></span><span class="anchor" id="line-119-1"></span>        <span class="Comment">/* no */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_120"> 120</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_120"></span><span class="anchor" id="line-120-1"></span>        <span class="ID">assert</span>(<span class="ID">r</span>-&gt;<span class="ID">reached</span> &lt; <span class="ID">graph_vertex_count</span>(<span class="ID">r</span>-&gt;<span class="ID">graph</span>));</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_121"> 121</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_121"></span><span class="anchor" id="line-121-1"></span>        <span class="ID">r</span>-&gt;<span class="ID">parent</span>[<span class="ID">cur</span>.<span class="ID">v</span>] = <span class="ID">cur</span>.<span class="ID">u</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_122"> 122</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_122"></span><span class="anchor" id="line-122-1"></span>        <span class="ID">r</span>-&gt;<span class="ID">time</span>[<span class="ID">cur</span>.<span class="ID">v</span>] = <span class="ID">r</span>-&gt;<span class="ID">reached</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_123"> 123</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_123"></span><span class="anchor" id="line-123-1"></span>        <span class="ID">r</span>-&gt;<span class="ID">preorder</span>[<span class="ID">r</span>-&gt;<span class="ID">reached</span>++] = <span class="ID">cur</span>.<span class="ID">v</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_124"> 124</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_124"></span><span class="anchor" id="line-124-1"></span>        <span class="ResWord">if</span>(<span class="ID">cur</span>.<span class="ID">u</span> == <span class="ID">cur</span>.<span class="ID">v</span>) {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_125"> 125</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_125"></span><span class="anchor" id="line-125-1"></span>            <span class="Comment">/* we could avoid this if we were certain SEARCH_INFO_NULL */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_126"> 126</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_126"></span><span class="anchor" id="line-126-1"></span>            <span class="Comment">/* would never be anything but -1 */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_127"> 127</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_127"></span><span class="anchor" id="line-127-1"></span>            <span class="ID">r</span>-&gt;<span class="ID">depth</span>[<span class="ID">cur</span>.<span class="ID">v</span>] = <span class="Number">0</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_128"> 128</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_128"></span><span class="anchor" id="line-128-1"></span>        } <span class="ResWord">else</span> {</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_129"> 129</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_129"></span><span class="anchor" id="line-129-1"></span>            <span class="ID">r</span>-&gt;<span class="ID">depth</span>[<span class="ID">cur</span>.<span class="ID">v</span>] = <span class="ID">r</span>-&gt;<span class="ID">depth</span>[<span class="ID">cur</span>.<span class="ID">u</span>] + <span class="Number">1</span>;</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_130"> 130</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_130"></span><span class="anchor" id="line-130-1"></span>        }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_131"> 131</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_131"></span><span class="anchor" id="line-131-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_132"> 132</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_132"></span><span class="anchor" id="line-132-1"></span>        <span class="Comment">/* push all outgoing edges */</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_133"> 133</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_133"></span><span class="anchor" id="line-133-1"></span>        <span class="ID">graph_foreach</span>(<span class="ID">r</span>-&gt;<span class="ID">graph</span>, <span class="ID">cur</span>.<span class="ID">v</span>, <span class="ID">push_edge</span>, &amp;<span class="ID">q</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_134"> 134</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_134"></span><span class="anchor" id="line-134-1"></span>    }</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_135"> 135</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_135"></span><span class="anchor" id="line-135-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_136"> 136</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_136"></span><span class="anchor" id="line-136-1"></span>    <span class="ID">free</span>(<span class="ID">q</span>.<span class="ID">e</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_137"> 137</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_137"></span><span class="anchor" id="line-137-1"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_138"> 138</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_138"></span><span class="anchor" id="line-138-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_139"> 139</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_139"></span><span class="anchor" id="line-139-1"></span><span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_140"> 140</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_140"></span><span class="anchor" id="line-140-1"></span><span class="ID">dfs</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">results</span>, <span class="ResWord">int</span> <span class="ID">root</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_141"> 141</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_141"></span><span class="anchor" id="line-141-1"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_142"> 142</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_142"></span><span class="anchor" id="line-142-1"></span>    <span class="ID">generic_search</span>(<span class="ID">results</span>, <span class="ID">root</span>, <span class="Number">0</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_143"> 143</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_143"></span><span class="anchor" id="line-143-1"></span>}</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_144"> 144</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_144"></span><span class="anchor" id="line-144-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_145"> 145</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_145"></span><span class="anchor" id="line-145-1"></span><span class="ResWord">void</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_146"> 146</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_146"></span><span class="anchor" id="line-146-1"></span><span class="ID">bfs</span>(<span class="ResWord">struct</span> <span class="ID">search_info</span> *<span class="ID">results</span>, <span class="ResWord">int</span> <span class="ID">root</span>)</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_147"> 147</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_147"></span><span class="anchor" id="line-147-1"></span>{</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_148"> 148</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_148"></span><span class="anchor" id="line-148-1"></span>    <span class="ID">generic_search</span>(<span class="ID">results</span>, <span class="ID">root</span>, <span class="Number">1</span>);</span>
+<span class="line"><span class="LineNumber"><a href="#CA-b5591906642dc7a8256bbd48515adf7557c0c930_149"> 149</a> </span><span class="LineAnchor" id="CA-b5591906642dc7a8256bbd48515adf7557c0c930_149"></span><span class="anchor" id="line-149-1"></span>}</span>
+</pre></div></div><a class="attachment" href="attachments/C(2f)Graphs/search.c" title="attachment:search.c">search.c</a> <span class="anchor" id="line-84-2"></span><span class="anchor" id="line-85-2"></span><p class="line862">And here is some test code: <a class="attachment" href="attachments/C(2f)Graphs/test_search.c" title="">test_search.c</a>.  You will need to compile <tt class="backtick">test_search.c</tt> together with both <tt class="backtick">search.c</tt> and <tt class="backtick">graph.c</tt> to get it to work. <span class="anchor" id="line-86-2"></span><span class="anchor" id="line-87-2"></span></p><p class="line867">
+</p><h2 id="Other_variations_on_the_basic_algorithm">5.2. Other variations on the basic algorithm</h2>
+<span class="anchor" id="line-88-2"></span><span class="anchor" id="line-89-2"></span><p class="line874">Stacks and queues are not the only options for the bucket in the generic search algorithm.  Some other choices are: <span class="anchor" id="line-90-2"></span><span class="anchor" id="line-91-2"></span></p><ul><li><p class="line862">A priority queue keyed by edge weights.  If the edges have <strong>weights</strong>, the generic tree-builder can be used to find a tree containing s with minimum total edge weight.<sup><a href="#fnref-781af0db8e4ef7f260997628a17ad8c8440f4314" id="fndef-781af0db8e4ef7f260997628a17ad8c8440f4314-0">1</a></sup>  The basic idea is to always pull out the lightest edge.  The resulting algorithm runs in O(n + m log m) time (since each heap operation takes O(log m) time), and is known as <strong>Prim's algorithm</strong>.  See <a class="interwiki" href="http://en.wikipedia.org/wiki/Prim%27s%20algorithm" title="WikiPedia">Prim's algorithm</a> for more details. <span class="anchor" id="line-92-2"></span></p></li><li><p class="line862">A priority queue keyed by path lengths.  Here we assume that edges have <strong>lengths</strong>, and we want to build a shortest-path tree where the length of the path is no longer just the number of edges it contains but the sum of their weights.  The basic idea is to keep track of the distance from the root to each node in the tree, and assign each edge a key equal to the sum of the distance to its source and its length.  The resulting search algorithm, known as <strong>Dijkstra's algorithm</strong>, will give a shortest-path tree if all the edge weights are non-negative.  See <a href="./ShortestPath.html">ShortestPath</a> or <a class="interwiki" href="http://en.wikipedia.org/wiki/Dijkstra%27s%20algorithm" title="WikiPedia">Dijkstra's algorithm</a>. <span class="anchor" id="line-93-2"></span><span class="anchor" id="line-94-2"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-95-2"></span><a href="./CategoryProgrammingNotes.html">CategoryProgrammingNotes</a> <span class="anchor" id="line-96-2"></span></p><div class="footnotes"><ol><li><p><a id="fnref-781af0db8e4ef7f260997628a17ad8c8440f4314"></a><span class="anchor" id="line-1-9"></span>This only works if the graph is undirected, i.e. if for every edge uv there is a matching edge vu with the same weight.  (<a href="#fndef-781af0db8e4ef7f260997628a17ad8c8440f4314-0">1</a>)</p></li></ol></div><span class="anchor" id="bottom"></span></div>
+</div>
+<hr>
+2014-06-17 11:57
+
+
+</body></html>Ytext/htmlUUTF-8P_Whttp://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)Graphs.html?highlight=%2528graph%2529            1   6   ?   Q   g   v   å  -v  -  -»  2	  2  RÑ  RÕ  W  W  ZE  Zç  ^   ^”  g∑  g¡  g˘  l(  l3  lQ  lh …Å …ã …ë …í             "             …Ï

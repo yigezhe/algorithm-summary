@@ -1,0 +1,90 @@
+问题描述： 有A，B，C三个桶，容量分别为3L，7L，10L。现C桶有10L水。要求在水只能在桶间转移的前提下，使得C桶与B桶平分10L水。求最简洁操作。
+program BFS;
+const
+	v:array[1..3] of integer= (3,7,10); //三种桶的容量。
+type
+	node=record
+		l:array[1..3] of longint;//三个水桶。
+		p:longint;//每个结点的父结点。
+	     end;
+var
+	i,j,head,tail:longint;
+	t:boolean; //找到目标的标志。
+	a:array[0..100] of node;
+ 
+procedure init;
+var
+	i,j:longint;
+begin
+	fillchar(a,sizeof(a),0);
+	t:=false;
+	a[0].l[3]:=10;
+	head:=-1;
+	tail:=0;
+end;
+ 
+procedure pour(x,y:longint);
+var
+	i,j:longint;
+begin
+	if (a[head].l[x]=0) or t then exit;
+ 
+	inc(tail);
+	a[tail]:=a[head];
+	a[tail].p:=head;
+ 
+	if a[tail].l[x]>v[y]-a[tail].l[y] then
+	begin
+		dec(a[tail].l[x],v[y]-a[tail].l[y]);
+		a[tail].l[y]:=v[y];
+        end else
+	begin
+		inc(a[tail].l[y],a[tail].l[x]);
+                a[tail].l[x]:=0;
+	end;
+	for i:=0 to tail-1 do //检查该状态是否出现过，是的话删除。
+        begin
+		if a[i]=a[tail] then
+		begin
+			dec(tail);
+			exit;
+		end;
+	end;
+       if a[tail].l[3]=5 then t:=true;
+end;
+ 
+procedure main;
+var
+	i,j:longint;
+begin
+	repeat
+		inc(head);
+		pour(1,2); //pour函数的作用是尝试把x桶里的水倒入y桶，看能不能产生新的状态。
+		pour(2,1);
+		pour(1,3);
+		pour(3,1);
+		pour(2,3);
+		pour(3,2);
+	until (a[tail].l[3]=5) or (tail=100); //当找到目标或者已经超出预定的搜索范围的时候退出。
+end;
+ 
+procedure print;
+var
+	c:array[1..100] of longint;
+	i,j:longint;
+begin
+	i:=0;
+	while a[tail].p<>0 do
+	begin
+		inc(i);
+		c[i]:=tail;
+		tail:=a[tail].p;
+	end;
+	for j:=i downto 1 do writeln(a[c[j]].l[1],' ',a[c[j]].l[2],' ',a[c[j]].l[3]);
+end;
+ 
+begin
+	init;
+	main;
+	print;
+end.

@@ -1,0 +1,27 @@
+一个图是连通的，不连通的图是两个图！
+Pseudocode[edit]
+Input: A graph G and a vertex v of G
+
+Output: All vertices reachable from v labeled as discovered
+
+A recursive implementation of DFS:[5]
+
+1  procedure DFS(G,v):
+2      label v as discovered
+3      for all edges from v to w in G.adjacentEdges(v) do
+4          if vertex w is not labeled as discovered then
+5              recursively call DFS(G,w)
+A non-recursive implementation of DFS:[6]
+
+1  procedure DFS-iterative(G,v):
+2      let S be a stack
+3      S.push(v)
+4      while S is not empty
+5            v = S.pop() 
+6            if v is not labeled as discovered:
+7                label v as discovered
+8                for all edges from v to w in G.adjacentEdges(v) do
+9                    S.push(w)
+These two variations of DFS visit the neighbors of each vertex in the opposite order from each other: the first neighbor of v visited by the recursive variation is the first one in the list of adjacent edges, while in the iterative variation the first visited neighbor is the last one in the list of adjacent edges. The non-recursive implementation is similar to breadth-first search but differs from it in two ways: it uses a stack instead of a queue, and it delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before pushing the vertex. Note that this non-recursive implementation of DFS may use O(|E|) space in the worst case, for example on a complete graph.
+
+

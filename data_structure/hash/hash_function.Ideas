@@ -1,0 +1,24 @@
+The following functions map a single integer key (k) to a small integer bucket value h(k). m is the size of the hash table (number of buckets).
+
+Division method (Cormen) Choose a prime that isn't close to a power of 2. h(k) = k mod m. Works badly for many types of patterns in the input data.
+
+Knuth Variant on Division h(k) = k(k+3) mod m. Supposedly works much better than the raw division method.
+
+Multiplication Method (Cormen). Choose m to be a power of 2. Let A be some random-looking real number. Knuth suggests M = 0.5*(sqrt(5) - 1). Then do the following:
+
+     s = k*A
+     x = fractional part of s
+     h(k) = floor(m*x)
+This seems to be the method that the theoreticians like.
+
+To do this quickly with integer arithmetic, let w be the number of bits in a word (e.g. 32) and suppose m is 2^p. Then compute:
+
+     s = floor(A * 2^w)
+     x = k*s
+     h(k) = x >> (w-p)      // i.e. right shift x by (w-p) bits
+                            // i.e. extract the p most significant 
+                            // bits from x
+
+口袋尽量时素数？
+这里给出了为什么5，6，7，成立而4，3，2不成立
+原因是字母的区别在5678位上！

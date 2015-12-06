@@ -1,0 +1,68 @@
+双向广度优先搜索（BIBFS）是指搜索沿两个方向同时进行：
+正向搜索：从初始结点向目标结点方向的搜索；
+逆向搜索：从目标结点向初始结点方向搜索；
+双向广度优先搜索的数据结构要比单向的广度优先搜索复杂一些。由于双向广度优先搜索在搜索的过程中形成两棵方向相反的解答树，因此必
+须设置四张表：
+OPEN0表，CLOSE0表——储存正向搜索中产生的待扩展以及已扩展的结点
+OPEN1表，CLOSE1表——储存逆向搜索中产生的待扩展以及已扩展的结点
+其中设置CL[0，0]，OP[0，0]，CL[1，0]，OP[1，0]为指针。
+算法介绍
+
+procedure print(st,k:integer);
+begin
+	if k<>1 then
+	begin
+		if st=1 then 输出list[st,k].state //逆向搜索,按 f 指针输出 list[1,k]...list[1,1]路径
+		print(st,list[st,k].f);
+		if st=0 then 输出list[st,k].state //正向搜索,输出 list[0,k]...list[0,1]
+	end;
+end;
+ 
+procedure check(st:0..1);
+var
+	i:integer;
+begin
+	for i:=1 to op[1.st]-1 do //检查 st 相反方向扩展的每一个结点。
+		if list[st,op[1.st]-1 then
+			if list[st,op[st]].state相交于list[1-st,i].state then
+			begin
+				if st=0 then
+				begin 
+					print(o,op[st]); //当前为正方向,则先输出 list[0..1]..list[0,op[st]],然后输出list[1,i]..list[1,1]
+					print(1,i);
+				end else
+				begin
+					print[0,i];//当前为逆方向。
+					print[1,op[st]);
+				end;
+				halt;
+			end;
+end;
+ 
+procedure expand(st:0..1);
+begin
+	q:=list(st,cl[st]);
+	while (q结点可以扩展) and (op[st]<maxn) do
+	begin
+		沿 st 方向扩展出 q 的子结点 qt.state;
+		list[st,op[st]].state:=qt.state;
+		list[st,op[st]].father:=cl[st];
+		check(st);//两个方向搜索相交于qt则输出。
+		op[st]:=sp[st]+1;
+	end;
+	cl[st]:=cl[st]+1
+end;
+ 
+begin
+	list[0,1]:=起始状态;
+	list[0,1].father:=0;
+	op[0]=2;
+	cl[0]:=1;
+	list[1,1]:=目标状态;
+	list[1,1].father:=0;
+	op[1]=2;
+	cl[1]:=1;
+ 
+	while ((op[0]<=maxn) and (cl[0]<op[0])) or ((op[1]<=maxn) and (cl[1]<op[1])) do if op[0]<op[1] then expand(0)
+												       else expand(1);
+end.

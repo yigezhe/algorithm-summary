@@ -1,0 +1,159 @@
+Script started on Thu Jan 11 14:19:19 2001
+ice% java patzer
+Welcome to Patzer, a chess playing program.
+Will white be played by a Human or Computer (H/C)? h
+Will black be played by a Human or Computer (H/C)? c
+Computer is playing black.
+
+Please select how you wish the computer to play:
+
+Type the number of the selection and press Enter.
+        1       Random Move
+        2       Simple Alpha Beta
+        3       Alpha Beta with better move ordering
+3
+
+Please select the number of plies to search: 
+4
+
+
+
+    8 R N B Q K B N R
+    7 P P P P P P P P
+    6 . . . . . . . .
+    5 . . . . . . . .
+    4 . . . . . . . .
+    3 . . . . . . . .
+    2 p p p p p p p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+White, enter a move:  e2e4
+
+
+
+    8 R N B Q K B N R
+    7 P P P P P P P P
+    6 . . . . . . . .
+    5 . . . . . . . .
+    4 . . . . p . . .
+    3 . . . . . . . .
+    2 p p p p . p p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+Computer will now move for black.
+Searching to ply: 4
+ply     score   # nodes Principal Continuation
+                (running
+                total)
+1       20      20       B8C6
+2       -10     102      B8C6 B1C3
+3       50      742      G8F6 E4E5 B8C6
+4       -10     3852     G8F6 E4E5 F6E4 B1C3
+Time taken: 3.735 seconds.
+Nodes searched/sec: 1031
+Computer moves G8F6
+
+
+
+    8 R N B Q K B . R
+    7 P P P P P P P P
+    6 . . . . . N . .
+    5 . . . . . . . .
+    4 . . . . p . . .
+    3 . . . . . . . .
+    2 p p p p . p p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+White, enter a move:  d2d4
+
+
+
+    8 R N B Q K B . R
+    7 P P P P P P P P
+    6 . . . . . N . .
+    5 . . . . . . . .
+    4 . . . p p . . .
+    3 . . . . . . . .
+    2 p p p . . p p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+Computer will now move for black.
+Searching to ply: 4
+ply     score   # nodes Principal Continuation
+                (running
+                total)
+1       146     22       F6E4
+2       116     100      F6E4 B1C3
+3       172     896      F6E4 F2F4 B8C6
+4       21      5088     F6E4 F1B5 E7E6 B5D7
+Time taken: 4.397 seconds.
+Nodes searched/sec: 1157
+Computer moves F6E4
+
+
+
+    8 R N B Q K B . R
+    7 P P P P P P P P
+    6 . . . . . . . .
+    5 . . . . . . . .
+    4 . . . p N . . .
+    3 . . . . . . . .
+    2 p p p . . p p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+White, enter a move:  f2f3
+
+
+
+    8 R N B Q K B . R
+    7 P P P P P P P P
+    6 . . . . . . . .
+    5 . . . . . . . .
+    4 . . . p N . . .
+    3 . . . . . p . .
+    2 p p p . . . p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+Computer will now move for black.
+Searching to ply: 4
+ply     score   # nodes Principal Continuation
+                (running
+                total)
+1       174     27       B8C6
+2       114     150      E4F6 B1C3
+3       144     842      E4F6 B1C3 B8C6
+4       14      3712     E4F6 C1G5 F6D5 G5E7
+Time taken: 3.948 seconds.
+Nodes searched/sec: 940
+Computer moves E4F6
+
+
+
+    8 R N B Q K B . R
+    7 P P P P P P P P
+    6 . . . . . N . .
+    5 . . . . . . . .
+    4 . . . p . . . .
+    3 . . . . . p . .
+    2 p p p . . . p p
+    1 r n b q k b n r
+      a b c d e f g h
+
+White, enter a move:  draw
+Game is a draw.
+White player was a Human Player
+Black player was a Computer Player with an alpha-beta AI with better move ordering at depth 4
+Goodbye.
+
+Press Enter key to quit Patzer.
+
+
+ice% ^Dexit
+
+script done on Thu Jan 11 14:20:25 2001

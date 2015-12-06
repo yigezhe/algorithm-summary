@@ -1,0 +1,787 @@
+bplist00�_WebMainResource_WebSubresources�	
+_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingName_WebResourceFrameName^WebResourceURLO�(<html><head>
+<title>[原创] [原创]如何用栈实现递归与非递归的转换 - ChinaUnix.net</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="Linux,Freebsd,Solaris,Sco,HP-UX,IBM-AIX,cisco,oracle,java,cgi,mysql,perl,Apache,proFTP,Sendmail,Qmail,DNS,Squid,Rsync,SSL"> 
+<meta name="description" content="ChinaUnix.net">
+<style type="text/css">
+h1{
+font-size:24px;
+margin: 0px;
+}
+td,select,input {font-size:14px}
+.content {
+font-family: Tahoma,MS Shell Dlg,宋体;
+font-size: 14px;
+line-height: 130%
+}
+.l17 {line-height:170%;}
+.f24 {font-size:24px;}
+.f14{font-size:14px;line-height:130%;}
+A:link {color: #0000ff;}
+A:visited {color: #800080;}
+A:active,A:hover {color : #ff0000}
+A.a02:link,A.a02:visited {text-decoration:none;color: #0000ff;}
+A.a02:active,A.a02:hover {text-decoration:none;color : #ff0000}
+</style>
+
+
+<style type="text/css"></style></head>
+<body topmargin="5" marginheight="5" leftmargin="0" marginwidth="0">
+<center>
+
+<!--导航start-->
+<table width="760" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td>
+<script src="http://www.chinaunix.net/title.js"></script><style type="text/css">A.title1:link {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}A.title1:visited {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}A.title1:active {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}A.title1:hover {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}A.title2:link {text-decoration:none;color:#000000;font-size:12px}A.title2:visited {text-decoration:none;color:#000000;font-size:12px}A.title2:active {text-decoration:none;color:#ff0000;font-size:12px}A.title2:hover {text-decoration:none;color:#ff0000;font-size:12px}</style><table width="760" border="0" cellspacing="0" cellpadding="0" align="center"><tbody><tr><td height="1" colspan="2" bgcolor="#000000"><img src="http://www.chinaunix.net/images/c.gif" width="1" height="1"></td></tr><tr><td height="2" colspan="2"></td></tr><tr><td width="150" height="18" bgcolor="#94AAD6" align="center"><a href="http://www.chinaunix.net/" class="title1">ChinaUnix.net</a></td><td width="600" align="right">	<table width="600" border="0" cellspacing="0" cellpadding="0"><tbody><tr align="center"><td align="right"><a href="http://www.chinaunix.net" class="title2">首页</a> | <a href="http://bbs.chinaunix.net/" class="title2">论坛</a> | <a href="http://blog.chinaunix.net" class="title2" target="_blank"><font color="#ff0000">博客</font></a> | <a href="http://linux.chinaunix.net" class="title2">Linux</a> | <a href="http://job.chinaunix.net" class="title2" target="_blank"><font color="#ff0000">人才</font></a> | <a href="http://peixun.chinaunix.net" class="title2" target="_blank"><font color="#ff0000">培训</font></a> | <a href="http://www.chinaunix.net/jh" class="title2">精华</a> | <a href="http://wiki.chinaunix.net" class="title2" target="_blank">Wiki</a> | <a href="http://book.chinaunix.net" class="title2" target="_blank"><font color="red">读书</font></a> | <a href="http://fanqiang.chinaunix.net" class="title2" target="_blank">资料</a> | <a href="http://man.chinaunix.net" class="title2" target="_blank">手册</a> | <a href="http://download.chinaunix.net" class="title2" target="_blank"><font color="#ff0000">下载</font></a> | <a href="http://search.chinaunix.net/" class="title2">搜索</a></td></tr>	</tbody></table></td></tr><tr><td height="2" colspan="2"></td></tr><tr><td height="1" colspan="2" bgcolor="#000000"><img src="http://www.chinaunix.net/images" width="1" height="1"></td></tr></tbody></table>
+</td></tr>
+</tbody></table>
+<!--导航end-->
+<!--头部结束-->
+
+<!--通栏广告开始-->
+<table width="760" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td height="2"></td></tr>
+<tr><td>
+<script src="http://www.chinaunix.net/tuiguang/jh_top.js"></script>
+</td></tr>
+</tbody></table>
+<!--通栏广告结束-->
+
+<table width="760" border="0" cellspacing="0" cellpadding="0" height="30">
+<tbody><tr><td align="left" valign="middle">
+<font color="#0000ff"><a href="http://www.chinaunix.net/" class="a02">ChinaUnix首页</a> &gt; 
+<a href="http://www.chinaunix.net/jh" class="a02">精华文章</a> &gt; 
+<a href="/jh/23" class="a02">C/C++</a> &gt; 正文</font>
+</td>
+<form name="_search" action="http://search.chinaunix.net/cgi-bin/search" method="post&quot;"></form>
+<td align="right" valign="middle">
+<input type="text" name="key" size="20" value="" class="t2"> <input type="submit" name="enter" value="搜索">
+</td>
+
+</tr>
+</tbody></table>
+<table width="760" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td height="3"></td></tr>
+<tr><td height="1" bgcolor="#747474"><img src="http://image2.sina.com.cn/c.gif" width="1" height="1"></td></tr>
+</tbody></table>
+
+<table width="760" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td valign="top" align="center" rowspan="2" bgcolor="#EDF0F5">
+<br>
+	<table width="90%" border="0" cellspacing="0" cellpadding="0">
+	<tbody><tr><th class="f24"><font color="#05006C"><h1>[原创] [原创]如何用栈实现递归与非递归的转换</h1></font></th></tr>
+	<tr><td height=""><hr size="1" bgcolor="#d9d9d9"></td></tr>
+	<tr><td height="20" align="center"> http://www.chinaunix.net 作者:<a href="http://bbs.chinaunix.net/viewpro.php?uid=117516" target="_blank">converse</a>&nbsp;&nbsp;发表于：2007-11-16 15:19:36</td></tr>
+	<tr><td height="30" align="center">
+【<a href="http://bbs.chinaunix.net/post.php?action=reply&amp;fid=23&amp;tid=331522" target="_blank">发表评论</a>】
+【<a href="http://bbs.chinaunix.net/viewthread.php?tid=331522" target="_blank">查看原文</a>】
+【<a href="http://bbs.chinaunix.net/forumdisplay.php?fid=23">C/C++讨论区</a>】【<a href="javascript:window.close()">关闭</a>】
+	</td></tr>
+	<tr><td class="l17"><font id="zoom" class="f14">
+<!-- 正文begin -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed; word-wrap: break-word"><tbody><tr><td>
+<br>
+如何用栈实现递归与非递归的转换
+<br>
+<br>一.为什么要学习递归与非递归的转换的实现方法?
+<br>&nbsp;&nbsp;&nbsp;1)并不是每一门语言都支持递归的.
+<br>&nbsp;&nbsp;&nbsp;2)有助于理解递归的本质.
+<br>&nbsp;&nbsp;&nbsp;3)有助于理解栈,树等数据结构.
+<br>
+<br>二.递归与非递归转换的原理.
+<br>&nbsp;&nbsp;&nbsp;递归与非递归的转换基于以下的原理:所有的递归程序都可以用树结构表示出来.需要说明的是,
+<br>这个"原理"并没有经过严格的数学证明,只是我的一个猜想,不过在至少在我遇到的例子中是适用的.
+<br>&nbsp;&nbsp;&nbsp;学习过树结构的人都知道,有三种方法可以遍历树:前序,中序,后序.理解这三种遍历方式的递归和非
+<br>递归的表达方式是能够正确实现转换的关键之处,所以我们先来谈谈这个.需要说明的是,这里以特殊的
+<br>二叉树来说明,不过大多数情况下二叉树已经够用,而且理解了二叉树的遍历,其它的树遍历方式就不难
+<br>了.
+<br>	1)前序遍历
+<br>		
+<br>		a)递归方式:
+<br>		<pre>void&nbsp;preorder_recursive(Bitree&nbsp;T)		/*&nbsp;先序遍历二叉树的递归算法&nbsp;*/
+<br>		{
+<br>			if&nbsp;(T)&nbsp;{
+<br>				visit(T);&nbsp;			/*&nbsp;访问当前结点&nbsp;*/
+<br>				preorder_recursive(T-&gt;;lchild);	/*&nbsp;访问左子树&nbsp;*/
+<br>				preorder_recursive(T-&gt;;rchild);	/*&nbsp;访问右子树&nbsp;*/
+<br>			}
+<br>		}</pre>
+<br>				
+<br>		b)非递归方式
+<br>		<pre>void&nbsp;preorder_nonrecursive(Bitree&nbsp;T)		/*&nbsp;先序遍历二叉树的非递归算法&nbsp;*/
+<br>		{
+<br>			initstack(S);
+<br>			push(S,T);&nbsp;				/*&nbsp;根指针进栈&nbsp;*/
+<br>			while(!stackempty(S))&nbsp;{
+<br>				while(gettop(S,p)&amp;&amp;p)&nbsp;{		/*&nbsp;向左走到尽头&nbsp;*/
+<br>					visit(p);		/*&nbsp;每向前走一步都访问当前结点&nbsp;*/
+<br>					push(S,p-&gt;;lchild);
+<br>				}
+<br>				pop(S,p);
+<br>				if(!stackempty(S))&nbsp;{		/*&nbsp;向右走一步&nbsp;*/
+<br>					pop(S,p);
+<br>					push(S,p-&gt;;rchild);&nbsp;
+<br>				}
+<br>			}
+<br>		}</pre>
+<br>
+<br>		
+<br>	2)中序遍历
+<br>
+<br>		a)递归方式
+<br>
+<br>		<pre>void&nbsp;inorder_recursive(Bitree&nbsp;T)		/*&nbsp;中序遍历二叉树的递归算法&nbsp;*/
+<br>		{
+<br>			if&nbsp;(T)&nbsp;{
+<br>				inorder_recursive(T-&gt;;lchild);	/*&nbsp;访问左子树&nbsp;*/
+<br>				visit(T);&nbsp;			/*&nbsp;访问当前结点&nbsp;*/
+<br>				inorder_recursive(T-&gt;;rchild);	/*&nbsp;访问右子树&nbsp;*/
+<br>			}
+<br>		}</pre>
+<br>		
+<br>		b)非递归方式
+<br>		<pre>void&nbsp;&nbsp;inorder_nonrecursive(Bitree&nbsp;T)
+<br>		{
+<br>			initstack(S);				/*&nbsp;初始化栈&nbsp;*/
+<br>			push(S,&nbsp;T);				/*&nbsp;根指针入栈&nbsp;*/
+<br>
+<br>			while&nbsp;(!stackempty(S))&nbsp;{			
+<br>				while&nbsp;(gettop(S,&nbsp;p)&nbsp;&amp;&amp;&nbsp;p)&nbsp;	/*&nbsp;向左走到尽头&nbsp;*/
+<br>					push(S,&nbsp;p-&gt;;lchild);
+<br>				pop(S,&nbsp;p);			/*&nbsp;空指针退栈&nbsp;*/
+<br>				if&nbsp;(!stackempty(S))&nbsp;{
+<br>					pop(S,&nbsp;p);
+<br>					visit(p);		/*&nbsp;访问当前结点&nbsp;*/
+<br>					push(S,&nbsp;p-&gt;;rchild);	/*&nbsp;向右走一步&nbsp;*/
+<br>				}
+<br>			}
+<br>		}</pre>
+<br>		
+<br>	3)后序遍历
+<br>
+<br>		a)递归方式
+<br>		<pre>void&nbsp;postorder_recursive(Bitree&nbsp;T)		/*&nbsp;中序遍历二叉树的递归算法&nbsp;*/
+<br>		{
+<br>		&nbsp;&nbsp;&nbsp;if&nbsp;(T)&nbsp;{
+<br>			&nbsp;&nbsp;&nbsp;postorder_recursive(T-&gt;;lchild);	/*&nbsp;访问左子树&nbsp;*/
+<br>			&nbsp;&nbsp;&nbsp;postorder_recursive(T-&gt;;rchild);	/*&nbsp;访问右子树&nbsp;*/
+<br>			&nbsp;&nbsp;&nbsp;visit(T);&nbsp;				/*&nbsp;访问当前结点&nbsp;*/
+<br>		&nbsp;&nbsp;&nbsp;}
+<br>		}</pre>
+<br>		
+<br>		b)非递归方式
+<br>		<pre>typedef&nbsp;struct&nbsp;{
+<br>			BTNode*&nbsp;ptr;
+<br>			enum&nbsp;{0,1,2}&nbsp;mark;
+<br>		}&nbsp;PMType;&nbsp;					/*&nbsp;有mark域的结点指针类型&nbsp;*/
+<br>
+<br>		void&nbsp;postorder_nonrecursive(BiTree&nbsp;T)		/*&nbsp;后续遍历二叉树的非递归算法&nbsp;*/
+<br>		{
+<br>			PMType&nbsp;a;
+<br>			initstack(S);&nbsp;				/*&nbsp;S的元素为PMType类型&nbsp;*/
+<br>			push&nbsp;(S,{T,0});&nbsp;			/*&nbsp;根结点入栈&nbsp;*/
+<br>			while(!stackempty(S))&nbsp;{
+<br>				pop(S,a);
+<br>				switch(a.mark)
+<br>				{
+<br>				case&nbsp;0:
+<br>					push(S,{a.ptr,1});&nbsp;	/*&nbsp;修改mark域&nbsp;*/
+<br>					if(a.ptr-&gt;;lchild)&nbsp;
+<br>						push(S,{a.ptr-&gt;;lchild,0});&nbsp;/*&nbsp;访问左子树&nbsp;*/
+<br>					break;
+<br>				case&nbsp;1:
+<br>					push(S,{a.ptr,2});&nbsp;	/*&nbsp;修改mark域&nbsp;*/
+<br>					if(a.ptr-&gt;;rchild)&nbsp;
+<br>						push(S,{a.ptr-&gt;;rchild,0});&nbsp;/*&nbsp;访问右子树&nbsp;*/
+<br>					break;
+<br>				case&nbsp;2:
+<br>					visit(a.ptr);&nbsp;		/*&nbsp;访问结点&nbsp;*/
+<br>				}
+<br>			}
+<br>		}</pre>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4)如何实现递归与非递归的转换
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通常,一个函数在调用另一个函数之前,要作如下的事情:a)将实在参数,返回地址等信息传递
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给被调用函数保存;&nbsp;b)为被调用函数的局部变量分配存储区;c)将控制转移到被调函数的入口.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从被调用函数返回调用函数之前,也要做三件事情:a)保存被调函数的计算结果;b)释放被调
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;函数的数据区;c)依照被调函数保存的返回地址将控制转移到调用函数.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有的这些,不论是变量还是地址,本质上来说都是"数据",都是保存在系统所分配的栈中的.
+<br>	&nbsp;&nbsp;ok,到这里已经解决了第一个问题:递归调用时数据都是保存在栈中的,有多少个数据需要保存
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;就要设置多少个栈,而且最重要的一点是:控制所有这些栈的栈顶指针都是相同的,否则无法实现
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同步.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面来解决第二个问题:在非递归中,程序如何知道到底要转移到哪个部分继续执行?回到上
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面说的树的三种遍历方式,抽象出来只有三种操作:访问当前结点,访问左子树,访问右子树.这三
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;种操作的顺序不同,遍历方式也不同.如果我们再抽象一点,对这三种操作再进行一个概括,可以
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;得到:a)访问当前结点:对目前的数据进行一些处理;b)访问左子树:变换当前的数据以进行下一次
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;处理;c)访问右子树:再次变换当前的数据以进行下一次处理(与访问左子树所不同的方式).
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面以先序遍历来说明:
+<br>	<pre>void&nbsp;preorder_recursive(Bitree&nbsp;T)		/*&nbsp;先序遍历二叉树的递归算法&nbsp;*/
+<br>	{
+<br>		if&nbsp;(T)&nbsp;{
+<br>			visit(T);&nbsp;			/*&nbsp;访问当前结点&nbsp;*/
+<br>			preorder_recursive(T-&gt;;lchild);	/*&nbsp;访问左子树&nbsp;*/
+<br>			preorder_recursive(T-&gt;;rchild);	/*&nbsp;访问右子树&nbsp;*/
+<br>		}
+<br>	}</pre>	
+<br>&nbsp;&nbsp;&nbsp;visit(T)这个操作就是对当前数据进行的处理,&nbsp;preorder_recursive(T-&gt;;lchild)就是把当前
+<br>	数据变换为它的左子树,访问右子树的操作可以同样理解了.
+<br>	&nbsp;&nbsp;&nbsp;现在回到我们提出的第二个问题:如何确定转移到哪里继续执行?关键在于一下三个地方:a)
+<br>	确定对当前数据的访问顺序,简单一点说就是确定这个递归程序可以转换为哪种方式遍历的树结
+<br>	构;b)确定这个递归函数转换为递归调用树时的分支是如何划分的,即确定什么是这个递归调用
+<br>	树的"左子树"和"右子树"c)确定这个递归调用树何时返回,即确定什么结点是这个递归调用树的
+<br>	"叶子结点".
+<br>	
+<br>	三.三个例子
+<br>	&nbsp;&nbsp;&nbsp;好了上面的理论知识已经足够了,下面让我们看看几个例子,结合例子加深我们对问题的认识
+<br>	.即使上面的理论你没有完全明白,不要气馁,对事物的认识总是曲折的,多看多想你一定可以明
+<br>	白(事实上我也是花了两个星期的时间才弄得比较明白得).
+<br>	&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1)例子一:
+<br>	<pre>f(n)&nbsp;=&nbsp;　n&nbsp;+&nbsp;１;	(n&nbsp;&lt;２)　
+<br>	　　　　&nbsp;f[n/2]&nbsp;+&nbsp;f[n/4](n&nbsp;&gt;;=&nbsp;2);
+<br>	
+<br>	这个例子相对简单一些,递归程序如下:
+<br>	int	f_recursive(int&nbsp;n)
+<br>	{
+<br>		int&nbsp;u1,&nbsp;u2,&nbsp;f;
+<br>
+<br>		if&nbsp;(n&nbsp;&lt;&nbsp;2)&nbsp;
+<br>			f&nbsp;=&nbsp;n&nbsp;+&nbsp;1;
+<br>		else&nbsp;{
+<br>			u1&nbsp;=&nbsp;f_recursive((int)(n/2));
+<br>			u2&nbsp;=&nbsp;f_recursive((int)(n/4));
+<br>			f&nbsp;=&nbsp;u1&nbsp;*&nbsp;u2;											&nbsp;
+<br>		}
+<br>
+<br>		return&nbsp;f;
+<br>	}</pre>
+<br>	
+<br>	&nbsp;&nbsp;&nbsp;下面按照我们上面说的,确定好递归调用树的结构,这一步是最重要的.首先,什么是叶子结点
+<br>	,我们看到当n&nbsp;&lt;&nbsp;2时f&nbsp;=&nbsp;n&nbsp;+&nbsp;1,这就是返回的语句,有人问为什么不是f&nbsp;=&nbsp;u1&nbsp;*&nbsp;u2,这也是一个
+<br>	返回的语句呀?答案是:这条语句是在u1&nbsp;=&nbsp;exmp1((int)(n/2))和u2&nbsp;=&nbsp;exmp1((int)(n/4))之后
+<br>	执行的,是这两条语句的父结点.&nbsp;其次,什么是当前结点,由上面的分析,f&nbsp;=&nbsp;u1&nbsp;*&nbsp;u2即是父结点
+<br>	.然后,顺理成章的u1&nbsp;=&nbsp;exmp1((int)(n/2))和u2&nbsp;=&nbsp;exmp1((int)(n/4))就分别是左子树和右子
+<br>	树了.最后,我们可以看到,这个递归函数可以表示成后序遍历的二叉调用树.好了,树的情况分析
+<br>	到这里,下面来分析一下栈的情况,看看我们要把什么数据保存在栈中,在上面给出的后序遍历的如果这个过程你没
+<br>	非递归程序中我们已经看到了要加入一个标志域,因此在栈中要保存这个标志域;另外,u1,u2和
+<br>	每次调用递归函数时的n/2和n/4参数都要保存,这样就要分别有三个栈分别保存:标志域,返回量
+<br>	和参数,不过我们可以做一个优化,因为在向上一层返回的时候,参数已经没有用了,而返回量也
+<br>	只有在向上返回时才用到,因此可以把这两个栈合为一个栈.如果对于上面的分析你没有明白,建
+<br>	议你根据这个递归函数写出它的递归栈的变化情况以加深理解,再次重申一点:前期对树结构和
+<br>	栈的分析是最重要的,如果你的程序出错,那么请返回到这一步来再次分析,最好把递归调用树和
+<br>	栈的变化情况都画出来,并且结合一些简单的参数来人工分析你的算法到底出错在哪里.
+<br>	&nbsp;&nbsp;&nbsp;&nbsp;ok,下面给出我花了两天功夫想出来的非递归程序(再次提醒你不要气馁,大家都是这么过来
+<br>	的).
+<br>	
+<br>	<pre>int	f_nonrecursive(int&nbsp;n)
+<br>	{
+<br>		int&nbsp;stack[20],&nbsp;flag[20],&nbsp;cp;
+<br>						&nbsp;
+<br>		/*&nbsp;初始化栈和栈顶指针&nbsp;*/
+<br>		cp&nbsp;=&nbsp;0;
+<br>		stack[0]&nbsp;=&nbsp;n;
+<br>		flag[0]&nbsp;=&nbsp;0;
+<br>
+<br>		while&nbsp;(cp&nbsp;&gt;;=&nbsp;0)&nbsp;{
+<br>			switch(flag[cp])&nbsp;{
+<br>			case&nbsp;0:&nbsp;			/*&nbsp;访问的是根结点&nbsp;*/
+<br>				if&nbsp;(stack[cp]&nbsp;&gt;;=&nbsp;2)&nbsp;{	/*&nbsp;左子树入栈&nbsp;*/
+<br>					flag[cp]&nbsp;=&nbsp;1;&nbsp;	/*&nbsp;修改标志域&nbsp;*/
+<br>					cp++;
+<br>					stack[cp]&nbsp;=&nbsp;(int)(stack[cp&nbsp;-&nbsp;1]&nbsp;/&nbsp;2);
+<br>					flag[cp]&nbsp;=&nbsp;0;
+<br>				}&nbsp;else&nbsp;{&nbsp;		/*&nbsp;否则为叶子结点&nbsp;*/
+<br>					stack[cp]&nbsp;+=&nbsp;1;
+<br>					flag[cp]&nbsp;=&nbsp;2;
+<br>				}
+<br>				break;
+<br>			case&nbsp;1:&nbsp;			/*&nbsp;访问的是左子树&nbsp;*/
+<br>				if&nbsp;(stack[cp]&nbsp;&gt;;=&nbsp;2)&nbsp;{	/*&nbsp;右子树入栈&nbsp;*/
+<br>					flag[cp]&nbsp;=&nbsp;2;&nbsp;	/*&nbsp;修改标志域&nbsp;*/
+<br>					cp&nbsp;+=&nbsp;2;
+<br>					stack[cp]&nbsp;=&nbsp;(int)(stack[cp&nbsp;-&nbsp;2]&nbsp;/&nbsp;4);
+<br>					flag[cp]&nbsp;=&nbsp;1;
+<br>				}&nbsp;else&nbsp;{&nbsp;		/*&nbsp;否则为叶子结点&nbsp;*/
+<br>					stack[cp]&nbsp;+=&nbsp;1;
+<br>					flag[cp]&nbsp;=&nbsp;2;
+<br>				}
+<br>				break;
+<br>			case&nbsp;2:				&nbsp;/*&nbsp;*/
+<br>				if&nbsp;(flag[cp&nbsp;-&nbsp;1]&nbsp;==&nbsp;2)&nbsp;{&nbsp;/*&nbsp;当前是右子树吗?&nbsp;*/
+<br>					/*&nbsp;
+<br>					&nbsp;*&nbsp;如果是右子树,&nbsp;那么对某一棵子树的后序遍历已经
+<br>					&nbsp;*&nbsp;结束,接下来就是对这棵子树的根结点的访问
+<br>					&nbsp;*/
+<br>					stack[cp&nbsp;-&nbsp;2]&nbsp;=&nbsp;stack[cp]&nbsp;*&nbsp;stack[cp&nbsp;-&nbsp;1];
+<br>					flag[cp&nbsp;-&nbsp;2]&nbsp;=&nbsp;2;
+<br>					cp&nbsp;=&nbsp;cp&nbsp;-&nbsp;2;
+<br>				}&nbsp;else&nbsp;
+<br>					/*&nbsp;否则退回到后序遍历的上一个结点&nbsp;*/
+<br>					cp--;
+<br>				break;
+<br>			}
+<br>		}
+<br>
+<br>		return&nbsp;stack[0];
+<br>	}</pre>	
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;算法分析:a)flag只有三个可能值:0表示第一次访问该结点,1表示访问的是左子树,2表示
+<br>	已经结束了对某一棵子树的访问,可能当前结点是这棵子树的右子树,也可能是叶子结点.b)每
+<br>	遍历到某个结点的时候,如果这个结点满足叶子结点的条件,那么把它的flag域设为2;否则根据
+<br>	访问的是根结点,左子树或是右子树来设置flag域,以便决定下一次访问该节点时的程序转向.
+<br>	
+<br>
+<br>	2)例子二
+<br>	
+<br>	快速排序算法
+<br>	递归算法如下:
+<br>	
+<br>	<pre>void	swap(int&nbsp;array[],&nbsp;int&nbsp;low,&nbsp;int&nbsp;high)
+<br>	{
+<br>		int&nbsp;temp;
+<br>
+<br>		temp&nbsp;=&nbsp;array[low];
+<br>		array[low]&nbsp;=&nbsp;array[high];
+<br>		array[high]&nbsp;=&nbsp;temp;
+<br>	}
+<br>
+<br>	int	partition(int&nbsp;array[],&nbsp;int&nbsp;low,&nbsp;int&nbsp;high)
+<br>	{
+<br>		int	p;
+<br>
+<br>		p&nbsp;=&nbsp;array[low];
+<br>
+<br>		while&nbsp;(low&nbsp;&lt;&nbsp;high)&nbsp;{
+<br>			while&nbsp;(low&nbsp;&lt;&nbsp;high&nbsp;&amp;&amp;&nbsp;array[high]&nbsp;&gt;;=&nbsp;p)&nbsp;
+<br>				high--;
+<br>			swap(array,low,high);
+<br>			while&nbsp;(low&nbsp;&lt;&nbsp;high&nbsp;&amp;&amp;&nbsp;array[low]&nbsp;&nbsp;&lt;=&nbsp;p)&nbsp;
+<br>				low++;
+<br>			swap(array,low,high);
+<br>		}
+<br>
+<br>		return&nbsp;low;
+<br>	}
+<br>
+<br>	void	qsort_recursive(int&nbsp;array[],&nbsp;int&nbsp;low,&nbsp;int&nbsp;high)
+<br>	{
+<br>		int&nbsp;p;
+<br>
+<br>		if(low&nbsp;&lt;&nbsp;high)&nbsp;{
+<br>			p&nbsp;=&nbsp;partition(array,&nbsp;low,&nbsp;high);
+<br>			qsort_recursive(array,&nbsp;low,&nbsp;p&nbsp;-&nbsp;1);
+<br>			qsort_recursive(array,&nbsp;p&nbsp;+&nbsp;1,&nbsp;high);
+<br>		}
+<br>	}</pre>
+<br>	&nbsp;&nbsp;&nbsp;需要说明一下快速排序的算法:&nbsp;partition函数根据数组中的某一个数把数组划分为两个部分,
+<br>	左边的部分均不大于这个数,右边的数均不小于这个数,然后再对左右两边的数组再进行划分.这
+<br>	里我们专注于递归与非递归的转换,partition函数在非递归函数中同样的可以调用(其实
+<br>	partition函数就是对当前结点的访问).
+<br>	&nbsp;&nbsp;&nbsp;再次进行递归调用树和栈的分析:
+<br>	&nbsp;&nbsp;&nbsp;递归调用树:a)对当前结点的访问是调用partition函数;b)左子树:
+<br>	qsort_recursive(array,&nbsp;low,&nbsp;p&nbsp;-&nbsp;1);c)右子树:qsort_recursive(array,&nbsp;p&nbsp;+&nbsp;1,&nbsp;high);
+<br>	d)叶子结点:当low&nbsp;&lt;&nbsp;high时;e)可以看出这是一个先序调用的二叉树
+<br>	&nbsp;&nbsp;&nbsp;栈:要保存的数据是两个表示范围的坐标.
+<br>	&nbsp;&nbsp;&nbsp;
+<br>	<pre>void	qsort_nonrecursive(int&nbsp;array[],&nbsp;int&nbsp;low,&nbsp;int&nbsp;high)
+<br>	{
+<br>		int&nbsp;m[50],&nbsp;n[50],&nbsp;cp,&nbsp;p;&nbsp;
+<br>
+<br>		/*&nbsp;初始化栈和栈顶指针&nbsp;*/
+<br>		cp&nbsp;=&nbsp;0;
+<br>		m[0]&nbsp;=&nbsp;low;
+<br>		n[0]&nbsp;=&nbsp;high;
+<br>
+<br>		while&nbsp;(m[cp]&nbsp;&lt;&nbsp;n[cp])&nbsp;{
+<br>			while&nbsp;(m[cp]&nbsp;&lt;&nbsp;n[cp])&nbsp;{	/*&nbsp;向左走到尽头&nbsp;*/
+<br>				p&nbsp;=&nbsp;partition(array,&nbsp;m[cp],&nbsp;n[cp]);&nbsp;/*&nbsp;对当前结点的访问&nbsp;*/
+<br>				cp++;
+<br>				m[cp]&nbsp;=&nbsp;m[cp&nbsp;-&nbsp;1];
+<br>				n[cp]&nbsp;=&nbsp;p&nbsp;-&nbsp;1;
+<br>			}
+<br>			/*&nbsp;向右走一步&nbsp;*/
+<br>			m[cp&nbsp;+&nbsp;1]&nbsp;=&nbsp;n[cp]&nbsp;+&nbsp;2;
+<br>			n[cp&nbsp;+&nbsp;1]&nbsp;=&nbsp;n[cp&nbsp;-&nbsp;1];
+<br>			cp++;
+<br>		}
+<br>	}</pre>
+<br>	
+<br>	3)例子三
+<br>	阿克曼函数:
+<br>	<pre>akm(m,&nbsp;n)&nbsp;=&nbsp;n&nbsp;+&nbsp;1;			(m&nbsp;=&nbsp;0时)
+<br>		&nbsp;&nbsp;&nbsp;&nbsp;akm(m&nbsp;-&nbsp;1,&nbsp;1);		(n&nbsp;=&nbsp;0时)
+<br>		&nbsp;&nbsp;&nbsp;&nbsp;akm(m&nbsp;-&nbsp;1,&nbsp;akm(m,&nbsp;n&nbsp;-&nbsp;1));	(m&nbsp;!=&nbsp;0且n&nbsp;!=&nbsp;0时)</pre>		&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<br>	递归算法如下:
+<br>	
+<br>	<pre>int	akm_recursive(int&nbsp;m,&nbsp;int&nbsp;n)
+<br>	{
+<br>		int&nbsp;temp;
+<br>
+<br>		if&nbsp;(m&nbsp;==&nbsp;0)&nbsp;
+<br>			return&nbsp;(n&nbsp;+&nbsp;1);
+<br>		else&nbsp;if&nbsp;(n&nbsp;==&nbsp;0)&nbsp;
+<br>			return&nbsp;akm_recursive(m&nbsp;-&nbsp;1,&nbsp;1);
+<br>		else&nbsp;{
+<br>			temp&nbsp;=&nbsp;akm_recursive(m,&nbsp;n&nbsp;-&nbsp;1);
+<br>			return&nbsp;akm_recursive(m&nbsp;-&nbsp;1,&nbsp;temp);
+<br>		}
+<br>	}</pre>
+<br>
+<br>这个例子相对难一些,不过只要正确的分析递归调用树和栈的变化情况就不难解决,先卖个关子,晚上再来公布答案,感兴趣的可以先想想.<br>
+<br>
+<br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=20608" target="_blank">mirnshi</a> 回复于：2004-05-25 00:15:35</b><br><br>
+引用：<i><u>原帖由&nbsp;"converse"&nbsp;发表：</u><br>
+<br>这个例子相对难一些,不过只要正确的分析递归调用树和栈的变化情况就不难解决,先卖个关子,晚上再来公布答案,感兴趣的可以先想想.</i><br>
+<br>
+<br>递归和非递归,&nbsp;其实都是一样的.非递归需要人为构建维护堆栈.递归只是系统
+<br>在帮你维护堆栈而已.&nbsp;数据结构上说得很清楚.<br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=123791" target="_blank">五月</a> 回复于：2004-05-25 11:27:42</b><br><br>
+即使不是递归设计，但你仍然在用递归的思想在写东西。：）
+<br>另外，尾递归的改写可以不用栈。<br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=117516" target="_blank">converse</a> 回复于：2004-05-25 15:32:18</b><br><br>
+好了,让我们回到递归与非递归的世界中,继续未完的旅途.
+<br>
+<br>这道题的难点就是确定递归调用树的情况,因为从akm函数的公式可以看到,有三个递归调用,一般
+<br>	而言,有几个递归调用就会有几棵递归调用的子树,不过这只是一般的情况,不一定准确,也不一定非要
+<br>	机械化的这么作,因为通常情况下我们可以做一些优化,省去其中的一些部分,这道题就是一个例子.
+<br>	&nbsp;&nbsp;&nbsp;&nbsp;递归调用树的分析:a)是当m=0时是叶子结点;b)左子树是akm(m&nbsp;-&nbsp;1,&nbsp;akm(m,&nbsp;n&nbsp;-&nbsp;1))调用中的
+<br>	akm(m,&nbsp;n&nbsp;-&nbsp;1)调用,当这个调用结束得出一个值temp时,再调用akm(m&nbsp;-&nbsp;1,&nbsp;temp),这个调用是右子树
+<br>	.c)从上面的分析可以看出,这个递归调用树是后序遍历的树.
+<br>	&nbsp;&nbsp;&nbsp;&nbsp;栈的分析:要保存的数据是m,&nbsp;n,当n&nbsp;=&nbsp;0&nbsp;或&nbsp;m&nbsp;=&nbsp;0时开始退栈,当n&nbsp;=&nbsp;0时把上一层栈的m值变为
+<br>	m&nbsp;-&nbsp;1,n变为1，当m&nbsp;=&nbsp;0时把上一层栈的m值变为0,n变为n&nbsp;+&nbsp;1.从这个分析过程可以看出,我们省略了
+<br>	当n&nbsp;=&nbsp;0时的akm(m&nbsp;-&nbsp;1,&nbsp;1)调用,原来在系统机械化的实现递归调用的过程中,这个调用也是一棵子树,
+<br>	不过经过分析,我们用修改栈中数据的方式进行了改进.
+<br>	
+<br>	<pre>int	akm_nonrecursive(int&nbsp;m,&nbsp;int&nbsp;n)
+<br>	{
+<br>		int&nbsp;m1[50],&nbsp;n1[50],&nbsp;cp;
+<br>
+<br>		cp&nbsp;=&nbsp;0;
+<br>		m1[0]&nbsp;=&nbsp;m;
+<br>		n1[0]&nbsp;=&nbsp;n;
+<br>
+<br>		do&nbsp;{
+<br>			while&nbsp;(m1[cp]&nbsp;&gt;;&nbsp;0)&nbsp;{&nbsp;		/*&nbsp;压栈,&nbsp;直到m1[cp]&nbsp;=&nbsp;0&nbsp;*/
+<br>				while&nbsp;(n1[cp]&nbsp;&gt;;&nbsp;0)&nbsp;{&nbsp;	/*&nbsp;压栈,&nbsp;直到n1[cp]&nbsp;=&nbsp;0&nbsp;*/
+<br>					cp++;
+<br>					m1[cp]&nbsp;=&nbsp;m1[cp&nbsp;-&nbsp;1];
+<br>					n1[cp]&nbsp;=&nbsp;n1[cp&nbsp;-&nbsp;1]&nbsp;-&nbsp;1;
+<br>				}
+<br>				/*&nbsp;计算akm(m&nbsp;-&nbsp;1,&nbsp;1),当n&nbsp;=&nbsp;0时&nbsp;*/
+<br>				m1[cp]&nbsp;=&nbsp;m1[cp]&nbsp;-&nbsp;1;
+<br>				n1[cp]&nbsp;=&nbsp;1;
+<br>			}
+<br>			/*&nbsp;改栈顶为akm(m&nbsp;-&nbsp;1,&nbsp;n&nbsp;+&nbsp;1),当m&nbsp;=&nbsp;0时&nbsp;*/
+<br>			cp--;
+<br>			m1[cp]&nbsp;=&nbsp;m1[cp]&nbsp;-&nbsp;1;
+<br>			n1[cp]&nbsp;=&nbsp;n1[cp&nbsp;+&nbsp;1]&nbsp;+&nbsp;1;
+<br>		}&nbsp;while&nbsp;(cp&nbsp;&gt;;&nbsp;0&nbsp;||&nbsp;m1[cp]&nbsp;&gt;;&nbsp;0);
+<br>
+<br>		return&nbsp;n1[0]&nbsp;+&nbsp;1;
+<br>	}</pre><br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=26127" target="_blank">crazybaw</a> 回复于：2004-05-25 15:42:24</b><br><br>
+最近看了本书,中文名字&lt;C和指针&gt;;(pointers&nbsp;on&nbsp;c),一外国人写的,在这本书中,对于递归等介绍了一些,也有一些堆栈调用的图,比较适合我们新人读啊.<br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=117516" target="_blank">converse</a> 回复于：2004-05-25 16:34:59</b><br><br>
+三.递归程序的分类及用途
+<br>
+<br>&nbsp;&nbsp;&nbsp;递归程序分为两类:尾部递归和非尾部递归.上面提到的几个例子都是非尾部递归,在一个选择分支中有至少
+<br>一个的递归调用.相对而言,尾部递归就容易很多了,因为与非尾部递归相比,每个选择分支只有一个递归调用,
+<br>我们在解决的时候就不需要使用到栈,只要循环和设置好循环体就可以了.下面再举几个尾部递归的例子吧,比较
+<br>简单我就不多说什么了.
+<br>
+<br>&nbsp;&nbsp;&nbsp;1)例子一
+<br>&nbsp;&nbsp;&nbsp;<pre>g(m,&nbsp;n)&nbsp;=&nbsp;0			(m&nbsp;=&nbsp;0,&nbsp;n&nbsp;&gt;;=&nbsp;0)
+<br>	&nbsp;&nbsp;&nbsp;=&nbsp;g(m&nbsp;-&nbsp;1,&nbsp;2n)&nbsp;+&nbsp;n;	(m&nbsp;&gt;;&nbsp;0,&nbsp;n&nbsp;&gt;;=&nbsp;0)</pre>	&nbsp;&nbsp;&nbsp;
+<br>
+<br>&nbsp;&nbsp;&nbsp;a)递归程序
+<br>	<pre>int		g_recursive(int&nbsp;m,&nbsp;int&nbsp;n)
+<br>	{
+<br>		if&nbsp;(m&nbsp;==&nbsp;0&nbsp;&amp;&amp;&nbsp;n&nbsp;&gt;;=&nbsp;0)&nbsp;
+<br>			return&nbsp;0;
+<br>		return&nbsp;(g_recurse(m&nbsp;-&nbsp;1,&nbsp;2*n)&nbsp;+&nbsp;n);
+<br>	}</pre>	
+<br>&nbsp;&nbsp;&nbsp;b)非递归程序
+<br>	<pre>int		g_nonrecursive(int&nbsp;m,&nbsp;int&nbsp;n)
+<br>	{
+<br>		int&nbsp;p;
+<br>
+<br>		for&nbsp;(p&nbsp;=&nbsp;0;&nbsp;m&nbsp;&gt;;&nbsp;0&nbsp;&amp;&amp;&nbsp;n&nbsp;&gt;;=&nbsp;0;&nbsp;m--,&nbsp;n&nbsp;*=&nbsp;2)&nbsp;
+<br>			p&nbsp;+=&nbsp;n;
+<br>
+<br>		return&nbsp;p;
+<br>	}</pre>	
+<br>&nbsp;&nbsp;&nbsp;&nbsp;2)例子二
+<br>&nbsp;&nbsp;&nbsp;<pre>&nbsp;f(n)&nbsp;=&nbsp;n&nbsp;+&nbsp;1&nbsp;	(n&nbsp;=&nbsp;0)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;*&nbsp;f(n/2)	(n&nbsp;&gt;;&nbsp;0)</pre>	&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;a)递归程序
+<br>	<pre>int		f_recursive(int&nbsp;n)
+<br>	{
+<br>		if&nbsp;(n&nbsp;==&nbsp;0)&nbsp;
+<br>			return&nbsp;1;
+<br>		return&nbsp;(n&nbsp;*&nbsp;f_recurse(n/2));
+<br>	}</pre>	
+<br>&nbsp;&nbsp;&nbsp;&nbsp;b)非递归程序
+<br>	<pre>int	f_nonrecursive(int&nbsp;n)
+<br>	{
+<br>		int&nbsp;m;
+<br>
+<br>		for&nbsp;(m&nbsp;=&nbsp;1;&nbsp;n&nbsp;&gt;;&nbsp;0;&nbsp;n&nbsp;/=&nbsp;2)&nbsp;
+<br>			m&nbsp;*=&nbsp;n;
+<br>
+<br>		return&nbsp;m++;
+<br>	}</pre>&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分析完了递归程序的分类,让我们回头看看在向非递归转换的过程中用到了什么来实现转换:
+<br>&nbsp;&nbsp;&nbsp;1)循环,因为程序要在某个条件下一直执行下去,要代替递归程序,循环必不可少,对于尾部递归,循环结束的
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;条件十分容易确定,只要按照不同分支的条件写出来就可以了.而对于非尾部递归程序,循环结束的条件一
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;般是当栈为空时或者是结束了对递归调用树的遍历从树的根结点退出时,而且有的时候写成while()的形式
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,有时写成do&nbsp;...while的形式(如上面的akm函数),具体怎样,很难说清楚,取决于你对整个递归程序的分析
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.
+<br>&nbsp;&nbsp;&nbsp;2)递归调用树,树的结构在转换的过程中是不可见的,你不必为转换专门写一个树结构,不过能不能把递归调用
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中的树遍历方式以及叶子结点,左子树,右子树等元素确定好是你能否正确解决问题的关键(这一点已经在
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上面的分析过程中展露无疑),确定好这些后,剩下的工作大部分就是按照给出的几种不同的遍历树的方式
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把程序进行改写,这个过程就考验你对树结构还有遍历方式是否很好的掌握了(看出基础的重要了吗?如果
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回答是,那么和我一样好好的打好基础吧,一切都还不晚!!).对于尾部递归而言,可以看作没有递归调用树,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以尾部递归的难度大大降低了.
+<br>&nbsp;&nbsp;&nbsp;3)栈,非尾部调用中需要栈来保存数据,这一点已经很清楚了,需要注意几个问题:a)栈有时可能会出现不够的
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;情况,拿上面的akm函数来说,我用的50个元素的数组,你如果把m和n值设置得大一些,这个栈就不能用了,有
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时你的算法正确了,不过没有注意到这个问题还是会出错的;反过来说,在递归调用中,系统或者编译器的优
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;化功能不够好的化,在这个栈上可能会消耗很多空间,这个时候如果你把程序改成非递归的形式,然后再用
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;动态分配技术分配栈可能就会把程序的性能提高一大块--这也是我们学习这门技术的意义之一,因为系统
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是机械化的,你如果知道更好的优化办法,为什么不用呢?
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;什么时候可以用递归解决问题?到了这一步,如果你对于上面说的已经相当明白的话,这个问题不难回答,如果
+<br>&nbsp;&nbsp;&nbsp;我们要解决的问题要分成几个小的部分,而其中的一些与你要解决的问题是一样的,只不过是问题的规模(如
+<br>&nbsp;&nbsp;&nbsp;参数等)小了,那么这样的问题可以用递归来解决.根据问题设计好一个递归是所有这些的基础,转换也是在原
+<br>&nbsp;&nbsp;&nbsp;来的递归程序上进行的,所以这一步一定要做好.通常,设计一个递归程序要注意一下几个问题:a)可以递归解
+<br>&nbsp;&nbsp;&nbsp;决的问题是什么?b)入口和出口参数是什么--即要明确好出入的接口.
+<br>&nbsp;&nbsp;&nbsp;
+<br>四.学习过程中参考到的一些资料
+<br>
+<br>&nbsp;&nbsp;&nbsp;1)&lt;&lt;算法导论&gt;;&gt;;&nbsp;&nbsp;国防科大出版社&nbsp;&nbsp;张益新&nbsp;沈雁编著
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这本书比较老了,也许很难找了,不过参考价值不大,里面专门用了一章来讲这个问题,可惜用的是goto来实
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现递归调用的选择分支(所以我说参考价值不大),如果没有也无所谓的.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;2)http://db.pku.edu.cn/mzhang/&nbsp;&nbsp;北京大学张铭老师的主页.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上面可以找到一个张老师讲解递归和非递归转换的视频,有大概50多分钟吧,我没有听完,原先看第一本书
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的对于如何不用goto实现选择分支十分不解,张老师讲到的递归调用树真正让我豁然开朗,从此以后虽然还
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是有很多问题,不过明白了这个大体的解决思路就有了.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;3)&lt;&lt;数据结构&gt;;&gt;;&nbsp;&nbsp;清华大学出版社&nbsp;&nbsp;严蔚敏著
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这本书讲到栈的时候略微讲到了一些这方面的内容,网上可以找到一位叫一具的仁兄写的这本书的习题解答
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,可以自己去找一找,我的中序和后序遍历的算法完全看的他写的.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;4)&nbsp;http://www.tztvu.edu.cn/kfjy/bkjy/jsj/bxk/sjjg/kcdh/忘了是什么的网页了
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;里面的一个dn5.doc的文件中有讲解转换akm函数的方法,给我的启发很大,如果你对于我说的akm函数还有疑
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;问,那么可以看看人家写的,他把递归调用树和栈的变化情况都写出来了,非常直观.<br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=154887" target="_blank">iamqk</a> 回复于：2006-08-24 09:00:06</b><br><br>
+好文，最近正在研究递归和循环的转换问题，&nbsp;顶起来<br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=513463" target="_blank">白水月</a> 回复于：2007-11-15 22:10:18</b><br><br>
+的确是一篇地道的分析，讲得十分透彻。
+<br>长见识了。<br><br>
+<hr><b>&nbsp;<a href="http://bbs.chinaunix.net/viewpro.php?uid=200331" target="_blank">zw2002</a> 回复于：2007-11-16 15:19:36</b><br><br>
+支持啊！<br><br>
+
+<br>
+<br>
+</td></tr>
+<tr><td height="1" bgcolor="#747474"><img src="http://image2.sina.com.cn/c.gif" width="1" height="1"></td></tr>
+<tr><td><br>
+原文链接：<a href="http://bbs.chinaunix.net/viewthread.php?tid=331522">http://bbs.chinaunix.net/viewthread.php?tid=331522</a><br>
+转载请注明作者名及原文出处<br><br><br>
+                          
+  </td></tr></tbody></table>
+<!-- 正文end -->
+	
+		</font></td></tr>
+	</tbody></table>
+</td></tr>
+</tbody></table>
+
+<hr width="760" size="2">
+<script src="http://www.chinaunix.net/tail.js"></script><center><style type="text/css">.copyright		{ font-size: 12px; font-family: 'song',Verdana; color: #444444; letter-spacing: -1px;}a.copyright		{ color: #444444; text-decoration: none;}a.copyright:hover { color: #; text-decoration: underline;}</style><br><br><span class="copyright">Copyright © 2001-2006 ChinaUnix.net &nbsp;&nbsp;All Rights Reserved<br><br><img src="http://www.chinaunix.net/about/images/mail_admin.gif" border="0" width="178" height="14"><p>感谢所有关心和支持过ChinaUnix的朋友们</p><p>京ICP证041476号</p></span></center><script type="text/javascript" src="http://www.chinaunix.net/statpv.js"></script><script type="text/javascript" src="http://stat.it168.com/pv.js"></script><script type="text/javascript" src="http://bbs.chinaunix.net/googlepv/pv.js"></script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+</center>
+<script type="text/javascript" src="http://www.chinaunix.net/statpv.js"></script><script type="text/javascript" src="http://stat.it168.com/pv.js"></script><script type="text/javascript" src="http://bbs.chinaunix.net/googlepv/pv.js"></script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+
+
+</body></html>Ytext/htmlUUTF-8P_.http://www.chinaunix.net/old_jh/23/331522.html�#',16�_WebResourceResponseO
+0var str;
+str = "<style type=text/css>" + 
+"A.title1:link {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}" + 
+"A.title1:visited {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}" + 
+"A.title1:active {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}" + 
+"A.title1:hover {font-size:17.9px;font-family:arial;font-weight:bold;text-decoration:none;color:#ffffff;}" + 
+"A.title2:link {text-decoration:none;color:#000000;font-size:12px}" + 
+"A.title2:visited {text-decoration:none;color:#000000;font-size:12px}" + 
+"A.title2:active {text-decoration:none;color:#ff0000;font-size:12px}" + 
+"A.title2:hover {text-decoration:none;color:#ff0000;font-size:12px}" + 
+"</style>" + 
+"<table width=760 border=0 cellspacing=0 cellpadding=0 align=center>" + 
+"<tr><td height=1 colspan=2 bgcolor=#000000><img src=http://www.chinaunix.net/images/c.gif width=1 height=1></td></tr>" + 
+"<tr><td height=2 colspan=2></td></tr>" + 
+"<tr><td width=150 height=18 bgcolor=#94AAD6 align=center><a href=http://www.chinaunix.net/ class=title1>ChinaUnix.net</a></td>" + 
+"<td width=600 align=right>" + 
+"	<table width=600 border=0 cellspacing=0 cellpadding=0>" + 
+"<tr align=center><td align=right><a href=http://www.chinaunix.net class=title2>��ҳ</a>" + 
+" | <a href=http://bbs.chinaunix.net/ class=title2>��̳</a>" + 
+" | <a href=http://blog.chinaunix.net class=title2 target=_blank><font color=#ff0000>����</font></a>" +
+" | <a href=http://linux.chinaunix.net class=title2>Linux</a>" + 
+" | <a href=http://job.chinaunix.net class=title2 target=_blank><font color=#ff0000>�˲�</font></a>" +
+" | <a href=http://peixun.chinaunix.net class=title2 target=_blank><font color=#ff0000>��ѵ</font></a>" +
+" | <a href=http://www.chinaunix.net/jh class=title2>����</a>" + 
+" | <a href=http://wiki.chinaunix.net class=title2 target=_blank>Wiki</a>" + 
+" | <a href=http://book.chinaunix.net class=title2 target=_blank><font color=red>����</font></a>" + 
+" | <a href=http://fanqiang.chinaunix.net class=title2 target=_blank>����</font></a>" +
+" | <a href=http://man.chinaunix.net class=title2 target=_blank>�ֲ�</a>" + 
+" | <a href=http://download.chinaunix.net class=title2 target=_blank><font color=#ff0000>����</font></a>" + 
+" | <a href=http://search.chinaunix.net/ class=title2>����</a>" + 
+"</td></tr>" + 
+"	</table></td></tr>" + 
+"<tr><td height=2 colspan=2></td></tr>" + 
+"<tr><td height=1 colspan=2 bgcolor=#000000><img src=http://www.chinaunix.net/images width=1 height=1></td></tr>" + 
+"</table>";
+
+document.write(str)
+_application/x-javascript_!http://www.chinaunix.net/title.jsOebplist00�klX$versionX$objectsY$archiverT$top ���!#)*0123MNOPQRSTUVWXYZ[\]^_`adefU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���� ����$%&'(WNS.base[NS.relative� ��_!http://www.chinaunix.net/title.js�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�U��  ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BCDEFGHIJK�����������ZConnection\Content-TypeVServer]Last-ModifiedWExpiresTEtagTDate_Content-Encoding]Cache-Control_Transfer-EncodingZkeep-alive_application/x-javascriptUnginx_Mon, 26 Jun 2006 10:13:58 GMT_Tue, 28 Jul 2015 00:48:22 GMT_W/"449fb366-a30"_Mon, 27 Jul 2015 00:48:22 GMTTgzip]max-age=86400XIdentity�+,bc\NSDictionary�b/
+0_application/x-javascript�+,gh_NSHTTPURLResponse�ij/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�mn_WebResourceResponse�    # - 2 7 [ a |  � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � &)2;=?FNYdfhjlnprtvx���������������������39Yy���������� ,:LOe             o              g�O+GIF89a  �� ���   !�    ,      @D ;Yimage/gif_%http://www.chinaunix.net/images/c.gifO%bplist00�jkX$versionX$objectsY$archiverT$top ��� #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	��������$%&'(WNS.base[NS.relative� ��_%http://www.chinaunix.net/images/c.gif�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�Vi�A ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BDEFGHIJK�����������VServer\Content-TypeZConnection]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlWExpiresUnginxYimage/gifZkeep-alive_Wed, 29 Dec 2010 10:28:03 GMT]"4d1b0d33-2b"_Mon, 27 Jul 2015 00:48:22 GMTUbytesR43]max-age=86400_Tue, 28 Jul 2015 00:48:22 GMT�+,bc\NSDictionary�b/+�+,fg_NSHTTPURLResponse�hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�lm_WebResourceResponse�    # - 2 7 Z ` { ~ � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+#),5>@BIQ\gikmoqsuwy{���������������������!AOoux�����������'             n              )�O+GIF89a  �� ���   !�    ,      @D ;_http://image2.sina.com.cn/c.gifO�bplist00�vwX$versionX$objectsY$archiverT$top ���&#)*0123STUVWXYZ[\]^_`abcdefghijklmpqU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���$�%����$%&'(WNS.base[NS.relative� ��_http://image2.sina.com.cn/c.gif�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�V[�� ��456DRWNS.keysZNS.objects�789:;<=>?@ABC�	�
+������������FGHIJKLMNOPQ����������� �!�"�#\Content-TypeWX-CacheYX-VarnishSAgeSViaVServerWExpires]Cache-ControlTDate^Content-LengthZConnection]Accept-Ranges]Last-ModifiedYimage/gif_)HIT from ctc.gz.2ae4.52.spool.sina.com.cn_HIT from GZ236-223.sina.com.cnV246414[1.1 varnishUnginx_Fri, 29 May 2015 02:35:22 GMT^max-age=604800_Mon, 27 Jul 2015 00:48:21 GMTR43Zkeep-aliveUbytes_Fri, 09 Mar 2001 03:33:26 GMT�+,no\NSDictionary�n/+�+,rs_NSHTTPURLResponse�tu/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�xy_WebResourceResponse�    # - 2 7 ` f � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �
+#),5>@BIQ\jlnprtvxz|~���������������������������-7c���������  %257<PThv���             z              �� !"O�var str;
+str = "<center><style type=text/css>" + 
+".copyright		{ font-size: 12px; font-family: 'song',Verdana; color: #444444; letter-spacing: -1px;}"+
+"a.copyright		{ color: #444444; text-decoration: none;}"+
+"a.copyright:hover { color: #; text-decoration: underline;}"+
+"</style>" + 
+"<br><br><span class=copyright>"+
+"Copyright &copy; 2001-2006 ChinaUnix.net &nbsp;&nbsp;All Rights Reserved"+
+"<br><br><img src=http://www.chinaunix.net/about/images/mail_admin.gif border=0 width=178 height=14>"+
+"<p>��л���й��ĺ�֧�ֹ�ChinaUnix��������</p><p>��ICP֤041476��</p></span></center>";
+document.write(str)
+// stat pv
+document.write('<scr'+'ipt type="text/javascript" src="http://www.chinaunix.net/statpv.js"></scr'+'ipt>');
+_application/x-javascript_ http://www.chinaunix.net/tail.jsORbplist00�klX$versionX$objectsY$archiverT$top ���!#)*0123MNOPQRSTUVWXYZ[\]^_`adefU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���� ����$%&'(WNS.base[NS.relative� ��_ http://www.chinaunix.net/tail.js�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�W�if ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BCDEFGHIJK�����������VServer\Content-TypeZConnection]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlWExpiresUnginx_application/x-javascriptZkeep-alive_Tue, 03 Nov 2009 08:09:39 GMT^"4aefe543-2d3"_Mon, 27 Jul 2015 00:48:24 GMTUbytesS723]max-age=86400_Tue, 28 Jul 2015 00:48:24 GMT�+,bc\NSDictionary�b/�_application/x-javascript�+,gh_NSHTTPURLResponse�ij/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�mn_WebResourceResponse�    # - 2 7 [ a |  � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �%(1:<>EMXcegikmoqsuw���������������������#.N]}����������'9<R             o              T�$%&O�GIF89a�  �  ���   !�  � ,    �   ��������4����p�1WG��x6�
+�z��I����o��lD��J�.��xtE�Teκ���Am��Z?⯌ˬuYa�S�H��l3��7׮��'��%G��6�uW7�v�����''�9i(5��W�():xj4�V��x#�s�
+��j�YZ�z*f���z�W6����J��xIUTm}�����MQ  ;_4http://www.chinaunix.net/about/images/mail_admin.gifO5bplist00�jkX$versionX$objectsY$archiverT$top ��� #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	��������$%&'(WNS.base[NS.relative� ��_4http://www.chinaunix.net/about/images/mail_admin.gif�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�X4W: ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BDEFGHIJK�����������VServer\Content-TypeZConnection]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlWExpiresUnginxYimage/gifZkeep-alive_Thu, 23 Aug 2007 09:28:55 GMT]"46cd5357-e8"_Mon, 27 Jul 2015 00:48:24 GMTUbytesS232]max-age=86400_Tue, 28 Jul 2015 00:48:24 GMT�+,bc\NSDictionary�b/��+,fg_NSHTTPURLResponse�hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�lm_WebResourceResponse�    # - 2 7 Z ` { ~ � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �)28;DMOQX`kvxz|~��������������������������%0P^~������������!7             n              9�()*+Odocument.write('<scr'+'ipt type="text/javascript" src="http://stat.it168.com/pv.js"></scr'+'ipt>');
+function sendPV(){
+    var pvTrack = new PvTrack();
+    pvTrack.type = 10; // Ƶ�����ID
+    pvTrack.channel = 22; // Ƶ��ID
+   
+    pvTrack.pageType = 0;
+    pvTrack.track();
+}
+function statpv()
+{
+	if (PvTrack)
+	{
+		sendPV();
+	}
+	else
+	{
+		setTimeout("statpv()",300);
+	}
+}
+setTimeout("statpv()",300);
+document.write('<scr'+'ipt type="text/javascript" src="http://bbs.chinaunix.net/googlepv/pv.js"></scr'+'ipt>');
+_application/x-javascript_"http://www.chinaunix.net/statpv.jsOTbplist00�klX$versionX$objectsY$archiverT$top ���!#)*0123MNOPQRSTUVWXYZ[\]^_`adefU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���� ����$%&'(WNS.base[NS.relative� ��_"http://www.chinaunix.net/statpv.js�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�YW4 ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BCDEFGHIJK�����������VServer\Content-TypeZConnection]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlWExpiresUnginx_application/x-javascriptZkeep-alive_Mon, 22 Mar 2010 09:40:30 GMT^"4ba73b0e-202"_Mon, 27 Jul 2015 00:48:24 GMTUbytesS514]max-age=86400_Tue, 28 Jul 2015 00:48:24 GMT�+,bc\NSDictionary�b/_application/x-javascript�+,gh_NSHTTPURLResponse�ij/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�mn_WebResourceResponse�    # - 2 7 [ a |  � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �!'*3<>@GOZegikmoqsuwy���������������������
+%0P_����������);>T             o              V�-./0O�var PvTrack;
+this.PvTrack||(PvTrack=function(){function r(a,c,b,d){if(a.addEventListener){a.addEventListener(c,b,d);return true}else if(a.attachEvent)return a.attachEvent("on"+c,b);a["on"+c]=b}function k(a,c,b,d,y,g){var m;if(b){m=new Date;m.setTime(m.getTime()+b*6E4)}e.cookie=a+"="+s(c)+(b?";expires="+m.toGMTString():"")+";path="+(d?d:"/")+(y?";domain="+y:"")+(g?";secure":"")}function n(a){return(a=RegExp("(^|;)[ ]*"+a+"=([^;]*)").exec(e.cookie))?G(a[2]):""}function O(){var a=n(z);if(a!=""){a=a.split(".");if(a.length==
+5){o=parseInt(a[0]);t=parseInt(a[1]);p=parseInt(a[2]);q=parseInt(a[3]);l=parseInt(a[4]);a=n(u);if(a!="")h=parseInt(a);A=n(B)}}}function P(){var a;H=a=Math.round((new Date).getTime()/1E3);if(o==0){o=C();p=t=a}else p=q;q=a;if(A==""){h=C();l=1}else if(n(u)==""){h=C();l=1}else{h=parseInt(A);l+=1}a=o+"."+t+"."+p+"."+q+"."+l;if(i==""){k(z,a,I);k(u,h,J);k(B,h)}else{k(z,a,I,"/",i);k(u,h,J,"/",i);k(B,h,"","/",i)}}function C(){return Math.round(Math.random()*2147483647)}function Q(a){var c=new Image(1,1);c.onLoad=
+function(){};c.src=a}function K(){if(v=="")return false;if(i=="")return false;if(w=="")return false;return true}function R(){var a=n(w);return G(a)}function D(){E=true}function S(){try{if(top!=this)return false;if(self.frameElement&&self.frameElement.tagName=="IFRAME")return false;return true}catch(a){return false}}this.channel=this.pageType=this.type=this.p4=this.p3=this.p2=this.p1=0;this.location=this.referrer="";this.articleid=0;var v="",i="",w="",e=document,j=navigator,L=screen,x=window,M=x.location.hostname,
+s=x.encodeURIComponent||escape,G=x.decodeURIComponent||unescape,z="__pta",I=1051200,o=0,t=0,p=0,q=0,l=1,H=0,u="__pts",h=0,J=30,B="__ptb",A,T=j.cookieEnabled?1:0,U=j.javaEnabled()?1:0,F=false,N="",E=false,f=this;this.track=function(){if(E){if(K()&&F&&S()){var a=v+"?v=3.6",c="&p1="+f.p1+"&p2="+f.p2+"&p3="+f.p3+"&p4="+f.p4+"&ar="+f.articleid+"&t="+f.type+"&cl="+f.channel+"&pt="+f.pageType+"&res="+L.width+"x"+L.height+"&sid="+h+"&cvt="+H+"&vid="+o+"&vtf="+t+"&vtl="+p+"&vtc="+q+"&vc="+l+"&b=&d=&e=&c=&f="+
+T+"&g="+U+"&h=",b="-";if(j.plugins&&j.plugins.length)for(var d=0;d<j.plugins.length;d++){if(j.plugins[d].name.indexOf("Shockwave Flash")!=-1){b=j.plugins[d].description.split("Shockwave Flash ")[1];break}}else if(x.ActiveXObject)for(d=10;d>=2;d--)try{if(eval("new ActiveXObject('ShockwaveFlash.ShockwaveFlash."+d+"');")){b=d+".0";break}}catch(y){}d=s;var g;if(f.referrer!="")g=f.referrer;else{g="";try{g=top.document.referrer}catch(m){if(parent)try{g=parent.document.referrer}catch(V){g=""}}if(g==="")g=
+e.referrer}a+=c+b+"&i="+d(g)+"&k="+s(f.location!=""?f.location:e.location.href)+"&uid="+s(N)+"&rand="+Math.random();Q(a)}}else setTimeout(arguments.callee,0)};(function(){for(var a=["pcpop.com","guomii.com"],c=["it168.com","qudao168.com","chinaunix.com","chinaunix.net","itpub.net","ixpub.net","igeek.com.cn","afjk.com","app111.com","mobpub.net","jimi168.com","feng91.com","bnxsj.com","mall.autohome.com.cn","gengpianyi.com","newbuy.cc"],b=0;b<a.length;b++)if(M.indexOf(a[b])>-1){i=a[b];v="http://count.pcpop.com/count.ashx";
+w="pop_userid";return}for(b=0;b<c.length;b++)if(M.indexOf(c[b])>-1){i=c[b];v="http://stat.it168.com/count.ashx";w="sso_username_utf8";break}})();r(e,"mouseover",D,false);r(e,"mousemove",D,false);r(e,"keydown",function(a){if(a.keyCode=="37"||a.keyCode=="38"||a.keyCode=="39"||a.keyCode=="40")E=true},false);r(e,"touchstart",D,false);F=function(){var a,c;if(e.body){a=e.body.clientWidth|e.documentElement.clientWidth;c=e.body.clientHeight|e.documentElement.clientHeight}else{a=e.documentElement.clientWidth;
+c=e.documentElement.clientHeight}if(a>300&&c>300)return true;return false}();if(K()&&F)try{O();P();N=R()}catch(W){}});
+_application/x-javascript_http://stat.it168.com/pv.jsOLbplist00�klX$versionX$objectsY$archiverT$top ���!#)*0123MNOPQRSTUVWXYZ[\]^_`adefU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���� ����$%&'(WNS.base[NS.relative� ��_http://stat.it168.com/pv.js�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�\� ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BCDEFGHIJK�����������VServer\Content-Type\X-Powered-By]Last-ModifiedTEtagTDate]Accept-Ranges_Content-Encoding^Content-LengthTVary_Microsoft-IIS/7.5_application/x-javascriptWASP.NET_Tue, 03 Mar 2015 08:21:27 GMT_"be1238b8b55d01:0"_Mon, 27 Jul 2015 00:48:26 GMTUbytesTgzipT2139_Accept-Encoding�+,bc\NSDictionary�b/�_application/x-javascript�+,gh_NSHTTPURLResponse�ij/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�mn_WebResourceResponse�    # - 2 7 [ a |  � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � #,579@HS^`bdfhjlnpr}�������������������08Xm�������������!36L             o              N�2345O>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-20237423-2']);
+_gaq.push(['_trackPageview']);
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+_application/x-javascript_'http://bbs.chinaunix.net/googlepv/pv.jsOYbplist00�klX$versionX$objectsY$archiverT$top ���!#)*0123MNOPQRSTUVWXYZ[\]^_`adefU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���� ����$%&'(WNS.base[NS.relative� ��_'http://bbs.chinaunix.net/googlepv/pv.js�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�Z;�� ��456ALWNS.keysZNS.objects�789:;<=>?@�	�
+���������BCDEFGHIJK�����������VServer\Content-TypeZConnection]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlWExpiresUnginx_application/x-javascriptZkeep-alive_Tue, 20 Dec 2011 03:06:03 GMT^"4eeffb9b-13e"_Mon, 27 Jul 2015 00:48:26 GMTUbytesS318]max-age=86400_Tue, 28 Jul 2015 00:48:26 GMT�+,bc\NSDictionary�b/>_application/x-javascript�+,gh_NSHTTPURLResponse�ij/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�mn_WebResourceResponse�    # - 2 7 [ a |  � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �&,/8ACELT_jlnprtvxz|~��������������������	*5Ud����������� .@CY             o              [�789:O�6(function(){var ea=decodeURIComponent,m=Math,aa=encodeURIComponent,da=isNaN,ca=setTimeout,ba=Infinity;function ha(a,b){return a.name=b}function Ie(a,b){return a.onload=b}function Je(a,b){return a.onerror=b}
+var oa="match",xa="href",y="split",C="join",ja="slice",r="name",wa="clientHeight",x="prototype",ua="scope",pa="port",na="value",q="indexOf",u="host",ta="stopPropagation",p="replace",B="substring",ma="charAt",n="push",z="location",va="search",A="protocol",ya="apply",za="navigator",sa="clientWidth",w="length",ka="load",ia="test",v="toString",ra="path",la="floor",D="toLowerCase",g="getTime",qa="createElement",E;function Aa(a,b){switch(b){case 0:return""+a;case 1:return 1*a;case 2:return!!a;case 3:return 1E3*a}return a}function Ba(a){return"function"==typeof a}function Ca(a){return void 0!=a&&-1<(a.constructor+"")[q]("String")}function F(a,b){return void 0==a||"-"==a&&!b||""==a}function Da(a){if(!a||""==a)return"";for(;a&&-1<" \n\r\t"[q](a[ma](0));)a=a[B](1);for(;a&&-1<" \n\r\t"[q](a[ma](a[w]-1));)a=a[B](0,a[w]-1);return a}function Ea(){return m.round(2147483647*m.random())}function Fa(){}
+function G(a,b){if(aa instanceof Function)return b?encodeURI(a):aa(a);H(68);return escape(a)}function I(a){a=a[y]("+")[C](" ");if(ea instanceof Function)try{return ea(a)}catch(b){H(17)}else H(68);return unescape(a)}var Ga=function(a,b,c,d){a.addEventListener?a.addEventListener(b,c,!!d):a.attachEvent&&a.attachEvent("on"+b,c)};
+function Ia(a,b){if(a){var c=J[qa]("script");c.type="text/javascript";c.async=!0;c.src=a;c.id=b;var d=J.getElementsByTagName("script")[0];d.parentNode.insertBefore(c,d);return c}}function K(a){return a&&0<a[w]?a[0]:""}function L(a){var b=a?a[w]:0;return 0<b?a[b-1]:""}var nf=function(){this.prefix="ga.";this.values={}};nf[x].set=function(a,b){this.values[this.prefix+a]=b};nf[x].get=function(a){return this.values[this.prefix+a]};nf[x].contains=function(a){return void 0!==this.get(a)};function Ka(a){0==a[q]("www.")&&(a=a[B](4));return a[D]()}function La(a,b){var c,d={url:a,protocol:"http",host:"",path:"",R:new nf,anchor:""};if(!a)return d;c=a[q]("://");0<=c&&(d.protocol=a[B](0,c),a=a[B](c+3));c=a[va]("/|\\?|#");if(0<=c)d.host=a[B](0,c)[D](),a=a[B](c);else return d.host=a[D](),d;c=a[q]("#");0<=c&&(d.anchor=a[B](c+1),a=a[B](0,c));c=a[q]("?");0<=c&&(Na(d.R,a[B](c+1)),a=a[B](0,c));d.anchor&&b&&Na(d.R,d.anchor);a&&"/"==a[ma](0)&&(a=a[B](1));d.path=a;return d}
+function Oa(a,b){function c(a){var b=(a.hostname||"")[y](":")[0][D](),c=(a[A]||"")[D](),c=1*a[pa]||("http:"==c?80:"https:"==c?443:"");a=a.pathname||"";0==a[q]("/")||(a="/"+a);return[b,""+c,a]}var d=b||J[qa]("a");d.href=J[z][xa];var e=(d[A]||"")[D](),f=c(d),Be=d[va]||"",k=e+"//"+f[0]+(f[1]?":"+f[1]:"");0==a[q]("//")?a=e+a:0==a[q]("/")?a=k+a:a&&0!=a[q]("?")?0>a[y]("/")[0][q](":")&&(a=k+f[2][B](0,f[2].lastIndexOf("/"))+"/"+a):a=k+f[2]+(a||Be);d.href=a;e=c(d);return{protocol:(d[A]||"")[D](),host:e[0],
+port:e[1],path:e[2],Oa:d[va]||"",url:a||""}}function Na(a,b){function c(b,c){a.contains(b)||a.set(b,[]);a.get(b)[n](c)}for(var d=Da(b)[y]("&"),e=0;e<d[w];e++)if(d[e]){var f=d[e][q]("=");0>f?c(d[e],"1"):c(d[e][B](0,f),d[e][B](f+1))}}function Pa(a,b){if(F(a)||"["==a[ma](0)&&"]"==a[ma](a[w]-1))return"-";var c=J.domain;return a[q](c+(b&&"/"!=b?b:""))==(0==a[q]("http://")?7:0==a[q]("https://")?8:0)?"0":a};var Qa=0;function Ra(a,b,c){1<=Qa||1<=100*m.random()||ld()||(a=["utmt=error","utmerr="+a,"utmwv=5.6.5","utmn="+Ea(),"utmsp=1"],b&&a[n]("api="+b),c&&a[n]("msg="+G(c[B](0,100))),M.w&&a[n]("aip=1"),Sa(a[C]("&")),Qa++)};var Ta=0,Ua={};function N(a){return Va("x"+Ta++,a)}function Va(a,b){Ua[a]=!!b;return a}
+var Wa=N(),Xa=Va("anonymizeIp"),Ya=N(),$a=N(),ab=N(),bb=N(),O=N(),P=N(),cb=N(),db=N(),eb=N(),fb=N(),gb=N(),hb=N(),ib=N(),jb=N(),kb=N(),lb=N(),nb=N(),ob=N(),pb=N(),qb=N(),rb=N(),sb=N(),tb=N(),ub=N(),vb=N(),wb=N(),xb=N(),yb=N(),zb=N(),Ab=N(),Bb=N(),Cb=N(),Db=N(),Eb=N(),Fb=N(!0),Gb=Va("currencyCode"),Hb=Va("page"),Ib=Va("title"),Jb=N(),Kb=N(),Lb=N(),Mb=N(),Nb=N(),Ob=N(),Pb=N(),Qb=N(),Rb=N(),Q=N(!0),Sb=N(!0),Tb=N(!0),Ub=N(!0),Vb=N(!0),Wb=N(!0),Zb=N(!0),$b=N(!0),ac=N(!0),bc=N(!0),cc=N(!0),R=N(!0),dc=N(!0),
+ec=N(!0),fc=N(!0),gc=N(!0),hc=N(!0),ic=N(!0),jc=N(!0),S=N(!0),kc=N(!0),lc=N(!0),mc=N(!0),nc=N(!0),oc=N(!0),pc=N(!0),qc=N(!0),rc=Va("campaignParams"),sc=N(),tc=Va("hitCallback"),uc=N();N();var vc=N(),wc=N(),xc=N(),yc=N(),zc=N(),Ac=N(),Bc=N(),Cc=N(),Dc=N(),Ec=N(),Fc=N(),Gc=N(),Hc=N(),Ic=N();N();var Mc=N(),Nc=N(),Yb=N(),Jc=N(),Kc=N(),Lc=Va("utmtCookieName"),Cd=Va("displayFeatures"),Oc=N(),of=Va("gtmid"),Oe=Va("uaName"),Pe=Va("uaDomain"),Qe=Va("uaPath"),pf=Va("linkid");var Re=function(){function a(a,c,d){T(qf[x],a,c,d)}a("_createTracker",qf[x].hb,55);a("_getTracker",qf[x].oa,0);a("_getTrackerByName",qf[x].u,51);a("_getTrackers",qf[x].pa,130);a("_anonymizeIp",qf[x].aa,16);a("_forceSSL",qf[x].la,125);a("_getPlugin",Pc,120)},Se=function(){function a(a,c,d){T(U[x],a,c,d)}Qc("_getName",$a,58);Qc("_getAccount",Wa,64);Qc("_visitCode",Q,54);Qc("_getClientInfo",ib,53,1);Qc("_getDetectTitle",lb,56,1);Qc("_getDetectFlash",jb,65,1);Qc("_getLocalGifPath",wb,57);Qc("_getServiceMode",
+xb,59);V("_setClientInfo",ib,66,2);V("_setAccount",Wa,3);V("_setNamespace",Ya,48);V("_setAllowLinker",fb,11,2);V("_setDetectFlash",jb,61,2);V("_setDetectTitle",lb,62,2);V("_setLocalGifPath",wb,46,0);V("_setLocalServerMode",xb,92,void 0,0);V("_setRemoteServerMode",xb,63,void 0,1);V("_setLocalRemoteServerMode",xb,47,void 0,2);V("_setSampleRate",vb,45,1);V("_setCampaignTrack",kb,36,2);V("_setAllowAnchor",gb,7,2);V("_setCampNameKey",ob,41);V("_setCampContentKey",tb,38);V("_setCampIdKey",nb,39);V("_setCampMediumKey",
+rb,40);V("_setCampNOKey",ub,42);V("_setCampSourceKey",qb,43);V("_setCampTermKey",sb,44);V("_setCampCIdKey",pb,37);V("_setCookiePath",P,9,0);V("_setMaxCustomVariables",yb,0,1);V("_setVisitorCookieTimeout",cb,28,1);V("_setSessionCookieTimeout",db,26,1);V("_setCampaignCookieTimeout",eb,29,1);V("_setReferrerOverride",Jb,49);V("_setSiteSpeedSampleRate",Dc,132);a("_trackPageview",U[x].Fa,1);a("_trackEvent",U[x].F,4);a("_trackPageLoadTime",U[x].Ea,100);a("_trackSocial",U[x].Ga,104);a("_trackTrans",U[x].Ia,
+18);a("_sendXEvent",U[x].ib,78);a("_createEventTracker",U[x].ia,74);a("_getVersion",U[x].qa,60);a("_setDomainName",U[x].B,6);a("_setAllowHash",U[x].va,8);a("_getLinkerUrl",U[x].na,52);a("_link",U[x].link,101);a("_linkByPost",U[x].ua,102);a("_setTrans",U[x].za,20);a("_addTrans",U[x].$,21);a("_addItem",U[x].Y,19);a("_clearTrans",U[x].ea,105);a("_setTransactionDelim",U[x].Aa,82);a("_setCustomVar",U[x].wa,10);a("_deleteCustomVar",U[x].ka,35);a("_getVisitorCustomVar",U[x].ra,50);a("_setXKey",U[x].Ca,83);
+a("_setXValue",U[x].Da,84);a("_getXKey",U[x].sa,76);a("_getXValue",U[x].ta,77);a("_clearXKey",U[x].fa,72);a("_clearXValue",U[x].ga,73);a("_createXObj",U[x].ja,75);a("_addIgnoredOrganic",U[x].W,15);a("_clearIgnoredOrganic",U[x].ba,97);a("_addIgnoredRef",U[x].X,31);a("_clearIgnoredRef",U[x].ca,32);a("_addOrganic",U[x].Z,14);a("_clearOrganic",U[x].da,70);a("_cookiePathCopy",U[x].ha,30);a("_get",U[x].ma,106);a("_set",U[x].xa,107);a("_addEventListener",U[x].addEventListener,108);a("_removeEventListener",
+U[x].removeEventListener,109);a("_addDevId",U[x].V);a("_getPlugin",Pc,122);a("_setPageGroup",U[x].ya,126);a("_trackTiming",U[x].Ha,124);a("_initData",U[x].initData,2);a("_setVar",U[x].Ba,22);V("_setSessionTimeout",db,27,3);V("_setCookieTimeout",eb,25,3);V("_setCookiePersistence",cb,24,1);a("_setAutoTrackOutbound",Fa,79);a("_setTrackOutboundSubdomains",Fa,81);a("_setHrefExamineLimit",Fa,80)};function Pc(a){var b=this.plugins_;if(b)return b.get(a)}
+var T=function(a,b,c,d){a[b]=function(){try{return void 0!=d&&H(d),c[ya](this,arguments)}catch(a){throw Ra("exc",b,a&&a[r]),a;}}},Qc=function(a,b,c,d){U[x][a]=function(){try{return H(c),Aa(this.a.get(b),d)}catch(e){throw Ra("exc",a,e&&e[r]),e;}}},V=function(a,b,c,d,e){U[x][a]=function(f){try{H(c),void 0==e?this.a.set(b,Aa(f,d)):this.a.set(b,e)}catch(Be){throw Ra("exc",a,Be&&Be[r]),Be;}}},Te=function(a,b){return{type:b,target:a,stopPropagation:function(){throw"aborted";}}};var Rc=new RegExp(/(^|\.)doubleclick\.net$/i),Sc=function(a,b){return Rc[ia](J[z].hostname)?!0:"/"!==b?!1:0!=a[q]("www.google.")&&0!=a[q](".google.")&&0!=a[q]("google.")||-1<a[q]("google.org")?!1:!0},Tc=function(a){var b=a.get(bb),c=a.c(P,"/");Sc(b,c)&&a[ta]()};var Zc=function(){var a={},b={},c=new Uc;this.g=function(a,b){c.add(a,b)};var d=new Uc;this.v=function(a,b){d.add(a,b)};var e=!1,f=!1,Be=!0;this.T=function(){e=!0};this.j=function(a){this[ka]();this.set(sc,a,!0);a=new Vc(this);e=!1;d.cb(this);e=!0;b={};this.gb();a.Ja()};this.load=function(){e&&(e=!1,this.Ka(),Wc(this),f||(f=!0,c.cb(this),Xc(this),Wc(this)),e=!0)};this.gb=function(){if(e)if(f)e=!1,Xc(this),e=!0;else this[ka]()};this.get=function(c){Ua[c]&&this[ka]();return void 0!==b[c]?b[c]:a[c]};
+this.set=function(c,d,e){Ua[c]&&this[ka]();e?b[c]=d:a[c]=d;Ua[c]&&this.gb()};this.Za=function(b){a[b]=this.b(b,0)+1};this.b=function(a,b){var c=this.get(a);return void 0==c||""===c?b:1*c};this.c=function(a,b){var c=this.get(a);return void 0==c?b:c+""};this.Ka=function(){if(Be){var b=this.c(bb,""),c=this.c(P,"/");Sc(b,c)||(a[O]=a[hb]&&""!=b?Yc(b):1,Be=!1)}}};Zc[x].stopPropagation=function(){throw"aborted";};
+var Vc=function(a){var b=this;this.fb=0;var c=a.get(tc);this.Ua=function(){0<b.fb&&c&&(b.fb--,b.fb||c())};this.Ja=function(){!b.fb&&c&&ca(c,10)};a.set(uc,b,!0)};function $c(a,b){b=b||[];for(var c=0;c<b[w];c++){var d=b[c];if(""+a==d||0==d[q](a+"."))return d}return"-"}
+var bd=function(a,b,c){c=c?"":a.c(O,"1");b=b[y](".");if(6!==b[w]||ad(b[0],c))return!1;c=1*b[1];var d=1*b[2],e=1*b[3],f=1*b[4];b=1*b[5];if(!(0<=c&&0<d&&0<e&&0<f&&0<=b))return!1;a.set(Q,c);a.set(Vb,d);a.set(Wb,e);a.set(Zb,f);a.set($b,b);return!0},cd=function(a){var b=a.get(Q),c=a.get(Vb),d=a.get(Wb),e=a.get(Zb),f=a.b($b,1);return[a.b(O,1),void 0!=b?b:"-",c||"-",d||"-",e||"-",f][C](".")},dd=function(a){return[a.b(O,1),a.b(cc,0),a.b(R,1),a.b(dc,0)][C](".")},ed=function(a,b,c){c=c?"":a.c(O,"1");var d=
+b[y](".");if(4!==d[w]||ad(d[0],c))d=null;a.set(cc,d?1*d[1]:0);a.set(R,d?1*d[2]:10);a.set(dc,d?1*d[3]:a.get(ab));return null!=d||!ad(b,c)},fd=function(a,b){var c=G(a.c(Tb,"")),d=[],e=a.get(Fb);if(!b&&e){for(var f=0;f<e[w];f++){var Be=e[f];Be&&1==Be[ua]&&d[n](f+"="+G(Be[r])+"="+G(Be[na])+"=1")}0<d[w]&&(c+="|"+d[C]("^"))}return c?a.b(O,1)+"."+c:null},gd=function(a,b,c){c=c?"":a.c(O,"1");b=b[y](".");if(2>b[w]||ad(b[0],c))return!1;b=b[ja](1)[C](".")[y]("|");0<b[w]&&a.set(Tb,I(b[0]));if(1>=b[w])return!0;
+b=b[1][y](-1==b[1][q](",")?"^":",");for(c=0;c<b[w];c++){var d=b[c][y]("=");if(4==d[w]){var e={};ha(e,I(d[1]));e.value=I(d[2]);e.scope=1;a.get(Fb)[d[0]]=e}}return!0},hd=function(a,b){var c=Ue(a,b);return c?[a.b(O,1),a.b(ec,0),a.b(fc,1),a.b(gc,1),c][C]("."):""},Ue=function(a){function b(b,e){if(!F(a.get(b))){var f=a.c(b,""),f=f[y](" ")[C]("%20"),f=f[y]("+")[C]("%20");c[n](e+"="+f)}}var c=[];b(ic,"utmcid");b(nc,"utmcsr");b(S,"utmgclid");b(kc,"utmgclsrc");b(lc,"utmdclid");b(mc,"utmdsid");b(jc,"utmccn");
+b(oc,"utmcmd");b(pc,"utmctr");b(qc,"utmcct");return c[C]("|")},id=function(a,b,c){c=c?"":a.c(O,"1");b=b[y](".");if(5>b[w]||ad(b[0],c))return a.set(ec,void 0),a.set(fc,void 0),a.set(gc,void 0),a.set(ic,void 0),a.set(jc,void 0),a.set(nc,void 0),a.set(oc,void 0),a.set(pc,void 0),a.set(qc,void 0),a.set(S,void 0),a.set(kc,void 0),a.set(lc,void 0),a.set(mc,void 0),!1;a.set(ec,1*b[1]);a.set(fc,1*b[2]);a.set(gc,1*b[3]);Ve(a,b[ja](4)[C]("."));return!0},Ve=function(a,b){function c(a){return(a=b[oa](a+"=(.*?)(?:\\|utm|$)"))&&
+2==a[w]?a[1]:void 0}function d(b,c){c?(c=e?I(c):c[y]("%20")[C](" "),a.set(b,c)):a.set(b,void 0)}-1==b[q]("=")&&(b=I(b));var e="2"==c("utmcvr");d(ic,c("utmcid"));d(jc,c("utmccn"));d(nc,c("utmcsr"));d(oc,c("utmcmd"));d(pc,c("utmctr"));d(qc,c("utmcct"));d(S,c("utmgclid"));d(kc,c("utmgclsrc"));d(lc,c("utmdclid"));d(mc,c("utmdsid"))},ad=function(a,b){return b?a!=b:!/^\d+$/[ia](a)};var Uc=function(){this.filters=[]};Uc[x].add=function(a,b){this.filters[n]({name:a,s:b})};Uc[x].cb=function(a){try{for(var b=0;b<this.filters[w];b++)this.filters[b].s.call(W,a)}catch(c){}};function jd(a){100!=a.get(vb)&&a.get(Q)%1E4>=100*a.get(vb)&&a[ta]()}function kd(a){ld(a.get(Wa))&&a[ta]()}function md(a){"file:"==J[z][A]&&a[ta]()}function Ge(a){He()&&a[ta]()}function nd(a){a.get(Ib)||a.set(Ib,J.title,!0);a.get(Hb)||a.set(Hb,J[z].pathname+J[z][va],!0)}
+function lf(a){a.get(Wa)&&"UA-XXXXX-X"!=a.get(Wa)||a[ta]()};var od=new function(){var a=[];this.set=function(b){a[b]=!0};this.encode=function(){for(var b=[],c=0;c<a[w];c++)a[c]&&(b[m[la](c/6)]=b[m[la](c/6)]^1<<c%6);for(c=0;c<b[w];c++)b[c]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"[ma](b[c]||0);return b[C]("")+"~"}};function H(a){od.set(a)};var W=window,J=document,ld=function(a){var b=W._gaUserPrefs;if(b&&b.ioo&&b.ioo()||a&&!0===W["ga-disable-"+a])return!0;try{var c=W.external;if(c&&c._gaUserPrefs&&"oo"==c._gaUserPrefs)return!0}catch(d){}return!1},He=function(){return W[za]&&"preview"==W[za].loadPurpose},We=function(a,b){ca(a,b)},pd=function(a){var b=[],c=J.cookie[y](";");a=new RegExp("^\\s*"+a+"=\\s*(.*?)\\s*$");for(var d=0;d<c[w];d++){var e=c[d][oa](a);e&&b[n](e[1])}return b},X=function(a,b,c,d,e,f){e=ld(e)?!1:Sc(d,c)?!1:He()?!1:!0;
+e&&((b=mf(b))&&2E3<b[w]&&(b=b[B](0,2E3),H(69)),a=a+"="+b+"; path="+c+"; ",f&&(a+="expires="+(new Date((new Date)[g]()+f)).toGMTString()+"; "),d&&(a+="domain="+d+";"),J.cookie=a)},mf=function(a){if(!a)return a;var b=a[q](";");-1!=b&&(a=a[B](0,b),H(141));if(!(0<=W[za].userAgent[q]("Firefox")))return a;a=a[p](/\n|\r/g," ");for(var b=0,c=a[w];b<c;++b){var d=a.charCodeAt(b)&255;if(10==d||13==d)a=a[B](0,b)+"?"+a[B](b+1)}return a};var qd,rd,sd=function(){if(!qd){var a={},b=W[za],c=W.screen;a.jb=c?c.width+"x"+c.height:"-";a.P=c?c.colorDepth+"-bit":"-";a.language=(b&&(b.language||b.browserLanguage)||"-")[D]();a.javaEnabled=b&&b.javaEnabled()?1:0;a.characterSet=J.characterSet||J.charset||"-";try{var d;var e=J.documentElement,f=J.body,Be=f&&f[sa]&&f[wa],b=[];e&&e[sa]&&e[wa]&&("CSS1Compat"===J.compatMode||!Be)?b=[e[sa],e[wa]]:Be&&(b=[f[sa],f[wa]]);d=0>=b[0]||0>=b[1]?"":b[C]("x");a.Wa=d}catch(k){H(135)}qd=a}},td=function(){sd();
+for(var a=qd,b=W[za],a=b.appName+b.version+a.language+b.platform+b.userAgent+a.javaEnabled+a.jb+a.P+(J.cookie?J.cookie:"")+(J.referrer?J.referrer:""),b=a[w],c=W.history[w];0<c;)a+=c--^b++;return Yc(a)},ud=function(a){sd();var b=qd;a.set(Lb,b.jb);a.set(Mb,b.P);a.set(Pb,b.language);a.set(Qb,b.characterSet);a.set(Nb,b.javaEnabled);a.set(Rb,b.Wa);if(a.get(ib)&&a.get(jb)){if(!(b=rd)){var c,d,e;d="ShockwaveFlash";if((b=(b=W[za])?b.plugins:void 0)&&0<b[w])for(c=0;c<b[w]&&!e;c++)d=b[c],-1<d[r][q]("Shockwave Flash")&&
+(e=d.description[y]("Shockwave Flash ")[1]);else{d=d+"."+d;try{c=new ActiveXObject(d+".7"),e=c.GetVariable("$version")}catch(f){}if(!e)try{c=new ActiveXObject(d+".6"),e="WIN 6,0,21,0",c.AllowScriptAccess="always",e=c.GetVariable("$version")}catch(Be){}if(!e)try{c=new ActiveXObject(d),e=c.GetVariable("$version")}catch(k){}e&&(e=e[y](" ")[1][y](","),e=e[0]+"."+e[1]+" r"+e[2])}b=e?e:"-"}rd=b;a.set(Ob,rd)}else a.set(Ob,"-")};var vd=function(a){if(Ba(a))this.s=a;else{var b=a[0],c=b.lastIndexOf(":"),d=b.lastIndexOf(".");this.h=this.i=this.l="";-1==c&&-1==d?this.h=b:-1==c&&-1!=d?(this.i=b[B](0,d),this.h=b[B](d+1)):-1!=c&&-1==d?(this.l=b[B](0,c),this.h=b[B](c+1)):c>d?(this.i=b[B](0,d),this.l=b[B](d+1,c),this.h=b[B](c+1)):(this.i=b[B](0,d),this.h=b[B](d+1));this.Xa=a[ja](1);this.Ma=!this.l&&"_require"==this.h;this.J=!this.i&&!this.l&&"_provide"==this.h}},Y=function(){T(Y[x],"push",Y[x][n],5);T(Y[x],"_getPlugin",Pc,121);T(Y[x],
+"_createAsyncTracker",Y[x].Sa,33);T(Y[x],"_getAsyncTracker",Y[x].Ta,34);this.I=new nf;this.eb=[]};E=Y[x];E.Na=function(a,b,c){var d=this.I.get(a);if(!Ba(d))return!1;b.plugins_=b.plugins_||new nf;b.plugins_.set(a,new d(b,c||{}));return!0};E.push=function(a){var b=Z.Va[ya](this,arguments),b=Z.eb.concat(b);for(Z.eb=[];0<b[w]&&!Z.O(b[0])&&!(b.shift(),0<Z.eb[w]););Z.eb=Z.eb.concat(b);return 0};E.Va=function(a){for(var b=[],c=0;c<arguments[w];c++)try{var d=new vd(arguments[c]);d.J?this.O(d):b[n](d)}catch(e){}return b};
+E.O=function(a){try{if(a.s)a.s[ya](W);else if(a.J)this.I.set(a.Xa[0],a.Xa[1]);else{var b="_gat"==a.i?M:"_gaq"==a.i?Z:M.u(a.i);if(a.Ma){if(!this.Na(a.Xa[0],b,a.Xa[2])){if(!a.Pa){var c=Oa(""+a.Xa[1]);var d=c[A],e=J[z][A];var f;if(f="https:"==d||d==e?!0:"http:"!=d?!1:"http:"==e)a:{var Be=Oa(J[z][xa]);if(!(c.Oa||0<=c.url[q]("?")||0<=c[ra][q]("://")||c[u]==Be[u]&&c[pa]==Be[pa]))for(var k="http:"==c[A]?80:443,Ja=M.S,b=0;b<Ja[w];b++)if(c[u]==Ja[b][0]&&(c[pa]||k)==(Ja[b][1]||k)&&0==c[ra][q](Ja[b][2])){f=
+!0;break a}f=!1}f&&!ld()&&(a.Pa=Ia(c.url))}return!0}}else a.l&&(b=b.plugins_.get(a.l)),b[a.h][ya](b,a.Xa)}}catch(t){}};E.Sa=function(a,b){return M.hb(a,b||"")};E.Ta=function(a){return M.u(a)};var yd=function(){function a(a,b,c,d){void 0==f[a]&&(f[a]={});void 0==f[a][b]&&(f[a][b]=[]);f[a][b][c]=d}function b(a,b,c){if(void 0!=f[a]&&void 0!=f[a][b])return f[a][b][c]}function c(a,b){if(void 0!=f[a]&&void 0!=f[a][b]){f[a][b]=void 0;var c=!0,d;for(d=0;d<Be[w];d++)if(void 0!=f[a][Be[d]]){c=!1;break}c&&(f[a]=void 0)}}function d(a){var b="",c=!1,d,e;for(d=0;d<Be[w];d++)if(e=a[Be[d]],void 0!=e){c&&(b+=Be[d]);for(var c=[],f=void 0,Bd=void 0,Bd=0;Bd<e[w];Bd++)if(void 0!=e[Bd]){f="";1!=Bd&&void 0==
+e[Bd-1]&&(f+=Bd[v]()+"!");for(var fa=e[Bd],Ke="",Le=void 0,Me=void 0,ga=void 0,Le=0;Le<fa[w];Le++)Me=fa[ma](Le),ga=k[Me],Ke+=void 0!=ga?ga:Me;f+=Ke;c[n](f)}b+="("+c[C]("*")+")";c=!1}else c=!0;return b}var e=this,f=[],Be=["k","v"],k={"'":"'0",")":"'1","*":"'2","!":"'3"};e.Ra=function(a){return void 0!=f[a]};e.A=function(){for(var a="",b=0;b<f[w];b++)void 0!=f[b]&&(a+=b[v]()+d(f[b]));return a};e.Qa=function(a){if(void 0==a)return e.A();for(var b=a.A(),c=0;c<f[w];c++)void 0==f[c]||a.Ra(c)||(b+=c[v]()+
+d(f[c]));return b};e.f=function(b,c,d){if(!wd(d))return!1;a(b,"k",c,d);return!0};e.o=function(b,c,d){if(!xd(d))return!1;a(b,"v",c,d[v]());return!0};e.getKey=function(a,c){return b(a,"k",c)};e.N=function(a,c){return b(a,"v",c)};e.L=function(a){c(a,"k")};e.M=function(a){c(a,"v")};T(e,"_setKey",e.f,89);T(e,"_setValue",e.o,90);T(e,"_getKey",e.getKey,87);T(e,"_getValue",e.N,88);T(e,"_clearKey",e.L,85);T(e,"_clearValue",e.M,86)};function wd(a){return"string"==typeof a}
+function xd(a){return!("number"==typeof a||void 0!=Number&&a instanceof Number)||m.round(a)!=a||da(a)||a==ba?!1:!0};var zd=function(a){var b=W.gaGlobal;a&&!b&&(W.gaGlobal=b={});return b},Ad=function(){var a=zd(!0).hid;null==a&&(a=Ea(),zd(!0).hid=a);return a},Dd=function(a){a.set(Kb,Ad());var b=zd();if(b&&b.dh==a.get(O)){var c=b.sid;c&&(a.get(ac)?H(112):H(132),a.set(Zb,c),a.get(Sb)&&a.set(Wb,c));b=b.vid;a.get(Sb)&&b&&(b=b[y]("."),a.set(Q,1*b[0]),a.set(Vb,1*b[1]))}};var Ed,Fd=function(a,b,c,d){var e=a.c(bb,""),f=a.c(P,"/");d=void 0!=d?d:a.b(cb,0);a=a.c(Wa,"");X(b,c,f,e,a,d)},Xc=function(a){var b=a.c(bb,"");a.b(O,1);var c=a.c(P,"/"),d=a.c(Wa,"");X("__utma",cd(a),c,b,d,a.get(cb));X("__utmb",dd(a),c,b,d,a.get(db));X("__utmc",""+a.b(O,1),c,b,d);var e=hd(a,!0);e?X("__utmz",e,c,b,d,a.get(eb)):X("__utmz","",c,b,"",-1);(e=fd(a,!1))?X("__utmv",e,c,b,d,a.get(cb)):X("__utmv","",c,b,"",-1)},Wc=function(a){var b=a.b(O,1);if(!bd(a,$c(b,pd("__utma"))))return a.set(Ub,!0),!1;
+var c=!ed(a,$c(b,pd("__utmb")));a.set(bc,c);id(a,$c(b,pd("__utmz")));gd(a,$c(b,pd("__utmv")));Ed=!c;return!0},Gd=function(a){Ed||0<pd("__utmb")[w]||(X("__utmd","1",a.c(P,"/"),a.c(bb,""),a.c(Wa,""),1E4),0==pd("__utmd")[w]&&a[ta]())};var h=0,Jd=function(a){void 0==a.get(Q)?Hd(a):a.get(Ub)&&!a.get(Mc)?Hd(a):a.get(bc)&&Id(a)},Kd=function(a){a.get(hc)&&!a.get(ac)&&(Id(a),a.set(fc,a.get($b)))},Hd=function(a){h++;1<h&&H(137);var b=a.get(ab);a.set(Sb,!0);a.set(Q,Ea()^td(a)&2147483647);a.set(Tb,"");a.set(Vb,b);a.set(Wb,b);a.set(Zb,b);a.set($b,1);a.set(ac,!0);a.set(cc,0);a.set(R,10);a.set(dc,b);a.set(Fb,[]);a.set(Ub,!1);a.set(bc,!1)},Id=function(a){h++;1<h&&H(137);a.set(Wb,a.get(Zb));a.set(Zb,a.get(ab));a.Za($b);a.set(ac,!0);a.set(cc,
+0);a.set(R,10);a.set(dc,a.get(ab));a.set(bc,!1)};var Ld="daum:q eniro:search_word naver:query pchome:q images.google:q google:q yahoo:p yahoo:q msn:q bing:q aol:query aol:q lycos:q lycos:query ask:q cnn:query virgilio:qs baidu:wd baidu:word alice:qs yandex:text najdi:q seznam:q rakuten:qt biglobe:q goo.ne:MT search.smt.docomo:MT onet:qt onet:q kvasir:q terra:query rambler:query conduit:q babylon:q search-results:q avg:q comcast:q incredimail:q startsiden:q go.mail.ru:q centrum.cz:q 360.cn:q sogou:query tut.by:query globo:q ukr:q so.com:q haosou.com:q auone:q".split(" "),
+Sd=function(a){if(a.get(kb)&&!a.get(Mc)){var b;b=!F(a.get(ic))||!F(a.get(nc))||!F(a.get(S))||!F(a.get(lc));for(var c={},d=0;d<Md[w];d++){var e=Md[d];c[e]=a.get(e)}(d=a.get(rc))?(H(149),e=new nf,Na(e,d),d=e):d=La(J[z][xa],a.get(gb)).R;if("1"!=L(d.get(a.get(ub)))||!b)if(d=Xe(a,d)||Qd(a),d||b||!a.get(ac)||(Pd(a,void 0,"(direct)",void 0,void 0,void 0,"(direct)","(none)",void 0,void 0),d=!0),d&&(a.set(hc,Rd(a,c)),b="(direct)"==a.get(nc)&&"(direct)"==a.get(jc)&&"(none)"==a.get(oc),a.get(hc)||a.get(ac)&&
+!b))a.set(ec,a.get(ab)),a.set(fc,a.get($b)),a.Za(gc)}},Xe=function(a,b){function c(c,d){d=d||"-";var e=L(b.get(a.get(c)));return e&&"-"!=e?I(e):d}var d=L(b.get(a.get(nb)))||"-",e=L(b.get(a.get(qb)))||"-",f=L(b.get(a.get(pb)))||"-",Be=L(b.get("gclsrc"))||"-",k=L(b.get("dclid"))||"-",Ja=c(ob,"(not set)"),t=c(rb,"(not set)"),Za=c(sb),Ma=c(tb);if(F(d)&&F(f)&&F(k)&&F(e))return!1;var mb=!F(f)&&!F(Be),mb=F(e)&&(!F(k)||mb),Xb=F(Za);if(mb||Xb){var Bd=Nd(a),Bd=La(Bd,!0);(Bd=Od(a,Bd))&&!F(Bd[1]&&!Bd[2])&&(mb&&
+(e=Bd[0]),Xb&&(Za=Bd[1]))}Pd(a,d,e,f,Be,k,Ja,t,Za,Ma);return!0},Qd=function(a){var b=Nd(a),c=La(b,!0);(b=!(void 0!=b&&null!=b&&""!=b&&"0"!=b&&"-"!=b&&0<=b[q]("://")))||(b=c&&-1<c[u][q]("google")&&c.R.contains("q")&&"cse"==c[ra]);if(b)return!1;if((b=Od(a,c))&&!b[2])return Pd(a,void 0,b[0],void 0,void 0,void 0,"(organic)","organic",b[1],void 0),!0;if(b||!a.get(ac))return!1;a:{for(var b=a.get(Bb),d=Ka(c[u]),e=0;e<b[w];++e)if(-1<d[q](b[e])){a=!1;break a}Pd(a,void 0,d,void 0,void 0,void 0,"(referral)",
+"referral",void 0,"/"+c[ra]);a=!0}return a},Od=function(a,b){for(var c=a.get(zb),d=0;d<c[w];++d){var e=c[d][y](":");if(-1<b[u][q](e[0][D]())){var f=b.R.get(e[1]);if(f&&(f=K(f),!f&&-1<b[u][q]("google.")&&(f="(not provided)"),!e[3]||-1<b.url[q](e[3]))){f||H(151);a:{for(var c=f,d=a.get(Ab),c=I(c)[D](),Be=0;Be<d[w];++Be)if(c==d[Be]){c=!0;break a}c=!1}return[e[2]||e[0],f,c]}}}return null},Pd=function(a,b,c,d,e,f,Be,k,Ja,t){a.set(ic,b);a.set(nc,c);a.set(S,d);a.set(kc,e);a.set(lc,f);a.set(jc,Be);a.set(oc,
+k);a.set(pc,Ja);a.set(qc,t)},Md=[jc,ic,S,lc,nc,oc,pc,qc],Rd=function(a,b){function c(a){a=(""+a)[y]("+")[C]("%20");return a=a[y](" ")[C]("%20")}function d(c){var d=""+(a.get(c)||"");c=""+(b[c]||"");return 0<d[w]&&d==c}if(d(S)||d(lc))return H(131),!1;for(var e=0;e<Md[w];e++){var f=Md[e],Be=b[f]||"-",f=a.get(f)||"-";if(c(Be)!=c(f))return!0}return!1},Td=new RegExp(/^https?:\/\/(www\.)?google(\.com?)?(\.[a-z]{2}t?)?\/?$/i),jf=/^https?:\/\/r\.search\.yahoo\.com\/[^?]*$/i,Nd=function(a){a=Pa(a.get(Jb),
+a.get(P));try{if(Td[ia](a))return H(136),a+"?q=";if(jf[ia](a))return H(150),a+"?p=(not provided)"}catch(b){H(145)}return a};var Ud,Vd,Wd=function(a){Ud=a.c(S,"");Vd=a.c(kc,"")},Xd=function(a){var b=a.c(S,""),c=a.c(kc,"");b!=Ud&&(-1<c[q]("ds")?a.set(mc,void 0):!F(Ud)&&-1<Vd[q]("ds")&&a.set(mc,Ud))};var Zd=function(a){Yd(a,J[z][xa])?(a.set(Mc,!0),H(12)):a.set(Mc,!1)},Yd=function(a,b){if(!a.get(fb))return!1;var c=La(b,a.get(gb)),d=K(c.R.get("__utma")),e=K(c.R.get("__utmb")),f=K(c.R.get("__utmc")),Be=K(c.R.get("__utmx")),k=K(c.R.get("__utmz")),Ja=K(c.R.get("__utmv")),c=K(c.R.get("__utmk"));if(Yc(""+d+e+f+Be+k+Ja)!=c){d=I(d);e=I(e);f=I(f);Be=I(Be);f=$d(d+e+f+Be,k,Ja,c);if(!f)return!1;k=f[0];Ja=f[1]}if(!bd(a,d,!0))return!1;ed(a,e,!0);id(a,k,!0);gd(a,Ja,!0);ae(a,Be,!0);return!0},ce=function(a,b,c){var d;
+d=cd(a)||"-";var e=dd(a)||"-",f=""+a.b(O,1)||"-",Be=be(a)||"-",k=hd(a,!1)||"-";a=fd(a,!1)||"-";var Ja=Yc(""+d+e+f+Be+k+a),t=[];t[n]("__utma="+d);t[n]("__utmb="+e);t[n]("__utmc="+f);t[n]("__utmx="+Be);t[n]("__utmz="+k);t[n]("__utmv="+a);t[n]("__utmk="+Ja);d=t[C]("&");if(!d)return b;e=b[q]("#");if(c)return 0>e?b+"#"+d:b+"&"+d;c="";f=b[q]("?");0<e&&(c=b[B](e),b=b[B](0,e));return 0>f?b+"?"+d+c:b+"&"+d+c},$d=function(a,b,c,d){for(var e=0;3>e;e++){for(var f=0;3>f;f++){if(d==Yc(a+b+c))return H(127),[b,c];
+var Be=b[p](/ /g,"%20"),k=c[p](/ /g,"%20");if(d==Yc(a+Be+k))return H(128),[Be,k];Be=Be[p](/\+/g,"%20");k=k[p](/\+/g,"%20");if(d==Yc(a+Be+k))return H(129),[Be,k];try{var Ja=b[oa]("utmctr=(.*?)(?:\\|utm|$)");if(Ja&&2==Ja[w]&&(Be=b[p](Ja[1],G(I(Ja[1]))),d==Yc(a+Be+c)))return H(139),[Be,c]}catch(t){}b=I(b)}c=I(c)}};var de="|",fe=function(a,b,c,d,e,f,Be,k,Ja){var t=ee(a,b);t||(t={},a.get(Cb)[n](t));t.id_=b;t.affiliation_=c;t.total_=d;t.tax_=e;t.shipping_=f;t.city_=Be;t.state_=k;t.country_=Ja;t.items_=t.items_||[];return t},ge=function(a,b,c,d,e,f,Be){a=ee(a,b)||fe(a,b,"",0,0,0,"","","");var k;a:{if(a&&a.items_){k=a.items_;for(var Ja=0;Ja<k[w];Ja++)if(k[Ja].sku_==c){k=k[Ja];break a}}k=null}Ja=k||{};Ja.transId_=b;Ja.sku_=c;Ja.name_=d;Ja.category_=e;Ja.price_=f;Ja.quantity_=Be;k||a.items_[n](Ja);return Ja},ee=function(a,
+b){for(var c=a.get(Cb),d=0;d<c[w];d++)if(c[d].id_==b)return c[d];return null};var he,ie=function(a){if(!he){var b;b=J[z].hash;var c=W[r],d=/^#?gaso=([^&]*)/;if(c=(b=(b=b&&b[oa](d)||c&&c[oa](d))?b[1]:K(pd("GASO")))&&b[oa](/^(?:!([-0-9a-z.]{1,40})!)?([-.\w]{10,1200})$/i))Fd(a,"GASO",""+b,0),M._gasoDomain=a.get(bb),M._gasoCPath=a.get(P),a=c[1],Ia("https://www.google.com/analytics/web/inpage/pub/inpage.js?"+(a?"prefix="+a+"&":"")+Ea(),"_gasojs");he=!0}};var ae=function(a,b,c){c&&(b=I(b));c=a.b(O,1);b=b[y](".");2>b[w]||!/^\d+$/[ia](b[0])||(b[0]=""+c,Fd(a,"__utmx",b[C]("."),void 0))},be=function(a,b){var c=$c(a.get(O),pd("__utmx"));"-"==c&&(c="");return b?G(c):c},Ye=function(a){try{var b=La(J[z][xa],!1),c=ea(L(b.R.get("utm_referrer")))||"";c&&a.set(Jb,c);var d=ea(K(b.R.get("utm_expid")))||"";d&&(d=d[y](".")[0],a.set(Oc,""+d))}catch(e){H(146)}},l=function(a){var b=W.gaData&&W.gaData.expId;b&&a.set(Oc,""+b)};var ke=function(a,b){var c=m.min(a.b(Dc,0),100);if(a.b(Q,0)%100>=c)return!1;c=Ze()||$e();if(void 0==c)return!1;var d=c[0];if(void 0==d||d==ba||da(d))return!1;0<d?af(c)?b(je(c)):b(je(c[ja](0,1))):Ga(W,"load",function(){ke(a,b)},!1);return!0},me=function(a,b,c,d){var e=new yd;e.f(14,90,b[B](0,500));e.f(14,91,a[B](0,150));e.f(14,92,""+le(c));void 0!=d&&e.f(14,93,d[B](0,500));e.o(14,90,c);return e},af=function(a){for(var b=1;b<a[w];b++)if(da(a[b])||a[b]==ba||0>a[b])return!1;return!0},le=function(a){return da(a)||
+0>a?0:5E3>a?10*m[la](a/10):5E4>a?100*m[la](a/100):41E5>a?1E3*m[la](a/1E3):41E5},je=function(a){for(var b=new yd,c=0;c<a[w];c++)b.f(14,c+1,""+le(a[c])),b.o(14,c+1,a[c]);return b},Ze=function(){var a=W.performance||W.webkitPerformance;if(a=a&&a.timing){var b=a.navigationStart;if(0==b)H(133);else return[a.loadEventStart-b,a.domainLookupEnd-a.domainLookupStart,a.connectEnd-a.connectStart,a.responseStart-a.requestStart,a.responseEnd-a.responseStart,a.fetchStart-b,a.domInteractive-b,a.domContentLoadedEventStart-
+b]}},$e=function(){if(W.top==W){var a=W.external,b=a&&a.onloadT;a&&!a.isValidLoadTime&&(b=void 0);2147483648<b&&(b=void 0);0<b&&a.setPageReadyTime();return void 0==b?void 0:[b]}};var cf=function(a){if(a.get(Sb))try{var b;a:{var c=pd(a.get(Oe)||"_ga");if(c&&!(1>c[w])){for(var d=[],e=0;e<c[w];e++){var f;var Be=c[e][y]("."),k=Be.shift();if(("GA1"==k||"1"==k)&&1<Be[w]){var Ja=Be.shift()[y]("-");1==Ja[w]&&(Ja[1]="1");Ja[0]*=1;Ja[1]*=1;f={Ya:Ja,$a:Be[C](".")}}else f=void 0;f&&d[n](f)}if(1==d[w]){b=d[0].$a;break a}if(0!=d[w]){var t=a.get(Pe)||a.get(bb),d=bf(d,(0==t[q](".")?t.substr(1):t)[y](".")[w],0);if(1==d[w]){b=d[0].$a;break a}var Za=a.get(Qe)||a.get(P);(c=Za)?(1<c[w]&&"/"==
+c[ma](c[w]-1)&&(c=c.substr(0,c[w]-1)),0!=c[q]("/")&&(c="/"+c),Za=c):Za="/";d=bf(d,"/"==Za?1:Za[y]("/")[w],1);b=d[0].$a;break a}}b=void 0}if(b){var Ma=(""+b)[y](".");2==Ma[w]&&/[0-9.]/[ia](Ma)&&(H(114),a.set(Q,Ma[0]),a.set(Vb,Ma[1]),a.set(Sb,!1))}}catch(mb){H(115)}},bf=function(a,b,c){for(var d=[],e=[],f=128,Be=0;Be<a[w];Be++){var k=a[Be];if(k.Ya[c]==b)d[n](k);else if(k.Ya[c]==f)e[n](k);else k.Ya[c]<f&&(e=[k],f=k.Ya[c])}return 0<d[w]?d:e};var kf=/^gtm\d+$/,hf=function(a){var b;b=!!a.b(Cd,1);b&&(H(140),"page"!=a.get(sc)?a.set(Kc,"",!0):(b=a.c(Lc,""),b||(b=(b=a.c($a,""))&&"~0"!=b?kf[ia](b)?"__utmt_"+G(a.c(Wa,"")):"__utmt_"+G(b):"__utmt"),0<pd(b)[w]?a.set(Kc,"",!0):(X(b,"1",a.c(P,"/"),a.c(bb,""),a.c(Wa,""),6E5),0<pd(b)[w]&&(a.set(Kc,Ea(),!0),a.set(Yb,1,!0),a.set(Jc,Ne()+"/r/__utm.gif?",!0)))))};var U=function(a,b,c){function d(a){return function(b){if((b=b.get(Nc)[a])&&b[w])for(var c=Te(e,a),d=0;d<b[w];d++)b[d].call(e,c)}}var e=this;this.a=new Zc;this.get=function(a){return this.a.get(a)};this.set=function(a,b,c){this.a.set(a,b,c)};this.set(Wa,b||"UA-XXXXX-X");this.set($a,a||"");this.set(Ya,c||"");this.set(ab,m.round((new Date)[g]()/1E3));this.set(P,"/");this.set(cb,63072E6);this.set(eb,15768E6);this.set(db,18E5);this.set(fb,!1);this.set(yb,50);this.set(gb,!1);this.set(hb,!0);this.set(ib,
+!0);this.set(jb,!0);this.set(kb,!0);this.set(lb,!0);this.set(ob,"utm_campaign");this.set(nb,"utm_id");this.set(pb,"gclid");this.set(qb,"utm_source");this.set(rb,"utm_medium");this.set(sb,"utm_term");this.set(tb,"utm_content");this.set(ub,"utm_nooverride");this.set(vb,100);this.set(Dc,1);this.set(Ec,!1);this.set(wb,"/__utm.gif");this.set(xb,1);this.set(Cb,[]);this.set(Fb,[]);this.set(zb,Ld[ja](0));this.set(Ab,[]);this.set(Bb,[]);this.B("auto");this.set(Jb,J.referrer);Ye(this.a);this.set(Nc,{hit:[],
+load:[]});this.a.g("0",Zd);this.a.g("1",Wd);this.a.g("2",Jd);this.a.g("3",cf);this.a.g("4",Sd);this.a.g("5",Xd);this.a.g("6",Kd);this.a.g("7",d("load"));this.a.g("8",ie);this.a.v("A",kd);this.a.v("B",md);this.a.v("C",Ge);this.a.v("D",Jd);this.a.v("E",jd);this.a.v("F",Tc);this.a.v("G",ne);this.a.v("H",lf);this.a.v("I",Gd);this.a.v("J",nd);this.a.v("K",ud);this.a.v("L",Dd);this.a.v("M",l);this.a.v("N",hf);this.a.v("O",d("hit"));this.a.v("P",oe);this.a.v("Q",pe);0===this.get(ab)&&H(111);this.a.T();this.H=
+void 0};E=U[x];E.m=function(){var a=this.get(Db);a||(a=new yd,this.set(Db,a));return a};E.La=function(a){for(var b in a){var c=a[b];a.hasOwnProperty(b)&&this.set(b,c,!0)}};E.K=function(a){if(this.get(Ec))return!1;var b=this,c=ke(this.a,function(c){b.set(Hb,a,!0);b.ib(c)});this.set(Ec,c);return c};E.Fa=function(a){a&&Ca(a)?(H(13),this.set(Hb,a,!0)):"object"===typeof a&&null!==a&&this.La(a);this.H=a=this.get(Hb);this.a.j("page");this.K(a)};
+E.F=function(a,b,c,d,e){if(""==a||!wd(a)||""==b||!wd(b)||void 0!=c&&!wd(c)||void 0!=d&&!xd(d))return!1;this.set(wc,a,!0);this.set(xc,b,!0);this.set(yc,c,!0);this.set(zc,d,!0);this.set(vc,!!e,!0);this.a.j("event");return!0};E.Ha=function(a,b,c,d,e){var f=this.a.b(Dc,0);1*e===e&&(f=e);if(this.a.b(Q,0)%100>=f)return!1;c=1*(""+c);if(""==a||!wd(a)||""==b||!wd(b)||!xd(c)||da(c)||0>c||0>f||100<f||void 0!=d&&(""==d||!wd(d)))return!1;this.ib(me(a,b,c,d));return!0};
+E.Ga=function(a,b,c,d){if(!a||!b)return!1;this.set(Ac,a,!0);this.set(Bc,b,!0);this.set(Cc,c||J[z][xa],!0);d&&this.set(Hb,d,!0);this.a.j("social");return!0};E.Ea=function(){this.set(Dc,10);this.K(this.H)};E.Ia=function(){this.a.j("trans")};E.ib=function(a){this.set(Eb,a,!0);this.a.j("event")};E.ia=function(a){this.initData();var b=this;return{_trackEvent:function(c,d,e){H(91);b.F(a,c,d,e)}}};E.ma=function(a){return this.get(a)};
+E.xa=function(a,b){if(a)if(Ca(a))this.set(a,b);else if("object"==typeof a)for(var c in a)a.hasOwnProperty(c)&&this.set(c,a[c])};E.addEventListener=function(a,b){var c=this.get(Nc)[a];c&&c[n](b)};E.removeEventListener=function(a,b){for(var c=this.get(Nc)[a],d=0;c&&d<c[w];d++)if(c[d]==b){c.splice(d,1);break}};E.qa=function(){return"5.6.5"};E.B=function(a){this.get(hb);a="auto"==a?Ka(J.domain):a&&"-"!=a&&"none"!=a?a[D]():"";this.set(bb,a)};E.va=function(a){this.set(hb,!!a)};
+E.na=function(a,b){return ce(this.a,a,b)};E.link=function(a,b){if(this.a.get(fb)&&a){var c=ce(this.a,a,b);J[z].href=c}};E.ua=function(a,b){this.a.get(fb)&&a&&a.action&&(a.action=ce(this.a,a.action,b))};
+E.za=function(){this.initData();var a=this.a,b=J.getElementById?J.getElementById("utmtrans"):J.utmform&&J.utmform.utmtrans?J.utmform.utmtrans:null;if(b&&b[na]){a.set(Cb,[]);for(var b=b[na][y]("UTM:"),c=0;c<b[w];c++){b[c]=Da(b[c]);for(var d=b[c][y](de),e=0;e<d[w];e++)d[e]=Da(d[e]);"T"==d[0]?fe(a,d[1],d[2],d[3],d[4],d[5],d[6],d[7],d[8]):"I"==d[0]&&ge(a,d[1],d[2],d[3],d[4],d[5],d[6])}}};E.$=function(a,b,c,d,e,f,Be,k){return fe(this.a,a,b,c,d,e,f,Be,k)};
+E.Y=function(a,b,c,d,e,f){return ge(this.a,a,b,c,d,e,f)};E.Aa=function(a){de=a||"|"};E.ea=function(){this.set(Cb,[])};E.wa=function(a,b,c,d){var e=this.a;if(0>=a||a>e.get(yb))a=!1;else if(!b||!c||128<b[w]+c[w])a=!1;else{1!=d&&2!=d&&(d=3);var f={};ha(f,b);f.value=c;f.scope=d;e.get(Fb)[a]=f;a=!0}a&&this.a.gb();return a};E.ka=function(a){this.a.get(Fb)[a]=void 0;this.a.gb()};E.ra=function(a){return(a=this.a.get(Fb)[a])&&1==a[ua]?a[na]:void 0};
+E.Ca=function(a,b,c){12==a&&1==b?this.set(pf,c):this.m().f(a,b,c)};E.Da=function(a,b,c){this.m().o(a,b,c)};E.sa=function(a,b){return this.m().getKey(a,b)};E.ta=function(a,b){return this.m().N(a,b)};E.fa=function(a){this.m().L(a)};E.ga=function(a){this.m().M(a)};E.ja=function(){return new yd};E.W=function(a){a&&this.get(Ab)[n](a[D]())};E.ba=function(){this.set(Ab,[])};E.X=function(a){a&&this.get(Bb)[n](a[D]())};E.ca=function(){this.set(Bb,[])};
+E.Z=function(a,b,c,d,e){if(a&&b){a=[a,b[D]()][C](":");if(d||e)a=[a,d,e][C](":");d=this.get(zb);d.splice(c?0:d[w],0,a)}};E.da=function(){this.set(zb,[])};E.ha=function(a){this.a[ka]();var b=this.get(P),c=be(this.a);this.set(P,a);this.a.gb();ae(this.a,c);this.set(P,b)};E.ya=function(a,b){if(0<a&&5>=a&&Ca(b)&&""!=b){var c=this.get(Fc)||[];c[a]=b;this.set(Fc,c)}};E.V=function(a){a=""+a;if(a[oa](/^[A-Za-z0-9]{1,5}$/)){var b=this.get(Ic)||[];b[n](a);this.set(Ic,b)}};E.initData=function(){this.a[ka]()};
+E.Ba=function(a){a&&""!=a&&(this.set(Tb,a),this.a.j("var"))};var ne=function(a){"trans"!==a.get(sc)&&500<=a.b(cc,0)&&a[ta]();if("event"===a.get(sc)){var b=(new Date)[g](),c=a.b(dc,0),d=a.b(Zb,0),c=m[la]((b-(c!=d?c:1E3*c))/1E3*1);0<c&&(a.set(dc,b),a.set(R,m.min(10,a.b(R,0)+c)));0>=a.b(R,0)&&a[ta]()}},pe=function(a){"event"===a.get(sc)&&a.set(R,m.max(0,a.b(R,10)-1))};var qe=function(){var a=[];this.add=function(b,c,d){d&&(c=G(""+c));a[n](b+"="+c)};this.toString=function(){return a[C]("&")}},re=function(a,b){(b||2!=a.get(xb))&&a.Za(cc)},se=function(a,b){b.add("utmwv","5.6.5");b.add("utms",a.get(cc));b.add("utmn",Ea());var c=J[z].hostname;F(c)||b.add("utmhn",c,!0);c=a.get(vb);100!=c&&b.add("utmsp",c,!0)},te=function(a,b){b.add("utmht",(new Date)[g]());b.add("utmac",Da(a.get(Wa)));a.get(Oc)&&b.add("utmxkey",a.get(Oc),!0);a.get(vc)&&b.add("utmni",1);a.get(of)&&b.add("utmgtm",
+a.get(of),!0);var c=a.get(Ic);c&&0<c[w]&&b.add("utmdid",c[C]("."));ff(a,b);!1!==a.get(Xa)&&(a.get(Xa)||M.w)&&b.add("aip",1);void 0!==a.get(Kc)&&b.add("utmjid",a.c(Kc,""),!0);a.b(Yb,0)&&b.add("utmredir",a.b(Yb,0),!0);M.bb||(M.bb=a.get(Wa));(1<M.ab()||M.bb!=a.get(Wa))&&b.add("utmmt",1);b.add("utmu",od.encode())},ue=function(a,b){for(var c=a.get(Fc)||[],d=[],e=1;e<c[w];e++)c[e]&&d[n](e+":"+G(c[e][p](/%/g,"%25")[p](/:/g,"%3A")[p](/,/g,"%2C")));d[w]&&b.add("utmpg",d[C](","))},ff=function(a,b){function c(a,
+b){b&&d[n](a+"="+b+";")}var d=[];c("__utma",cd(a));c("__utmz",hd(a,!1));c("__utmv",fd(a,!0));c("__utmx",be(a));b.add("utmcc",d[C]("+"),!0)},ve=function(a,b){a.get(ib)&&(b.add("utmcs",a.get(Qb),!0),b.add("utmsr",a.get(Lb)),a.get(Rb)&&b.add("utmvp",a.get(Rb)),b.add("utmsc",a.get(Mb)),b.add("utmul",a.get(Pb)),b.add("utmje",a.get(Nb)),b.add("utmfl",a.get(Ob),!0))},we=function(a,b){a.get(lb)&&a.get(Ib)&&b.add("utmdt",a.get(Ib),!0);b.add("utmhid",a.get(Kb));b.add("utmr",Pa(a.get(Jb),a.get(P)),!0);b.add("utmp",
+G(a.get(Hb),!0),!0)},xe=function(a,b){for(var c=a.get(Db),d=a.get(Eb),e=a.get(Fb)||[],f=0;f<e[w];f++){var Be=e[f];Be&&(c||(c=new yd),c.f(8,f,Be[r]),c.f(9,f,Be[na]),3!=Be[ua]&&c.f(11,f,""+Be[ua]))}F(a.get(wc))||F(a.get(xc),!0)||(c||(c=new yd),c.f(5,1,a.get(wc)),c.f(5,2,a.get(xc)),e=a.get(yc),void 0!=e&&c.f(5,3,e),e=a.get(zc),void 0!=e&&c.o(5,1,e));F(a.get(pf))||(c||(c=new yd),c.f(12,1,a.get(pf)));c?b.add("utme",c.Qa(d),!0):d&&b.add("utme",d.A(),!0)},ye=function(a,b,c){var d=new qe;re(a,c);se(a,d);
+d.add("utmt","tran");d.add("utmtid",b.id_,!0);d.add("utmtst",b.affiliation_,!0);d.add("utmtto",b.total_,!0);d.add("utmttx",b.tax_,!0);d.add("utmtsp",b.shipping_,!0);d.add("utmtci",b.city_,!0);d.add("utmtrg",b.state_,!0);d.add("utmtco",b.country_,!0);xe(a,d);ve(a,d);we(a,d);(b=a.get(Gb))&&d.add("utmcu",b,!0);c||(ue(a,d),te(a,d));return d[v]()},ze=function(a,b,c){var d=new qe;re(a,c);se(a,d);d.add("utmt","item");d.add("utmtid",b.transId_,!0);d.add("utmipc",b.sku_,!0);d.add("utmipn",b.name_,!0);d.add("utmiva",
+b.category_,!0);d.add("utmipr",b.price_,!0);d.add("utmiqt",b.quantity_,!0);xe(a,d);ve(a,d);we(a,d);(b=a.get(Gb))&&d.add("utmcu",b,!0);c||(ue(a,d),te(a,d));return d[v]()},Ae=function(a,b){var c=a.get(sc);if("page"==c)c=new qe,re(a,b),se(a,c),xe(a,c),ve(a,c),we(a,c),b||(ue(a,c),te(a,c)),c=[c[v]()];else if("event"==c)c=new qe,re(a,b),se(a,c),c.add("utmt","event"),xe(a,c),ve(a,c),we(a,c),b||(ue(a,c),te(a,c)),c=[c[v]()];else if("var"==c)c=new qe,re(a,b),se(a,c),c.add("utmt","var"),!b&&te(a,c),c=[c[v]()];
+else if("trans"==c)for(var c=[],d=a.get(Cb),e=0;e<d[w];++e){c[n](ye(a,d[e],b));for(var f=d[e].items_,Be=0;Be<f[w];++Be)c[n](ze(a,f[Be],b))}else"social"==c?b?c=[]:(c=new qe,re(a,b),se(a,c),c.add("utmt","social"),c.add("utmsn",a.get(Ac),!0),c.add("utmsa",a.get(Bc),!0),c.add("utmsid",a.get(Cc),!0),xe(a,c),ve(a,c),we(a,c),ue(a,c),te(a,c),c=[c[v]()]):"feedback"==c?b?c=[]:(c=new qe,re(a,b),se(a,c),c.add("utmt","feedback"),c.add("utmfbid",a.get(Gc),!0),c.add("utmfbpr",a.get(Hc),!0),xe(a,c),ve(a,c),we(a,
+c),ue(a,c),te(a,c),c=[c[v]()]):c=[];return c},oe=function(a){var b,c=a.get(xb),d=a.get(uc),e=d&&d.Ua,f=0;if(0==c||2==c){var Be=a.get(wb)+"?";b=Ae(a,!0);for(var k=0,Ja=b[w];k<Ja;k++)Sa(b[k],e,Be,!0),f++}if(1==c||2==c)for(b=Ae(a),a=a.c(Jc,""),k=0,Ja=b[w];k<Ja;k++)try{Sa(b[k],e,a),f++}catch(t){t&&Ra(t[r],void 0,t.message)}d&&(d.fb=f)};var Ne=function(){return"https:"==J[z][A]||M.G?"https://ssl.google-analytics.com":"http://www.google-analytics.com"},Ce=function(a){ha(this,"len");this.message=a+"-8192"},De=function(a){ha(this,"ff2post");this.message=a+"-2036"},Sa=function(a,b,c,d){b=b||Fa;if(d||2036>=a[w])gf(a,b,c);else if(8192>=a[w]){if(0<=W[za].userAgent[q]("Firefox")&&![].reduce)throw new De(a[w]);df(a,b)||ef(a,b)||Ee(a,b)||b()}else throw new Ce(a[w]);},gf=function(a,b,c){c=c||Ne()+"/__utm.gif?";var d=new Image(1,1);d.src=c+
+a;Ie(d,function(){Ie(d,null);Je(d,null);b()});Je(d,function(){Ie(d,null);Je(d,null);b()})},ef=function(a,b){if(0!=Ne()[q](J[z][A]))return!1;var c;c=W.XDomainRequest;if(!c)return!1;c=new c;c.open("POST",Ne()+"/p/__utm.gif");Je(c,function(){b()});Ie(c,b);c.send(a);return!0},df=function(a,b){var c=W.XMLHttpRequest;if(!c)return!1;var d=new c;if(!("withCredentials"in d))return!1;d.open("POST",Ne()+"/p/__utm.gif",!0);d.withCredentials=!0;d.setRequestHeader("Content-Type","text/plain");d.onreadystatechange=
+function(){4==d.readyState&&(b(),d=null)};d.send(a);return!0},Ee=function(a,b){if(!J.body)return We(function(){Ee(a,b)},100),!0;a=aa(a);try{var c=J[qa]('<iframe name="'+a+'"></iframe>')}catch(d){c=J[qa]("iframe"),ha(c,a)}c.height="0";c.width="0";c.style.display="none";c.style.visibility="hidden";var e=Ne()+"/u/post_iframe.html";Ga(W,"beforeunload",function(){c.src="";c.parentNode&&c.parentNode.removeChild(c)});ca(b,1E3);J.body.appendChild(c);c.src=e;return!0};var qf=function(){this.G=this.w=!1;0==Ea()%1E4&&(H(142),this.G=!0);this.C={};this.D=[];this.U=0;this.S=[["www.google-analytics.com","","/plugins/"]];this._gasoCPath=this._gasoDomain=this.bb=void 0;Re();Se()};E=qf[x];E.oa=function(a,b){return this.hb(a,void 0,b)};E.hb=function(a,b,c){b&&H(23);c&&H(67);void 0==b&&(b="~"+M.U++);a=new U(b,a,c);M.C[b]=a;M.D[n](a);return a};E.u=function(a){a=a||"";return M.C[a]||M.hb(void 0,a)};E.pa=function(){return M.D[ja](0)};E.ab=function(){return M.D[w]};
+E.aa=function(){this.w=!0};E.la=function(){this.G=!0};var Fe=function(a){if("prerender"==J.visibilityState)return!1;a();return!0};var M=new qf;var Ha=W._gat;Ha&&Ba(Ha._getTracker)?M=Ha:W._gat=M;var Z=new Y;(function(a){if(!Fe(a)){H(123);var b=!1,c=function(){if(!b&&Fe(a)){b=!0;var d=J,e=c;d.removeEventListener?d.removeEventListener("visibilitychange",e,!1):d.detachEvent&&d.detachEvent("onvisibilitychange",e)}};Ga(J,"visibilitychange",c)}})(function(){var a=W._gaq,b=!1;if(a&&Ba(a[n])&&(b="[object Array]"==Object[x][v].call(Object(a)),!b)){Z=a;return}W._gaq=Z;b&&Z[n][ya](Z,a)});function Yc(a){var b=1,c=0,d;if(a)for(b=0,d=a[w]-1;0<=d;d--)c=a.charCodeAt(d),b=(b<<6&268435455)+c+(c<<14),c=b&266338304,b=0!=c?b^c>>21:b;return b};})();
+_text/javascript_%http://www.google-analytics.com/ga.jsO�bplist00�stX$versionX$objectsY$archiverT$top ���%#)*0123QRSTUVWXYZ[\]^_`abcdefghilmnU$null�	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1�	���"�$��#��$%&'(WNS.base[NS.relative� ��_%http://www.google-analytics.com/ga.js�+,-.Z$classnameX$classesUNSURL�-/XNSObject#A�e�\�.8 ��456CPWNS.keysZNS.objects�789:;<=>?@AB�	�
+�����������DEFGHIJKLMNO������������ �!\Content-TypeSAge_Content-EncodingVServer_Alternate-ProtocolWExpires]Cache-ControlTDate^Content-Length_X-Content-Type-OptionsTVary]Last-Modified_text/javascriptT5180TgzipWGFE/2.0[80:quic,p=0_Mon, 27 Jul 2015 01:22:09 GMT_public, max-age=7200_Sun, 26 Jul 2015 23:22:09 GMTU16087Wnosniff_Accept-Encoding_Thu, 09 Jul 2015 23:50:56 GMT�+,jk\NSDictionary�j/>�_text/javascript�+,op_NSHTTPURLResponse�qr/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver�uv_WebResourceResponse�    # - 2 7 _ e � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �(.1:CEGNVanprtvxz|~������������������������05CUZ_gs������
+"49MQes���             w              �            1   <   N   d   �   �   �  ��  ��  ��  ��  �  �   �)  �?  �s  ��  ��  �  �$  �R  �\  ��  ��  ��  ��  �  ��  ��  ��  ��  ��  �5  �>  �)  �`  ��  ��  ��  ��  ��  �@  �I  ��  ��  �
+  �Z  �c  ץ  ��  ��  �G  �P |� |� |�             ;             �v

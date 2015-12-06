@@ -1,0 +1,14 @@
+我的命名规则是
+sort_大的分类_代码实现方式，实现方法上的不同，增加的小技巧
+我就是想把算法之间的改进与演化体现出来！
+Bubble Sort
+Insertion Sort
+Merge Sort
+
+sort教程
+http://www.cquestions.com/2009/09/bubble-sort-using-c-program.html
+https://www.topcoder.com/community/data-science/data-science-tutorials/sorting/
+
+Sorting is ordering a list of objects. We can distinguish two types of sorting. If the number of objects is small enough to fits into the main memory, sorting is called internal sorting. If the number of objects is so large that some of them reside on external storage during the sort, it is called external sorting. In this chapter we consider the following internal sorting algorithms
+
+不断学习新知识，不断补充自己的知识库！
